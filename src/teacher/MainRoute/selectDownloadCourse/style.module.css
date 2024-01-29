@@ -1,0 +1,36 @@
+.buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 33px;
+}
+.buttons a{
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  padding: 69px 47px;
+  border-radius: 30px;
+  background-color: #372B4F;
+  outline: none;
+  border: none;
+  display: block;
+  margin: 0 auto;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+@media only screen and (max-width:850px){
+  .buttons{
+    padding: 10px;
+    padding-top: 20px ;
+    flex-direction: column;
+  }
+  .buttons a{
+    padding: 59px 47px;
+  }
+  .price_btn{
+    bottom: 0;
+  }
+}

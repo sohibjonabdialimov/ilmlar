@@ -1,0 +1,147 @@
+.main_teacher_content {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #5b4784;
+  padding: 10px 6px 10px 6px;
+  border-radius: 50px;
+  row-gap: 21px;
+  width: 100%;
+}
+.extra_width_class{
+  width: 100%;
+}
+.main-page {
+  display: flex;
+  gap: 15px;
+  height: 100%;
+}
+
+.search-main {
+  width: 100%;
+  padding: 15px 28px;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  border-radius: 50px;
+  color: #ffffff;
+  background: #5b4784;
+  border: none;
+  outline: none;
+  margin-bottom: 15px;
+}
+
+.search-main::placeholder {
+  color: #fff;
+}
+
+.sidebar-main-wrap {
+  overflow-y: scroll;
+  max-height: 90dvh;
+}
+.teacherHomePage {
+  height: 90dvh;
+}
+.teacherHomePage .main-content {
+  background-color: transparent;
+}
+
+.teacher-main-sidebar {
+  display: flex;
+  column-gap: 0;
+}
+
+/* teacher profile start */
+.main_profile_container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #5b4784;
+  border-radius: 50px;
+  justify-content: space-evenly;
+  row-gap: 21px;
+}
+.main_profile_container img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  margin-top: 32px;
+  margin-bottom: 11px;
+}
+/* teacher profile end*/
+
+/* Hisoblar start */
+.teacher_hisoblar__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.teacher_hisoblar {
+  max-width: 420px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100% !important;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  padding: 32px;
+}
+
+.teacher_hisoblar h2 {
+  font-size: 30px;
+  margin-top: 45px;
+}
+
+.teacher_hisoblar p {
+  font-size: 35px;
+}
+.price_btn {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  border-radius: 30px !important;
+  background-color: #372b4f;
+  padding: 4px 55px;
+  color: #ffffff;
+  display: block;
+  position: absolute;
+  bottom: 46px;
+  left: 46%;
+  transform: translateX(-50%);
+}
+/* Hisoblar end */
+@media only screen and (max-width: 1300px) {
+  .main-page {
+    gap: 10px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .main-page {
+    gap: 15px;
+  }
+}
+@media only screen and (max-width: 850px) {
+  
+  .teacher_hisoblar h2 {
+    margin-top: 0px;
+  }
+  .price_btn {
+    max-width: 300px;
+    width: 100%;
+    border-radius: 70px;
+  }
+ 
+  .main_profile_container img {
+    margin-top: 0px;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .teacherHomePage {
+    height: 88dvh;
+  }
+  .sidebar-main-wrap {
+    overflow-y: scroll;
+    max-height: 88dvh;
+  }
+}

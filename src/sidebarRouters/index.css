@@ -1,0 +1,280 @@
+.bought_lessons{
+  display: flex;
+  gap: 6px;
+  background-color: #3a2c5b;
+  border-radius: 20px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  height: 90px;
+}
+.carts-wrapper{
+  max-height: 80dvh;
+  overflow: scroll;
+  border-radius: 30px;
+}
+.carts-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.bought_lessons img{
+  width: 35%;
+  height: 90px;
+  border-radius: 20px 0px 0px 20px;
+}
+.bought_lessons .text_info{
+  width: calc(100% - 35%);
+
+}
+.bought_lessons .text_info p{
+  font-size: 14px;
+  display: -webkit-box;
+  line-height: 20px;
+  margin: 8px 5px 5px 0;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.subs_info_wrap p{
+  margin-bottom: 3px;
+}
+.bought_lessons .text_info strong{
+  font-size: 13px;
+  font-weight: 400;
+  display: -webkit-box;
+  line-height: 20px;
+  max-width: 250px;
+  margin: 5px 5px 5px 0;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: #ffffff8c;
+}
+.bought_lessons .text_info strong.big_style{
+  font-size: 16px;
+}
+
+.sidebar-main-content {
+  padding: 0 5px;
+  padding-top: 21px;
+  overflow-y: scroll;
+  max-height: 90dvh;
+}
+.sidebar-main-content h2 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  padding-bottom: 5px;
+  text-align: center;
+  color: #ffffff;
+}
+.sidebar-line {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  background-color: #fff;
+  height: 1px;
+}
+.cursor_class {
+  cursor: pointer;
+}
+
+.commit {
+  padding: 15px 16px 16px 15px;
+}
+.commit h2 {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  padding-bottom: 5px;
+  color: #ffffff;
+  position: relative;
+  text-align: center;
+  margin-bottom: 26px;
+}
+.commit h2::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.users_subs {
+  padding: 11px 5px;
+  padding-bottom: 0;
+}
+
+.users_subs-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.users_subs-buttons a {
+  padding: 5px 26px;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 17px;
+  color: #ffffff;
+  border-radius: 20px;
+}
+.line-main {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  height: 1.5px;
+  margin-top: 7px;
+  margin-bottom: 12px;
+}
+.users_subs-buttons a.active {
+  background-color: #3a2c5b;
+}
+.obunalar-cart {
+  padding: 12px 9px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background-color: #3a2c5b;
+  border-radius: 15px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.obunalar-cart img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.obunalar-cart div p {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: #ffffff;
+}
+.scroll_paragraph_div p{
+  display: -webkit-box;
+  max-width: 235px;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.obunalar-cart div span {
+  font-family: sans-serif;
+  padding-bottom: 2px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.darslar-cart {
+  display: flex;
+  gap: 6px;
+  background-color: #3a2c5b;
+  border-radius: 20px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  height: 90px;
+}
+
+.darslar-cart div {
+  padding: 5px 8px 5px 5px;
+  height: 100%;
+  overflow-y: hidden;
+  /* overflow-y: scroll; */
+}
+.darslar-cart img {
+  width: 114px;
+  height: 90px;
+  border-radius: 20px 0px 0px 20px;
+}
+.darslar-cart div p {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  margin: 3px 0;
+  line-height: 15px;
+  color: #ffffff;
+}
+.darslar-cart div p:first-child {
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+}
+.darslar-cart div p:last-child {
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.sidebar-main-wrap {
+  overflow-y: scroll;
+  max-height: 90dvh;
+}
+.sidebar-bought-course {
+  padding: 0 10px 10px 10px;
+}
+
+.mobile__header {
+  width: 100%;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 50px 50px 0px 0px;
+}
+.mobile__header {
+  position: relative;
+  padding: 24px 25px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 17px;
+}
+.mobile__header h2 {
+  max-width: 235px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+}
+.mobile__header .circle {
+  position: absolute;
+  top: 15px;
+  left: 14px;
+  margin: 0;
+}
+.mobileForPadding {
+  padding: 0;
+}
+@media only screen and (max-width: 850px) {
+  .darslarModal .sidebar-main-content {
+    padding: 0;
+  }
+}
+.saved_courses{
+  padding-bottom: 10px;
+}

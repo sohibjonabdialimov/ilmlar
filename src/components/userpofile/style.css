@@ -1,0 +1,38 @@
+.userprofile{
+  text-align: center;
+  padding-top: 15px;
+}
+.userprofile h2{
+  font-size: 25px;
+  line-height: 30px;
+  font-weight: 500;
+}
+.userprofile img{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+@media only screen and (max-width: 1250px){
+  .userprofile h2{
+    font-size: 23px;
+    line-height: 30px;
+    font-weight: 500;
+  }
+  .userprofile img{
+    width: 135px;
+    height: 135px;
+  }
+}
+@media only screen and (max-width: 1100px){
+  .userprofile h2{
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 500;
+  }
+}
+@media only screen and (max-width: 1000px){
+  .userprofile img{
+    width: 120px;
+    height: 120px;
+  }
+}

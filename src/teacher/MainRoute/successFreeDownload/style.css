@@ -1,0 +1,49 @@
+.success_free_btn {
+  font-family: sans-serif;
+  position: absolute;
+  bottom: 70px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  width: 220px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background-color: #48386a;
+  outline: none;
+  border: none;
+  display: block;
+  margin: 0 auto;
+  color: #ffffff;
+  cursor: pointer;
+}
+.process_wrap {
+  width: 300px;
+  margin: 0 auto;
+  padding-top: 150px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.success_free_title{
+  margin-top: 18px;
+}
+.process_wrap h2 {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 39px;
+  color: #ffffff;
+}
+.img_wrap {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #3b2e55;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

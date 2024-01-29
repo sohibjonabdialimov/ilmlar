@@ -1,0 +1,88 @@
+.commit {
+  position: relative;
+  width: 100%;
+}
+.commints {
+  max-height: 70dvh;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.commints::-webkit-scrollbar{
+  display: none;
+}
+.comment_wrap {
+  position: relative;
+  display: flex;
+  align-items: end;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+.comment_wrap_into {
+  background-color: #3f315d;
+  padding: 15px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  border-radius: 25px 25px 25px 0;
+}
+.comment_wrap img {
+  border-radius: 50%;
+  width: 27px;
+  height: 27px;
+}
+.comment_wrap_into p:first-child {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  font-family: "Roboto", sans-serif;
+  line-height: 19px;
+  color: rgba(255, 255, 255, 1);
+}
+.comment_wrap_into p:last-child {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+  color: rgba(255, 255, 255, 0.6);
+}
+.writing_comment {
+  position: fixed;
+  width: 25vw;
+  bottom: 70px;
+}
+@media only screen and (max-width: 850px) {
+  .writing_comment {
+    position: fixed;
+    width: 95vw;
+    bottom: 70px;
+  }
+}
+.writing_comment form {
+  width: 95%;
+  display: flex;
+  align-items: start;
+  gap: 10px;
+}
+.writing_comment form button {
+  border: none;
+}
+.writing_comment form button img {
+  width: 35px;
+}
+.writing_comment input {
+  width: 85%;
+  padding: 8px 20px;
+  outline: none;
+  border: none;
+  font-size: 15px;
+  background-color: transparent;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  position: relative;
+  color: #fff;
+}
+.writing_comment input::placeholder {
+  color: #fff;
+}
+.writing_comment img {
+  position: absolute;
+}

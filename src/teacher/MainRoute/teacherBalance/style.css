@@ -1,0 +1,54 @@
+.teacher_hisoblar__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.teacher__hisoblar_wrap{
+  height: 90dvh;
+}
+.teacher_hisoblar {
+  max-width: 420px;
+  width: 100%;
+  height: 202px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.teacher_hisoblar h2 {
+  font-size: 30px;
+}
+
+.teacher_hisoblar p {
+  font-size: 35px;
+}
+.price_btn {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  border-radius: 30px;
+  background-color: #372b4f;
+  padding: 4px 55px;
+  width: 350px;
+  text-align: center;
+  color: #ffffff;
+  display: block;
+  position: absolute;
+  bottom: 46px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media only screen and (max-width: 850px){
+  .price_btn {
+    font-size: 16px;
+    width: 180px;
+    padding: 4px 25px;
+    bottom: 120px;
+    left: 50%;
+  }
+}
+@media only screen and (max-width: 540px){
+  .teacher__hisoblar_wrap{
+    height: 88dvh;
+  }
+}

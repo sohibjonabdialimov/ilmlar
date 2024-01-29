@@ -1,0 +1,42 @@
+.teacher_lessons_info_title {
+  text-align: center;
+  height: 87dvh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lessons_wrapper {
+  width: 100%;
+  height: 88dvh;
+}
+.lessons_wrap {
+  display: grid;
+  column-gap: 15px;
+  row-gap: 15px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.lessons_wrap div div.main-cart {
+  border-radius: 50px;
+  transition: all 0.1s ease-in;
+}
+.lessons_wrap div div.main-cart:hover {
+  box-shadow: rgba(0, 0, 0, 0.318) 15px 15px 24px;
+  transform: scale(1.015);
+}
+@media only screen and (max-width: 1100px) {
+  .lessons_wrap {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media only screen and (max-width: 850px) {
+  .lessons_wrap {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+}
+@media only screen and (max-width: 540px) {
+  .lessons_wrap {
+    grid-template-columns: auto;
+  }
+}

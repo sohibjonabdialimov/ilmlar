@@ -1,0 +1,324 @@
+.show_password {
+  width: 100%;
+  position: relative;
+  margin-bottom: 5px;
+}
+.show_password input {
+  width: 100%;
+  margin-bottom: 0 !important;
+  padding-right: 50px !important;
+}
+.show_password_registr {
+  width: 100%;
+  position: relative;
+  margin-bottom: 14px;
+}
+.show_password_registr input {
+  width: 100% !important;
+  margin-bottom: 0 !important;
+  padding-right: 50px !important;
+}
+.closeIcon,
+.openIcon {
+  font-size: 20px;
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.none {
+  display: none;
+}
+.show {
+  display: block;
+}
+.back {
+  position: absolute;
+  top: 22px;
+  left: 27px;
+  background-color: #48386a;
+  border: none;
+  outline: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.back ion-icon {
+  color: #fff;
+  font-size: 27px;
+}
+.student-app-content {
+  padding-right: 24px !important;
+}
+.sign_wrap {
+  background-color: #5b4784;
+  width: 70%;
+  position: relative;
+  margin: 0 auto;
+  box-shadow: 15px 15px 100px rgba(0, 0, 0, 0.3);
+  border-radius: 50px;
+}
+.sign_form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+  height: 100%;
+}
+.sign_form input {
+  width: 100%;
+  background-color: #453663;
+  color: #fff;
+  outline: none;
+  padding: 10px 25px;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 29px;
+  border: none;
+  margin-bottom: 5px;
+  border-radius: 20px;
+}
+.sign_form input::placeholder {
+  font-size: 18px;
+}
+.sign_form button {
+  padding: 4px 0;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  color: #ffffff;
+  outline: none;
+  border: none;
+  background-color: #453663;
+  border-radius: 30px;
+  width: 100%;
+  display: block;
+}
+.sign_form button:disabled{
+  opacity: 0.5;
+}
+.registr_form {
+  overflow-y: scroll;
+  padding-bottom: 25px;
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+.registration_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+.verify_form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  max-width: 602px;
+  margin: 0 auto;
+  width: 100%;
+}
+.verify_form input {
+  font-family: sans-serif;
+  padding: 0px 15px;
+  flex-grow: 0.5;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 39px;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  border: 2px solid #ffffff;
+  outline: none;
+  border-radius: 15px;
+}
+.verify_form input::placeholder {
+  color: #ffffff6c;
+}
+.d-none {
+  display: none;
+}
+.verify_form button {
+  padding: 5px 15px;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 39px;
+  color: #ffffff;
+  outline: none;
+  border: none;
+  background: linear-gradient(180deg, #3706f4 4.65%, rgba(55, 6, 244, 0) 181.36%);
+  border-radius: 15px;
+}
+.registr_title {
+  text-align: center;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 39px;
+  text-align: center;
+  padding-bottom: 30px;
+  color: #ffffff;
+}
+.registr_form input {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #ffffff;
+  outline: none;
+  margin-bottom: 8px;
+  padding-bottom: 5px;
+}
+
+.registr_form input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+}
+.registr_form button {
+  margin-top: 33px;
+  padding: 5px 41px;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 39px;
+  color: #ffffff;
+  outline: none;
+  border: none;
+  background: linear-gradient(180deg, #3706f4 4.65%, rgba(55, 6, 244, 0) 181.36%);
+  border-radius: 50px;
+  width: 80%;
+}
+.alright_note {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  font-size: 18px;
+  color: #fff;
+  text-decoration: underline;
+}
+input {
+  color-scheme: dark;
+}
+.registr_form input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #5b4784 inset;
+}
+.sign_form input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #453663 inset;
+}
+.noactivecode {
+  display: none;
+}
+
+@media only screen and (max-width: 720px) {
+  .registr_title {
+    font-size: 30px;
+    line-height: 30px;
+    padding-bottom: 23px;
+    max-width: 400px;
+    width: 100%;
+  }
+  .registr_form {
+    padding-top: 0;
+    max-width: 300px;
+    width: 100%;
+  }
+  .sign_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .registr_form input {
+    font-size: 18px;
+    width: 100%;
+    line-height: 20px;
+    margin-bottom: 5px;
+  }
+  .show_password_registr {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  .registr_form button {
+    width: 100%;
+    margin-top: 7px;
+    padding: 5px 35px;
+    font-size: 20px;
+    line-height: 30px;
+    border-radius: 50px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .registr_title {
+    font-size: 25px;
+    line-height: 30px;
+    max-width: 340px;
+  }
+  .alright_note {
+    position: absolute;
+    top: 11px;
+    right: 30px;
+    font-size: 14px;
+    color: #fff;
+    text-decoration: underline;
+  }
+  .verify_form {
+    flex-direction: column;
+    gap: 15px;
+    max-width: 602px;
+    width: 100%;
+  }
+  .verify_form input {
+    width: 100%;
+  }
+  .verify_form button {
+    width: 100%;
+  }
+  .registr_form input {
+    max-width: 280px;
+    width: 100%;
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .sign_wrap {
+    padding-top: 10px;
+  }
+  .back {
+    margin-top: 10px !important;
+    left: 15px !important;
+  }
+  .sign_form {
+    max-width: 390px;
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 530px) {
+  .registr_title {
+    max-width: 500px;
+    padding-bottom: 25px;
+  }
+}

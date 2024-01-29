@@ -1,0 +1,161 @@
+.edit_profile {
+  background-color: #5b4784;
+  width: 60%;
+  margin: 0 auto;
+  box-shadow: 15px 15px 100px rgba(0, 0, 0, 0.3);
+  border-radius: 50px;
+  position: relative;
+}
+
+.imgs_div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding-bottom: 30px;
+}
+.imgs_div_img_wrap{
+  /* flex-basis: 1;
+  flex-flow: 1; */
+  flex: 1;
+  /* width: 60%; */
+}
+.imgs_div_img_wrap .imgs_div_img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.img_file_input {
+  width: 71px;
+  height: 71px;
+  margin-bottom: 0 !important;
+  cursor: pointer;
+  opacity: 0;
+}
+.select_camera_wrap{
+  width: 71px;
+  height: 71px;
+}
+.select_camera_wrap img {
+  width: 71px;
+  height: 71px;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover;
+  position: absolute;
+}
+.back {
+  position: absolute;
+  top: 22px;
+  left: 27px;
+  background-color: #48386a;
+  border: none;
+  outline: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.back ion-icon {
+  color: #fff;
+  font-size: 27px;
+}
+.form {
+  width: 50%;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.form button {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 39px;
+  text-align: center;
+  background: linear-gradient(180deg, #3706f4 4.65%, rgba(55, 6, 244, 0) 181.36%);
+  border-radius: 50px;
+  color: #ffffff;
+  outline: none;
+  padding: 7px 42px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 60px;
+  border: none;
+  cursor: pointer;
+}
+.edit_profile input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.form input {
+  color: #fff;
+  background-color: #5b4784;
+  border: none;
+  outline: none;
+  border-bottom: 3px solid #fff;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+  padding-bottom: 8px;
+  display: block;
+  width: 100%;
+  margin-bottom: 31px;
+}
+
+.input_wrap {
+  display: flex;
+  align-items: center;
+  gap: 41px;
+}
+.input_wrap input {
+  width: 50%;
+}
+
+@media only screen and (max-width: 1100px) {
+  .edit_profile {
+    width: 90%;
+  }
+  .edit_profile .form {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .imgs_div {
+    width: 300px;
+  }
+  .edit_profile {
+    width: 100%;
+  }
+  .edit_profile .form {
+    width: 80%;
+  }
+  .imgs_div_img {
+    width: 140px;
+    height: 140px;
+  }
+  .select_camera_wrap img {
+    width: 70px;
+    height: 70px;
+  }
+  .select_camera_wrap input {
+    width: 50px;
+    height: 50px;
+  }
+  .imgs_div {
+    padding-bottom: 40px;
+  }
+  .form {
+    width: 90%;
+    margin: 0 auto;
+  }
+}

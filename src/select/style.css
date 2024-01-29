@@ -1,0 +1,110 @@
+.back {
+  position: absolute;
+  top: 22px;
+  left: 27px;
+  background-color: #48386a;
+  border: none;
+  outline: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.back ion-icon {
+  color: #fff;
+  font-size: 27px;
+}
+.sign_wrap {
+  background-color: #5b4784;
+  max-width: 1295px;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  box-shadow: 15px 15px 100px rgba(0, 0, 0, 0.3);
+  border-radius: 50px;
+}
+.select_div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90dvh;
+  margin: 0 auto;
+  width: 70%;
+  gap: 20px;
+}
+.select_link {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 39px;
+  text-align: center;
+  padding: 80px 40px;
+  color: #ffffff;
+  background-color: #48386a;
+  box-shadow: 15px 15px 100px rgba(0, 0, 0, 0.3);
+  border-radius: 50px;
+}
+
+
+
+@media only screen and (max-width:1000px){
+  .select_div{
+    width: 85%;
+  }
+}
+@media only screen and (max-width:850px){
+  .select_div{
+    padding-top: 40px;
+  }
+}
+@media only screen and (max-width:800px){
+  .select_div{
+    flex-direction: column;
+  }
+  .select_link{
+    padding: 80px 50px;
+    font-size: 30px;
+  }
+}
+@media only screen and (max-width:540px) {
+  .select_div{
+    width: 75%;
+  }
+  .select_link {
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 39px;
+    text-align: center;
+    padding: 50px 20px;
+    color: #ffffff;
+    background-color: #48386a;
+    box-shadow: 15px 15px 100px rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+  }
+}
+@media only screen and (max-width:450px) {
+  .select_div{
+    width: 70%;
+  }
+  .select_div{
+    gap: 10px;
+    padding-top: 0;
+  }
+  .select_link{
+    border-radius: 35px;
+    font-size: 20px;
+    padding: 30px 60px;
+    line-height: 29px;
+  }
+}
+@media only screen and (max-width:400px) {
+  .select_link{
+    padding: 30px;
+  }
+}

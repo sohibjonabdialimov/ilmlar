@@ -1,0 +1,38 @@
+.Nav {
+  width: 25.5vw;
+  background: linear-gradient(#564282, #826a91);
+  border-radius: 50px;
+}
+
+.teacher_nav {
+  background: linear-gradient(#564282, #826a91);
+  border-radius: 50px;
+}
+.app-content {
+  display: flex;
+  gap: 15px;
+}
+.teacher .main_lesson {
+  display: none;
+}
+@media only screen and (max-width: 1300px) {
+  .app-content {
+    gap: 10px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .app-content {
+    gap: 15px;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .app-content {
+    gap: 0;
+  }
+  .teacherHomePage {
+    width: 100% !important;
+  }
+  .teacher .main_lesson {
+    display: block;
+  }
+}

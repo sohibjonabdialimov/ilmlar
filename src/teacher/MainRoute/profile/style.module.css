@@ -1,0 +1,124 @@
+.teacher_profile_wrap {
+  padding: 20px 150px;
+  position: relative;
+  height: 100%;
+}
+.teacher_profile_wrap img {
+  width: 180px;
+  height: 180px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: cover;
+  margin-bottom: 11px;
+  border-radius: 50%;
+}
+.teacher_profile_wrap h2 {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+.teacher_profile_wrap h4 {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 32px;
+}
+
+
+.profile_teacher_desc p:first-child {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+.profile_teacher_desc p:nth-child(2) {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.location {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ffffff;
+}
+.profile_buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+.profile_buttons button {
+  font-family: sans-serif;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  border-radius: 20px;
+  background-color: #372b4f;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  width: 140px;
+  padding: 7px 0px;
+}
+
+@media only screen and (max-width: 850px) {
+  .teacher_profile_wrap {
+    padding: 150px 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .profile_buttons {
+    position: relative;
+    margin-top: 60px;
+  }
+  .teacher_profile_wrap img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 11px;
+    border-radius: 50%;
+  }
+
+} 
+@media only screen and (max-width: 540px) {
+  .teacher_profile_wrap {
+    padding: 50px 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

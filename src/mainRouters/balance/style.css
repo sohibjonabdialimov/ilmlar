@@ -1,0 +1,78 @@
+.hisoblar {
+  padding: 113px 38px;
+}
+
+.hisoblar h2 {
+  font-size: 30px;
+  margin-top: 45px;
+}
+
+.hisoblar_header {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 80;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.hisoblar_number {
+  font-family: sans-serif;
+  font-size: 32px;
+  max-width: 400px;
+  width: 100%;
+  padding-bottom: 20px;
+}
+.main-content {
+  display: block;
+  overflow-y: scroll;
+  height: 100%;
+}
+@media only screen and (max-width: 850px) {
+  .main-content {
+    display: block;
+    overflow-y: scroll;
+    height: 89.2dvh;
+  }
+  .w100{
+    max-height: 100dvh !important;
+  }
+  .hisoblar {
+    padding-left: 120px 20px;
+  }
+}
+
+@media only screen and (max-width: 468px) {
+  .hisoblar {
+    align-items: center;
+  }
+  .hisoblar_header {
+    text-align: left;
+    max-width: 306px;
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .hisoblar_number {
+    max-width: 306px;
+    width: 100%;
+    font-size: 24px;
+  }
+}
+@media only screen and (max-width: 410px) {
+  .hisoblar_header {
+    max-width: 330px;
+  }
+
+  .hisoblar_number {
+    max-width: 330px;
+  }
+}
+@media only screen and (max-width: 385px) {
+  .main-content {
+    display: block;
+    overflow-y: scroll;
+    height: 86.5dvh;
+  }
+}
+

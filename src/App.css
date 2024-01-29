@@ -1,0 +1,42 @@
+.Nav {
+  width: 25.5vw;
+  background: linear-gradient(#564282, #826a91);
+  border-radius: 50px;
+}
+
+.teacher_nav {
+  background: linear-gradient(#564282, #826a91);
+  border-radius: 50px;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.w100 {
+  width: 44vw;
+  max-height: 90dvh;
+  overflow-y: scroll;
+}
+
+.app-content {
+  height: 100%;
+  display: flex;
+  gap: 19px;
+}
+.video_information div:first-child{
+  height: 360px;
+}
+@media only screen and (max-width: 850px){
+  .video_information div:first-child{
+    height: 100%;
+  }
+  .w100{
+    max-height: 100dvh;
+  }
+}
+
+

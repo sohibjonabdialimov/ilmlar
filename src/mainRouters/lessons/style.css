@@ -1,0 +1,264 @@
+.loader_style {
+  position: absolute;
+  top: 0%;
+  right: 50%;
+  transform: translateX(-50%);
+}
+.student_lessons_wrap div {
+  border-radius: 50px;
+  transition: all 0.1s ease-in;
+}
+.student_lessons_wrap div:hover {
+  box-shadow: rgba(0, 0, 0, 0.175) 15px 15px 24px;
+  transform: scale(1.007);
+}
+.more_btn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 30px;
+  font-size: 18px;
+  border-radius: 20px;
+  outline: none;
+  background-color: #3e305c;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+}
+@media only screen and (min-width: 850px) {
+  .main-contentt {
+    height: calc(100% - 70px) !important;
+  }
+  .w100 {
+    width: 44dvh;
+  }
+}
+@keyframes mobileBurger {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes mobileBurgerQaytish {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.search-main {
+  width: 100%;
+  padding: 5px 12px;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  border-radius: 50px;
+  color: #ffffff;
+  background: #5b4784;
+  border: none;
+  outline: none;
+  margin-bottom: 15px;
+}
+
+.search-main::placeholder {
+  color: #fff;
+}
+
+.mobile-for {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.search-div {
+  position: relative;
+  width: 100%;
+}
+
+.search-img-box {
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-70%);
+  right: 6px;
+  background-color: #9e00ff;
+  border: 3px solid #23006f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-div img {
+  width: 22px;
+}
+
+.burger-box {
+  background-color: #5b4784;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13.42px 12.45px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.w100 {
+  width: 44vw;
+}
+.def,
+.defDars {
+  display: none;
+  position: absolute;
+}
+
+.def .Nav {
+  width: 100%;
+  position: absolute;
+  transition: 2s;
+  left: -100%;
+}
+
+.modal-navbar {
+  width: 100%;
+}
+
+.modal-navbar .Nav,
+.defDars .Nav {
+  animation-name: mobileBurger;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  transition: 1s;
+}
+
+.modal-navbar .qaytish,
+.yoq .qaytish {
+  animation-name: mobileBurgerQaytish;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  transition: 1s;
+}
+
+.burger {
+  display: none;
+}
+
+.defDars .Nav {
+  width: 100%;
+  position: absolute;
+  transition: 2s;
+  left: -100%;
+}
+.main_lesson {
+  height: 100%;
+}
+
+@media only screen and (max-width: 850px) {
+  .Nav {
+    display: none;
+  }
+  .w100 {
+    max-height: 100dvh;
+  }
+  .modalDarslar .Nav {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    /* height: 100%; */
+    /* animation-name: mobileBurger;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  transition: 2s; */
+  }
+
+  .modalDarslar {
+    top: 0;
+    width: 100%;
+    display: block;
+  }
+
+  .blur {
+    filter: blur(1px);
+  }
+
+  .main-page {
+    position: relative;
+  }
+
+  .main_lesson {
+    width: 100%;
+  }
+
+  .main-content {
+    display: block !important;
+  }
+
+  .search-img-box {
+    width: 42px;
+    top: 35px;
+    height: 40px;
+  }
+
+  .modal-navbar {
+    display: flex;
+    width: 100%;
+    z-index: 12;
+    justify-content: center;
+  }
+  .modal-navbar .Nav {
+    display: block;
+  }
+  .modalDarslar {
+    display: flex;
+    width: 100%;
+    z-index: 12;
+    justify-content: center;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .search-main {
+    padding: 12px;
+  }
+
+  .modal-navbar .Nav ul li a {
+    padding-left: 120px !important;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .modal-navbar .Nav ul li a {
+    padding-left: 80px !important;
+  }
+}
+
+.student_lessons_wrap {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 15px;
+  row-gap: 15px;
+  padding: 10px 0;
+}
+
+@media only screen and (max-width: 850px) {
+  .student_lessons_wrap {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media only screen and (max-width: 540px) {
+  .student_lessons_wrap {
+    grid-template-columns: auto;
+  }
+}
