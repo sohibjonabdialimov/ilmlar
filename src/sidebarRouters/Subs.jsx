@@ -21,7 +21,6 @@ function deleteplatforma(url) {
 const Subs = () => {
   const navigate = useNavigate();
   const { subsTeacher } = useContext(subsTeacherContext);
-  console.log(subsTeacher);
   return (
     <div className="carts-wrapper">
       {subsTeacher?.map((item, index) => (

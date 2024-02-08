@@ -59,15 +59,12 @@ function Baykurs() {
   const [blobUrl, setBlobUrl] = useState(null);
 
   const customBlobUrlFunc = (src) => {
-    console.log(src);
-    console.log("ishladi");
     let xhr = new XMLHttpRequest();
     xhr.open("GET", src);
     xhr.responseType = "arraybuffer";
     xhr.onload = (e) => {
       let blob = new Blob([xhr.response]);
       let url = URL.createObjectURL(blob);
-      console.log(url);
       setBlobUrl(url);
     };
   
@@ -105,7 +102,6 @@ function Baykurs() {
       });
   }, [courseId]);
   useEffect(() => {
-    console.log(selectedVideo.orni);
     if (selectedVideo.orni) {
       
       // let stroka = `https://api.ilmlar.com/${deleteplatforma(
@@ -194,23 +190,23 @@ function Baykurs() {
                     onReady={this.onPlayerReady.bind(this)}
                 /> */}
             {
-            blobUrl ? (
+            selectedVideo?.orni ? (
               <ReactPlayer
                 playing={true}
                 
                 ref={videoRef}
-                onClick={() =>
-                  customBlobUrlFunc(
-                    `https://api.ilmlar.com/${deleteplatforma(
-                      selectedVideo?.orni
-                    )}`,
-                    videoRef
-                  )
-                }
-                // url={() => customBlobUrlFunc(`https://api.ilmlar.com/${deleteplatforma(
-                //   selectedVideo?.orni
-                // )}`, videoRef)}
-                url={blobUrl}
+                // onClick={() =>
+                //   customBlobUrlFunc(
+                //     `https://api.ilmlar.com/${deleteplatforma(
+                //       selectedVideo?.orni
+                //     )}`,
+                //     videoRef
+                //   )
+                // }
+                url={`https://api.ilmlar.com/${deleteplatforma(
+                  selectedVideo?.orni
+                )}`}
+                // url={blobUrl}
                 onEnded={() => {
                   next();
                 }}

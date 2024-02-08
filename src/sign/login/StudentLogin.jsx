@@ -35,7 +35,6 @@ const StudentLogin = () => {
   const handlechange = (e) => {
     e.target.value = e.target.value.toLowerCase().trim();
   };
-
   const onSubmit = (data) => {
     axios
       .post("https://api.ilmlar.com/users/login", data)

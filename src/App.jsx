@@ -64,13 +64,19 @@ function App() {
 
         <Route path="/teacher" element={<TeacherLayout />}>
           <Route index element={<LessonsTeacher />} />
-          <Route path="darslar" element={<LessonsTeacher where='lesson' />} />
+          <Route path="darslar" element={<LessonsTeacher where="lesson" />} />
           <Route path="hisoblar" element={<TeacherBalance />} />
           <Route path="Kurs/:id" element={<AboutCourseInfo />} />
           <Route path="kurs/" element={<SelectDownloadCourse />} />
 
-          <Route path="update/kurs/" element={<LessonsTeacher where='update' />} />
-          <Route path="statistic" element={<LessonsTeacher where='statistik' />} />
+          <Route
+            path="update/kurs/"
+            element={<LessonsTeacher where="update" />}
+          />
+          <Route
+            path="statistic"
+            element={<LessonsTeacher where="statistik" />}
+          />
           <Route path="profile" element={<TeacherProfile />} />
         </Route>
         <Route path="teacher/course/:courseId" element={<CourseInfo />} />
