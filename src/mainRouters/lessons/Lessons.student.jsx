@@ -7,6 +7,7 @@ import StudentNavbar from "../../navbar/student/StudentNavbar";
 import MobileHeader from "../../components/mobileHeader/mobileHeader";
 import axios from "axios";
 import Loader from "../../loader/Loader";
+import { Skeleton } from "antd";
 
 function Lessons() {
   const [courses, setCourses] = useState([]);
@@ -42,59 +43,59 @@ function Lessons() {
 
   return (
     <>
-      {loader ? (
+      {/* {loader ? (
         <div className="loader_style">
           <Loader />
         </div>
-      ) : (
-        <div className="main-page">
-          <div className={modal ? "def modal-navbar" : "def yoq"}>
-            <StudentNavbar changeModal={changeModal} modal={modal} />
-          </div>
-          <div
-            className={
-              modal || modalDarslar
-                ? "blur w100 main_lesson"
-                : "w100 main_lesson"
-            }
-          >
-            <MobileHeader
-              changeModalDars={changeModalDars}
-              changeModal={changeModal}
-              modal={modal}
-              modalDarslar={modalDarslar}
-              type={"search"}
-              query={query}
-              setquery={setquery}
-            />
-            <div className="main-content main-contentt sidebar-main-wrap_all">
-              <div className="student_lessons_wrap">
-                {courses.map((cart, index) => {
-                  return <Cart cart={cart} key={index} />;
-                })}
-              </div>
-              <button
-                className="more_btn"
-                onClick={() => {
-                  onMore();
-                }}
-              >
-                Ko'proq ko'rish
-              </button>
+      ) : ( */}
+      <div className="main-page">
+        <div className={modal ? "def modal-navbar" : "def yoq"}>
+          <StudentNavbar changeModal={changeModal} modal={modal} />
+        </div>
+        <div
+          className={
+            modal || modalDarslar ? "blur w100 main_lesson" : "w100 main_lesson"
+          }
+        >
+          <MobileHeader
+            changeModalDars={changeModalDars}
+            changeModal={changeModal}
+            modal={modal}
+            modalDarslar={modalDarslar}
+            type={"search"}
+            query={query}
+            setquery={setquery}
+          />
+          <div className="main-content main-contentt sidebar-main-wrap_all">
+            <div className="student_lessons_wrap">
+              {courses.length
+                ? courses.map((cart, index) => {
+                    return <Cart cart={cart} key={index} />;
+                  })
+                : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => {
+                    return <Skeleton avatar key={item} active />;
+                  })}
             </div>
-          </div>
-          <Navvedio />
-          <div
-            className={modalDarslar ? "defDars modalDarslar" : "defDars yoq"}
-          >
-            <Navvedio
-              modalDarslar={modalDarslar}
-              changeModalDars={changeModalDars}
-              topic="Darslaringiz"
-            />
+            <button
+              className="more_btn"
+              onClick={() => {
+                onMore();
+              }}
+            >
+              Ko'proq ko'rish
+            </button>
           </div>
         </div>
-      )}
+        <Navvedio />
+        <div className={modalDarslar ? "defDars modalDarslar" : "defDars yoq"}>
+          <Navvedio
+            modalDarslar={modalDarslar}
+            changeModalDars={changeModalDars}
+            topic="Darslaringiz"
+          />
+        </div>
+      </div>
+      {/* )} */}
     </>
   );
 }

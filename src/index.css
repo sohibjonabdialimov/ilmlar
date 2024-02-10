@@ -42,6 +42,7 @@ img {
 ::-webkit-scrollbar {
   width: 1px;
 }
+
 .error_message {
   color: #fb4d4d;
   margin-bottom: 20px;
