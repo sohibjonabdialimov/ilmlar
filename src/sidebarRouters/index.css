@@ -1,4 +1,4 @@
-.bought_lessons{
+.bought_lessons {
   display: flex;
   gap: 6px;
   background-color: #3a2c5b;
@@ -7,7 +7,7 @@
   cursor: pointer;
   height: 90px;
 }
-.carts-wrapper{
+.carts-wrapper {
   max-height: 80dvh;
   overflow: scroll;
   border-radius: 30px;
@@ -15,16 +15,15 @@
 .carts-wrapper::-webkit-scrollbar {
   display: none;
 }
-.bought_lessons img{
+.bought_lessons img {
   width: 35%;
   height: 90px;
   border-radius: 20px 0px 0px 20px;
 }
-.bought_lessons .text_info{
+.bought_lessons .text_info {
   width: calc(100% - 35%);
-
 }
-.bought_lessons .text_info p{
+.bought_lessons .text_info p {
   font-size: 14px;
   display: -webkit-box;
   line-height: 20px;
@@ -33,10 +32,10 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.subs_info_wrap p{
+.subs_info_wrap p {
   margin-bottom: 3px;
 }
-.bought_lessons .text_info strong{
+.bought_lessons .text_info strong {
   font-size: 13px;
   font-weight: 400;
   display: -webkit-box;
@@ -48,7 +47,7 @@
   overflow: hidden;
   color: #ffffff8c;
 }
-.bought_lessons .text_info strong.big_style{
+.bought_lessons .text_info strong.big_style {
   font-size: 16px;
 }
 
@@ -160,7 +159,7 @@
   overflow: hidden;
   color: #ffffff;
 }
-.scroll_paragraph_div p{
+.scroll_paragraph_div p {
   display: -webkit-box;
   max-width: 235px;
   -webkit-line-clamp: 4;
@@ -218,7 +217,6 @@
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
-
 }
 .darslar-cart div p:last-child {
   font-size: 14px;
@@ -275,6 +273,6 @@
     padding: 0;
   }
 }
-.saved_courses{
+.saved_courses {
   padding-bottom: 10px;
 }

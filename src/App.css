@@ -8,7 +8,7 @@
   background: linear-gradient(#564282, #826a91);
   border-radius: 50px;
 }
-input[type='number'] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
@@ -27,16 +27,14 @@ input::-webkit-inner-spin-button {
   display: flex;
   gap: 19px;
 }
-.video_information div:first-child{
+.video_information div:first-child {
   height: 360px;
 }
-@media only screen and (max-width: 850px){
-  .video_information div:first-child{
+@media only screen and (max-width: 850px) {
+  .video_information div:first-child {
     height: 100%;
   }
-  .w100{
+  .w100 {
     max-height: 100dvh;
   }
 }
-
-
