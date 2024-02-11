@@ -3,6 +3,8 @@ import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../style.css";
 import { ToastContainer, toast } from "react-toastify";
+import { LoadingOutlined } from "@ant-design/icons";
+import { Spin } from "antd";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -17,6 +19,7 @@ const studentLoginSchema = z.object({
 });
 
 const StudentLogin = () => {
+  const [buttonLoading, setButtonLoading] = useState(false);
   const passwordRef = useRef();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -36,15 +39,19 @@ const StudentLogin = () => {
     e.target.value = e.target.value.toLowerCase().trim();
   };
   const onSubmit = (data) => {
+    setButtonLoading(true);
     axios
-      .post("https://api.ilmlar.com/users/login", data)
-      .then((res) => {
-        if (res.status === 200) {
-          localStorage.setItem("token", res.data.token);
-          navigate("/student/");
+    .post("https://api.ilmlar.com/users/login", data)
+    .then((res) => {
+      console.log(res);
+      if (res.status === 200) {
+        localStorage.setItem("token", res.data.token);
+        navigate("/student/");
+        reset();
         }
       })
       .catch((err) => {
+        console.log(err);
         toast.error("Username yoki parol xato", {
           position: "top-right",
           autoClose: 5000,
@@ -55,10 +62,9 @@ const StudentLogin = () => {
           progress: undefined,
           theme: "light",
         });
-        console.log(err);
       })
       .finally(() => {
-        reset();
+        setButtonLoading(false);
       });
   };
 
@@ -106,8 +112,21 @@ const StudentLogin = () => {
             <span className="error_message"></span>
           )}
 
-          <button disabled={isSubmitting} type="submit">
-            Kirish
+          <button disabled={buttonLoading} type="submit">
+            {buttonLoading ? (
+              <Spin
+                indicator={
+                  <LoadingOutlined
+                    style={{
+                      fontSize: 24,
+                    }}
+                    spin
+                  />
+                }
+              />
+            ) : (
+              "Kirish"
+            )}
           </button>
         </form>
         <Link className="alright_note" to={"/registration"}>

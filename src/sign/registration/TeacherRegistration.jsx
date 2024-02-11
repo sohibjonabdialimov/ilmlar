@@ -6,6 +6,8 @@ import { ToastContainer, toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const teacherRegistrSchema = z
   .object({
@@ -25,6 +27,7 @@ const teacherRegistrSchema = z
     path: ["resetPassword"],
   });
 const TeacherRegistration = () => {
+  const [buttonLoading, setButtonLoading] = useState(false);
   const [verifycode, setverifycode] = useState(false);
   const [email, setemail] = useState("");
   const emailcodeRef = useRef();
@@ -53,7 +56,7 @@ const TeacherRegistration = () => {
     delete data.resetPassword;
     delete data.name;
     delete data.surname;
-
+    setButtonLoading(true);
     axios
       .post("https://api.ilmlar.com/teacher/register/", data)
       .then((response) => {
@@ -74,10 +77,14 @@ const TeacherRegistration = () => {
       })
       .catch((error) => {
         console.error(error);
+      })
+      .finally(() => {
+        setButtonLoading(false);
       });
   };
   const onverify = (e) => {
     e.preventDefault();
+    setButtonLoading(true);
     axios
       .post("https://api.ilmlar.com/teacher/register/verify", {
         email: email,
@@ -86,23 +93,23 @@ const TeacherRegistration = () => {
       .then((res) => {
         if (res.data._id) {
           navigate("/teacherlogin");
-        }else{
-          toast.error(
-            "Kod xato kiritildi",
-            {
-              position: "top-right",
-              autoClose: 3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-            }
-          );
+        } else {
+          toast.error("Kod xato kiritildi", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
         }
-      }).catch((error) => {
+      })
+      .catch((error) => {
         console.log(error);
+      }).finally(() => {
+        setButtonLoading(false);
       });
   };
   function showFunc(e) {
@@ -132,7 +139,11 @@ const TeacherRegistration = () => {
             ) : (
               <span className="error_message_2"></span>
             )}
-            <input type="text" placeholder="Familiya" {...register("surname")} />
+            <input
+              type="text"
+              placeholder="Familiya"
+              {...register("surname")}
+            />
             {errors.surname ? (
               <span className="error_message_2">{`${errors.surname.message}`}</span>
             ) : (
@@ -142,15 +153,22 @@ const TeacherRegistration = () => {
               type="text"
               placeholder="Foydalanuvchi nomi"
               {...register("username", {
-                onChange: (e) => {handlechange(e)},
+                onChange: (e) => {
+                  handlechange(e);
+                },
               })}
             />
-             {errors.username ? (
+            {errors.username ? (
               <span className="error_message_2">{`${errors.username.message}`}</span>
             ) : (
               <span className="error_message_2"></span>
             )}
-            <input ref={emailRef} type="email" placeholder="Email" {...register("email")} />
+            <input
+              ref={emailRef}
+              type="email"
+              placeholder="Email"
+              {...register("email")}
+            />
             {errors.email ? (
               <span className="error_message_2">{`${errors.email.message}`}</span>
             ) : (
@@ -158,7 +176,7 @@ const TeacherRegistration = () => {
             )}
             <div className="show_password_registr">
               <input
-              {...register("password")}
+                {...register("password")}
                 type={showPassword ? "text" : "password"}
                 placeholder="Parol"
               />
@@ -189,10 +207,24 @@ const TeacherRegistration = () => {
               <span className="error_message_2"></span>
             )}
             <button
-              type="submit"
               className={`${verifycode ? "d-none" : ""} verify_form`}
+              disabled={buttonLoading}
+              type="submit"
             >
-              Davom etish
+              {buttonLoading ? (
+                <Spin
+                  indicator={
+                    <LoadingOutlined
+                      style={{
+                        fontSize: 24,
+                      }}
+                      spin
+                    />
+                  }
+                />
+              ) : (
+                "Davom etish"
+              )}
             </button>
           </form>
           <form
@@ -208,7 +240,22 @@ const TeacherRegistration = () => {
               placeholder="Emailga yuborilgan kodni kiriting"
               required
             />
-            <button type="submit">Ro'yxatdan o'tish</button>
+            <button disabled={buttonLoading} type="submit">
+              {buttonLoading ? (
+                <Spin
+                  indicator={
+                    <LoadingOutlined
+                      style={{
+                        fontSize: 24,
+                      }}
+                      spin
+                    />
+                  }
+                />
+              ) : (
+                "Ro'yxatdan o'tish"
+              )}
+            </button>
           </form>
         </div>
         <Link className="alright_note" to={"/teacherlogin"}>

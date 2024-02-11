@@ -156,7 +156,8 @@
   display: none;
 }
 .verify_form button {
-  padding: 5px 15px;
+  padding: 5px 0;
+  width: 150px;
   font-family: sans-serif;
   font-style: normal;
   font-weight: 400;

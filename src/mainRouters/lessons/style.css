@@ -124,7 +124,7 @@
 .def .Nav {
   width: 100%;
   position: absolute;
-  transition: 2s;
+  transition: 1s;
   left: -100%;
 }
 
@@ -155,7 +155,7 @@
 .defDars .Nav {
   width: 100%;
   position: absolute;
-  transition: 2s;
+  transition: 1s;
   left: -100%;
 }
 .main_lesson {
@@ -174,11 +174,6 @@
     width: 100%;
     padding: 0;
     margin: 0;
-    /* height: 100%; */
-    /* animation-name: mobileBurger;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-  transition: 2s; */
   }
 
   .modalDarslar {

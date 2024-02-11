@@ -6,6 +6,8 @@ import { ToastContainer, toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const studentRegistrSchema = z
   .object({
@@ -25,6 +27,7 @@ const studentRegistrSchema = z
     path: ["resetPassword"],
   });
 const StudentRegistration = () => {
+  const [buttonLoading, setButtonLoading] = useState(false);
   const [verifycode, setverifycode] = useState(false);
   const [email, setemail] = useState("");
   const formRef = useRef();
@@ -53,7 +56,7 @@ const StudentRegistration = () => {
     delete data.resetPassword;
     delete data.name;
     delete data.surname;
-    console.log(data);
+    setButtonLoading(true);
     axios
       .post("https://api.ilmlar.com/users/register/", data)
       .then((response) => {
@@ -63,7 +66,7 @@ const StudentRegistration = () => {
           `${data.email} ga kod yuborildi. Tasdiqlash kodini kiriting`,
           {
             position: "top-right",
-            autoClose: 10000,
+            autoClose: 20000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -75,6 +78,9 @@ const StudentRegistration = () => {
       })
       .catch((error) => {
         console.error(error);
+      })
+      .finally(() => {
+        setButtonLoading(false);
       });
   };
   // const onHandler = (e) => {
@@ -113,6 +119,7 @@ const StudentRegistration = () => {
   // };
   const onverify = (e) => {
     e.preventDefault();
+    setButtonLoading(true);
     ({
       email: email,
       code: emailcodeRef.current.value,
@@ -139,6 +146,9 @@ const StudentRegistration = () => {
           progress: undefined,
           theme: "light",
         });
+      })
+      .finally(() => {
+        setButtonLoading(false);
       });
   };
   function showFunc(e) {
@@ -186,7 +196,9 @@ const StudentRegistration = () => {
               type="text"
               placeholder="Foydalanuvchi nomi"
               {...register("username", {
-                onChange: (e) => {handlechange(e)},
+                onChange: (e) => {
+                  handlechange(e);
+                },
               })}
             />
             {errors.username ? (
@@ -239,9 +251,23 @@ const StudentRegistration = () => {
             )}
             <button
               className={`${verifycode ? "d-none" : ""} verify_form`}
+              disabled={buttonLoading}
               type="submit"
             >
-              Davom etish
+              {buttonLoading ? (
+                <Spin
+                  indicator={
+                    <LoadingOutlined
+                      style={{
+                        fontSize: 24,
+                      }}
+                      spin
+                    />
+                  }
+                />
+              ) : (
+                "Davom etish"
+              )}
             </button>
           </form>
           <form
@@ -257,7 +283,22 @@ const StudentRegistration = () => {
               placeholder="Emailga yuborilgan kodni kiriting"
               required
             />
-            <button type="submit">Ro'yxatdan o'tish</button>
+            <button disabled={buttonLoading} type="submit">
+              {buttonLoading ? (
+                <Spin
+                  indicator={
+                    <LoadingOutlined
+                      style={{
+                        fontSize: 24,
+                      }}
+                      spin
+                    />
+                  }
+                />
+              ) : (
+                "Ro'yxatdan o'tish"
+              )}
+            </button>
           </form>
         </div>
         <Link className="alright_note" to={"/login"}>

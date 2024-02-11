@@ -9,7 +9,7 @@ import axios from "axios";
 import Loader from "../loader/Loader";
 import urlJoin from "url-join";
 import MobileHeader from "../components/mobileHeader/mobileHeader";
-import defaultuser from "../imgs/user-1.png"
+import defaultuser from "../imgs/user-1.png";
 
 function TeacherInfo() {
   const [profile, setProfil] = useState({});
@@ -21,7 +21,7 @@ function TeacherInfo() {
   const [loader, setLoader] = useState(false);
   let [modal, setModal] = useState(false);
   let [modalDarslar, setModalDarslar] = useState(false);
-  
+
   const navigate = useNavigate();
   function deleteplatforma(url) {
     try {
@@ -47,7 +47,6 @@ function TeacherInfo() {
     });
   }, [teacherId]);
 
-
   const changeModal = (value) => {
     setModal(value);
   };
@@ -69,8 +68,6 @@ function TeacherInfo() {
       }
     }
   }, [subs]);
-
-
 
   const fetchTeachersFunc = async () => {
     const fetchedTeacherData = [];
@@ -110,8 +107,7 @@ function TeacherInfo() {
           },
         }
       )
-      .then((res) => {
-      })
+      .then((res) => {})
       .catch((err) => console.log(err));
   }
   const changeModalDars = (value) => {
@@ -123,7 +119,7 @@ function TeacherInfo() {
   return (
     <>
       <div className="main-page">
-      <div className="teacherhead">
+        <div className="teacherhead">
           <button onClick={onBack} className="back-1">
             <ion-icon name="chevron-back-outline"></ion-icon>
           </button>
@@ -143,22 +139,29 @@ function TeacherInfo() {
             {loader ? (
               <Loader />
             ) : (
-
               <div className="my_subs">
-                {
-                  profile.path ? <img  className="teacher_img" src={urlJoin("https://api.ilmlar.com", `${deleteplatforma(profile.path)}`)} alt="" /> : <img className="teacher_img" src={defaultuser}></img>
-                }
+                {profile.path ? (
+                  <img
+                    className="teacher_img"
+                    src={urlJoin(
+                      "https://api.ilmlar.com",
+                      `${deleteplatforma(profile.path)}`
+                    )}
+                    alt=""
+                  />
+                ) : (
+                  <img className="teacher_img" src={defaultuser}></img>
+                )}
                 <h2>{profile.fullname}</h2>
                 <p>{profile?.obunachilar?.length} ta obunachi</p>
                 {subsBool ? (
                   <button
-                  
                     onClick={() => {
                       setSubsBool(false);
                       saveObuna(teacherId);
                     }}
                   >
-                    Obunadan chiqish 
+                    Obunadan chiqish
                   </button>
                 ) : (
                   <button
@@ -193,14 +196,27 @@ function TeacherInfo() {
                   {teacherInfo.length != 0 ? (
                     teacherInfo.map((item, index) => {
                       return (
-                        <div style={{cursor: "pointer"}} key={item._id} className="courses_list" onClick={()=>{ navigate("/student/kurs/" + item._id);}}>
+                        <div
+                          style={{ cursor: "pointer" }}
+                          key={item._id}
+                          className="courses_list"
+                          onClick={() => {
+                            navigate("/student/kurs/" + item._id);
+                          }}
+                        >
                           <img
-                            src={urlJoin("https://api.ilmlar.com", `${deleteplatforma(item.obloshka)}`)}
+                            src={urlJoin(
+                              "https://api.ilmlar.com",
+                              `${deleteplatforma(item.obloshka)}`
+                            )}
                             alt=""
                           />
-                          <div className="teacherinfo_courses" style={{position:"relative"}}>
+                          <div
+                            className="teacherinfo_courses"
+                            style={{ position: "relative" }}
+                          >
                             <b>{item.Kursname}</b>
-                            <p>{item.Kursdesc}</p> 
+                            <p>{item.Kursdesc}</p>
                           </div>
                         </div>
                       );
@@ -213,28 +229,40 @@ function TeacherInfo() {
             )}
           </div>
         </div>
-        
+
         <div className="darslar_wrapper Nav">
           <h3>Mening obunalarim</h3>
           <div className="line"></div>
           <Subs />
         </div>
-        <div style={{padding:"10px"}} className={modalDarslar ? "defDars modalDarslar aa" : "defDars yoq"}>
-        <div className="darslar_wrapper Nav">
-          <div style={{display:"flex",height:"70px", alignItems:"center", position:"relative"}}> 
-          <button style={{marginLeft:'20px', backgroundColor: "#3F315D"}} onClick={()=>{
-            setModalDarslar(false)
-          }} className="back-1">
-            <ion-icon name="chevron-back-outline"></ion-icon>
-          </button>
-          <h3> Mening obunalarim</h3>
-
+        <div
+          style={{ padding: "10px" }}
+          className={modalDarslar ? "defDars modalDarslar aa" : "defDars yoq"}
+        >
+          <div className="darslar_wrapper Nav">
+            <div
+              style={{
+                display: "flex",
+                height: "70px",
+                alignItems: "center",
+                position: "relative",
+              }}
+            >
+              <button
+                style={{ marginLeft: "20px", backgroundColor: "#3F315D" }}
+                onClick={() => {
+                  setModalDarslar(false);
+                }}
+                className="back-1"
+              >
+                <ion-icon name="chevron-back-outline"></ion-icon>
+              </button>
+              <h3> Mening obunalarim</h3>
+            </div>
+            <div className="line"></div>
+            <Subs />
           </div>
-          <div className="line"></div>
-          <Subs />
         </div>
-        
-      </div>
       </div>
     </>
   );
