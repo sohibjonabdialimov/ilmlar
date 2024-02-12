@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../style.css";
 import TeachUserprofile from "../../teacher/components/Userprofile";
 import t1 from "../../imgs/t1.svg";
@@ -10,6 +10,7 @@ import prev from "../../imgs/prev.svg";
 import { teacherNavbarContext } from "../../contexts/teacherNavbarContext";
 function TeacherNavbar({ changeModal, modal }) {
   const [modalClass, setModalClass] = useState("");
+  const navigate = useNavigate();
   const {
     lesson,
     setLesson,
@@ -53,7 +54,7 @@ function TeacherNavbar({ changeModal, modal }) {
     <div
       className={
         modalClass == "qaytish"
-          ? "Nav  teacher-navbar qaytish"
+          ? "Nav teacher-navbar qaytish"
           : "Nav teacher-navbar"
       }
     >
@@ -63,22 +64,22 @@ function TeacherNavbar({ changeModal, modal }) {
       <div>
         <TeachUserprofile />
       </div>
-      <ul className="teacher_nav_main">
-        <li className={`${lesson ? "active" : ""}`}>
+      <ul className="teacher_nav_main both_nav_class">
+        <li onClick={() => navigate("/teacher/darslar")} className={`${lesson ? "active" : ""}`}>
           <img src={t1} alt="" />
-          <Link to="/teacher/darslar">darslar</Link>
+          <p>darslar</p>
         </li>
-        <li className={`${balance ? "active" : ""}`}>
+        <li onClick={() => navigate("/teacher/hisoblar")} className={`${balance ? "active" : ""}`}>
           <img src={t2} alt="" />
-          <Link to="/teacher/hisoblar">hisob balans</Link>
+          <p>hisob balans</p>
         </li>
-        <li className={`${download ? "active" : ""}`}>
+        <li onClick={() => navigate("/teacher/kurs")} className={`${download ? "active" : ""}`}>
           <img src={t3} alt="" />
-          <Link to="/teacher/kurs">kurs yuklash</Link>
+          <p>kurs yuklash</p>
         </li>
-        <li className={`${profile ? "active" : ""}`}>
+        <li onClick={() => navigate("/teacher/profile")} className={`${profile ? "active" : ""}`}>
           <img src={t6} alt="" />
-          <Link to="/teacher/profile">profile</Link>
+          <p>profile</p>
         </li>
       </ul>
     </div>

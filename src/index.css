@@ -71,7 +71,7 @@ img {
 }
 
 .teacherHomePage {
-  width: 70vw;
+  width: 100%;
   position: relative;
 }
 button {
@@ -202,6 +202,9 @@ button {
   }
 }
 @media only screen and (max-width: 850px) {
+  .teacherHomePage {
+    height: 86.5dvh;
+  }
   .app-content {
     padding: 20px 25px;
     background-color: transparent;

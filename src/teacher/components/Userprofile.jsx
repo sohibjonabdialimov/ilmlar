@@ -26,16 +26,18 @@ function TeachUserprofile() {
         className="userprofile"
         style={{ textAlign: "center", paddingTop: 15 }}
       >
-        {teacherProfile?.path ? (
-          <img
-            src={
-              "https://api.ilmlar.com" + deleteplatforma(teacherProfile?.path)
-            }
-            alt=""
-          />
-        ) : (
-          <img src={defaultuser} alt="" />
-        )}
+        <div className="flex justify-center items-center">
+          {teacherProfile?.path ? (
+            <img
+              src={
+                "https://api.ilmlar.com" + deleteplatforma(teacherProfile?.path)
+              }
+              alt=""
+            />
+          ) : (
+            <img src={defaultuser} alt="" />
+          )}
+        </div>
 
         <h2 style={{ marginTop: "15px" }}>{teacherProfile?.fullname}</h2>
       </div>

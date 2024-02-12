@@ -42,16 +42,17 @@ function TeacherProfile() {
   };
 
   return (
-    <div className={styles.teacher_profil}>
+    <>
       <div className={modal ? "def modal-navbar" : "def yoq"}>
         <TeacherNavbar changeModal={changeModal} modal={modal} />
       </div>
       <div
-        className={
-          modal || modalDarslar
-            ? "blur w100 main_lesson mobile mobile_none"
-            : "w100 main_lesson mobile_none"
-        }
+        // className={
+        //   modal || modalDarslar
+        //     ? "blur w100 main_lesson mobile mobile_none"
+        //     : "w100 main_lesson mobile_none"
+        // }
+        className="mobile_display_none"
       >
         <MobileHeader
           changeModalDars={changeModalDars}
@@ -98,7 +99,7 @@ function TeacherProfile() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -7,7 +7,8 @@ import StudentNavbar from "../../navbar/student/StudentNavbar";
 import MobileHeader from "../../components/mobileHeader/mobileHeader";
 import axios from "axios";
 import Loader from "../../loader/Loader";
-import { Skeleton } from "antd";
+import Skeleton from "../../components/ui/Skeleton";
+// import { Skeleton } from "antd";
 
 function Lessons() {
   const [courses, setCourses] = useState([]);
@@ -72,8 +73,8 @@ function Lessons() {
                 ? courses.map((cart, index) => {
                     return <Cart cart={cart} key={index} />;
                   })
-                : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => {
-                    return <Skeleton avatar key={item} active />;
+                : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item) => {
+                    return <Skeleton key={item} />;
                   })}
             </div>
             <button

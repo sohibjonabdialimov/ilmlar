@@ -6,9 +6,12 @@
   align-items: center;
   justify-content: center;
 }
+.mobile_display_none {
+  display: none;
+}
 .lessons_wrapper {
   width: 100%;
-  height: 88dvh;
+  height: 100%;
 }
 .lessons_wrap {
   display: grid;
@@ -32,6 +35,9 @@
 @media only screen and (max-width: 850px) {
   .lessons_wrap {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .mobile_display_none {
+    display: block;
   }
   
 }

@@ -6,8 +6,9 @@
   border-radius: 50px;
   row-gap: 21px;
   width: 100%;
+  height: 86.5dvh;
 }
-.extra_width_class{
+.extra_width_class {
   width: 100%;
 }
 .main-page {
@@ -26,7 +27,7 @@
   line-height: 24px;
   border-radius: 50px;
   color: #ffffff;
-  background: #5b4784;
+  background: #5b4784 !important;
   border: none;
   outline: none;
   margin-bottom: 15px;
@@ -38,10 +39,10 @@
 
 .sidebar-main-wrap {
   overflow-y: scroll;
-  max-height: 90dvh;
+  max-height: 100%;
 }
 .teacherHomePage {
-  height: 90dvh;
+  height: 100%;
 }
 .teacherHomePage .main-content {
   background-color: transparent;
@@ -50,6 +51,7 @@
 .teacher-main-sidebar {
   display: flex;
   column-gap: 0;
+  height: 100%;
 }
 
 /* teacher profile start */
@@ -122,7 +124,6 @@
   }
 }
 @media only screen and (max-width: 850px) {
-  
   .teacher_hisoblar h2 {
     margin-top: 0px;
   }
@@ -131,17 +132,11 @@
     width: 100%;
     border-radius: 70px;
   }
- 
-  .main_profile_container img {
-    margin-top: 0px;
-  }
-}
-@media only screen and (max-width: 540px) {
-  .teacherHomePage {
-    height: 88dvh;
-  }
   .sidebar-main-wrap {
     overflow-y: scroll;
-    max-height: 88dvh;
+    max-height: 86.5dvh;
+  }
+  .main_profile_container img {
+    margin-top: 0px;
   }
 }

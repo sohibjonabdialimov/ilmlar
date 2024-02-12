@@ -24,16 +24,17 @@ function TeacherBalance() {
   };
 
   return (
-    <div>
+    <>
       <div className={modal ? "def modal-navbar" : "def yoq"}>
         <TeacherNavbar changeModal={changeModal} modal={modal} />
       </div>
       <div
-        className={
-          modal || modalDarslar
-            ? "blur w100 main_lesson mobile_none"
-            : "w100 main_lesson mobile_none"
-        }
+        // className={
+        //   modal || modalDarslar
+        //     ? "blur w100 main_lesson mobile_none"
+        //     : "w100 main_lesson"
+        // }
+        className="mobile_display_none"
       >
         <MobileHeader
           changeModalDars={changeModalDars}
@@ -56,7 +57,7 @@ function TeacherBalance() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

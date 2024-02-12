@@ -33,7 +33,12 @@
   border-radius: 50px;
   text-align: center;
 }
-.profile-content img {
+.profile_img_wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile_img_wrapper img {
   margin-top: 41px;
   width: 205px;
   height: 205px;

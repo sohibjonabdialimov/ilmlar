@@ -64,20 +64,20 @@ function StudentNavbar({ changeModal, modal }) {
       <div>
         <Userprofile />
       </div>
-      <ul className="student_nav_main">
+      <ul className="student_nav_main both_nav_class">
         {nav ? (
           <>
-            <li className={`${lesson ? "active" : ""}`}>
+            <li onClick={() => navigate("/student")} className={`${lesson ? "active" : ""}`}>
               <img src={t1} alt="" />
-              <Link to="/student">darslar</Link>
+              <p>darslar</p>
             </li>
-            <li className={`${balance ? "active" : ""}`}>
+            <li onClick={() => navigate("/student/hisoblar")} className={`${balance ? "active" : ""}`}>
               <img src={t2} alt="" />
-              <Link to="/student/hisoblar">hisob balans</Link>
+              <p>hisob balans</p>
             </li>
-            <li className={`${profile ? "active" : ""}`}>
+            <li onClick={() => navigate("/student/profile/subs")} className={`${profile ? "active" : ""}`}>
               <img src={t6} alt="" />
-              <Link to="/student/profile/subs">profile</Link>
+              <p>profile</p>
             </li>
           </>
         ) : (

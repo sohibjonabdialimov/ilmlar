@@ -225,10 +225,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.sidebar-main-wrap {
-  overflow-y: scroll;
-  max-height: 90dvh;
-}
+.saved_courses,
 .sidebar-bought-course {
   padding: 0 10px 10px 10px;
 }

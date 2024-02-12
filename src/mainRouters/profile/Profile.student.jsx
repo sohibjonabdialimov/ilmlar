@@ -5,26 +5,26 @@ import "./style.css";
 import StudentNavbar from "../../navbar/student/StudentNavbar";
 import MobileHeader from "../../components/mobileHeader/mobileHeader";
 import axios from "axios";
-import default_img from "../../imgs/user-1.png"
+import default_img from "../../imgs/user-1.png";
 import urlJoin from "url-join";
 import { profileContext } from "../../contexts/profileContext";
-function deleteplatforma(url){
+function deleteplatforma(url) {
   try {
-    if(url?.includes("platforma")){
-      url=url.split("/")
-      let res=""
-      for(let i=2;i<url.length;i++){
-        res+="/"+url[i]
+    if (url?.includes("platforma")) {
+      url = url.split("/");
+      let res = "";
+      for (let i = 2; i < url.length; i++) {
+        res += "/" + url[i];
       }
-      return(res)
+      return res;
     }
-    return "/"+url;
+    return "/" + url;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }
 function Profile() {
-  const {profile} = useContext(profileContext);
+  const { profile } = useContext(profileContext);
   const navigate = useNavigate();
 
   let [modal, setModal] = useState(false);
@@ -54,7 +54,7 @@ function Profile() {
   const deleteAccount = () => {
     localStorage.clear();
     navigate("/");
-  }
+  };
   return (
     <div className="main-page">
       <div className={modal ? "def modal-navbar" : "def yoq"}>
@@ -76,16 +76,17 @@ function Profile() {
         />
 
         <div className="profile-content">
-          {
-            profile?.path ? <img
-            src={"https://api.ilmlar.com" + deleteplatforma(profile?.path)}
-            alt=""
-          /> : <img
-          src={default_img}
-          alt=""
-        />
-            
-          }
+          <div className="profile_img_wrapper">
+            {profile?.path ? (
+              <img
+                src={"https://api.ilmlar.com" + deleteplatforma(profile?.path)}
+                alt=""
+              />
+            ) : (
+              <img src={default_img} alt="" />
+            )}
+          </div>
+
           <h1>{profile?.fullname}</h1>
           <div className="profile-content-para">
             <p>Username: {profile?.username}</p>

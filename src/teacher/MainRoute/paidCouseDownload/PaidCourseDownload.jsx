@@ -156,7 +156,7 @@ function FreeCourseDownload() {
   return (
     <>
       <ToastContainer autoClose={2000} />
-      <div className="app-content">
+      <div className="course_download_wrap">
         <div className={styles.free_global_wrap}>
           <div className={styles.kurs_yuklash}>
             <button onClick={onBack} className={styles.back}>

@@ -26,11 +26,12 @@ const SelectDownloadCourse = () => {
         <TeacherNavbar changeModal={changeModal} modal={modal} />
       </div>
       <div
-        className={
-          modal || modalDarslar
-            ? "blur w100 extra_width_class mobile mobile_none"
-            : "w100 extra_width_class mobile_none"
-        }
+        // className={
+        //   modal || modalDarslar
+        //     ? "blur w100 extra_width_class mobile mobile_none"
+        //     : "w100 extra_width_class mobile_none"
+        // }
+        className={styles.mobile_display_none}
       >
         <MobileHeader
           changeModalDars={changeModalDars}

@@ -16,6 +16,7 @@
 .free_global_wrap {
   background-color: #5b4784;
   width: 100%;
+  height: 95dvh;
   margin: 0 auto;
   box-shadow: 15px 15px 100px rgba(0, 0, 0, 0.3);
   border-radius: 50px;
@@ -32,7 +33,7 @@
 }
 .kurs_yuklash {
   position: relative;
-  padding: 0 60px;
+  padding: 0 20px;
 }
 
 .kurs_yuklash h1 {
@@ -496,7 +497,7 @@
   }
 
   .kurs_yuklash {
-    padding: 0 15px;
+    padding: 0 10px;
   }
   .video_download {
     padding: 5px 10px;
@@ -550,7 +551,7 @@
     margin: 15px auto;
   }
   .kurs_yuklash {
-    padding: 0 8px;
+    padding: 0 5px;
   }
   .videos {
     width: 100%;

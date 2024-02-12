@@ -6,7 +6,9 @@ import { teacherProfileContext } from "../../contexts/teacherProfilContext";
 import axios from "axios";
 
 const TeacherLayout = () => {
-  const {teacherProfile, setTeacherProfile} = useContext(teacherProfileContext);
+  const { teacherProfile, setTeacherProfile } = useContext(
+    teacherProfileContext
+  );
   const navigate = useNavigate();
   useEffect(() => {
     if (!localStorage.getItem("token")) {
@@ -21,14 +23,11 @@ const TeacherLayout = () => {
       .then((res) => {
         setTeacherProfile(res.data);
       });
-      
   }, []);
 
   return (
     <div className="app-content">
-      <div className="pad studentNavbar-box">
-        <TeachNav />
-      </div>
+      <TeachNav />
       <div className="teacherHomePage">
         <Outlet />
       </div>

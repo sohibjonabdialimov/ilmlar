@@ -1,5 +1,7 @@
 .sidebar-component{
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 6px;
   background-color: #3E305D;
   border-radius: 20px;

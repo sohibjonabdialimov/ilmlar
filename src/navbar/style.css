@@ -1,15 +1,6 @@
-.active {
-    font-weight: 700;
-    color: yellowgreen;
-    background: rgba(0, 0, 0, 0.3);
-    background-color: #3e305c;
-}
 .navbar_back {
     width: 25px;
     height: 25px;
-}
-.user-navbar {
-    width: 23vw;
 }
 
 .Nav ul {
@@ -17,17 +8,23 @@
     padding: 0 27px;
 }
 
-.Nav ul li {
+.both_nav_class li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
     position: relative;
-    padding: 5px 12px;
+    padding: 12px 20px;
+    cursor: pointer;
+    margin-bottom: 8px;
+    border-radius: 25px;
 }
-
-.Nav ul li a {
-    display: block;
-    border-radius: 15px;
+.both_nav_class li:hover,
+.both_nav_class li.active {
+    font-weight: 700;
+    background-color: #3e305c;
+}
+.both_nav_class li p {
     text-transform: capitalize;
-    width: 100%;
-    padding: 14px 15px 14px 75px;
     font-family: sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -36,15 +33,10 @@
     letter-spacing: 0.9px;
     color: #ffffff;
 }
-
-.Nav ul li img {
+.both_nav_class ul li img {
     width: 31px;
     height: 31px;
     object-fit: cover;
-    position: absolute;
-    top: 50%;
-    left: 15%;
-    transform: translateY(-50%);
 }
 
 .qaytish {
@@ -72,48 +64,9 @@
 }
 .user-navbar {
     height: 100%;
+    width: 23vw;
 }
 
-.teacher-navbar ul {
-    margin-top: 30px;
-    padding: 0 27px;
-}
-.teacher-navbar ul li {
-    position: relative;
-    cursor: pointer;
-    padding: 8px 12px;
-}
-.student_nav_main li {
-    cursor: pointer;
-}
-.teacher_nav_main li.active,
-.student_nav_main li.active {
-    border-radius: 25px;
-}
-
-.teacher-navbar ul li a {
-    display: block;
-    border-radius: 15px;
-    text-transform: capitalize;
-    width: 100%;
-    padding: 14px 15px 14px 75px;
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    letter-spacing: 0.9px;
-    line-height: 15px;
-    color: #ffffff;
-}
-.teacher-navbar ul li img {
-    width: 31px;
-    height: 31px;
-    object-fit: cover;
-    position: absolute;
-    top: 50%;
-    left: 15%;
-    transform: translateY(-50%);
-}
 .teacher-navbar {
     height: 100%;
     overflow-y: scroll;
@@ -121,77 +74,32 @@
     background: linear-gradient(#564282, #826a91);
     border-radius: 50px;
 }
-@media only screen and (max-width: 1200px){
-    .Nav ul {
-        padding: 0 10px;
-    }
-    
-    .Nav ul li {
-        position: relative;
-        padding: 5px 0px;
-    }
-    
-    .Nav ul li a {
-        display: block;
-        border-radius: 15px;
-        text-transform: capitalize;
-        width: 100%;
-        padding: 14px 15px 14px 65px;
-        font-family: sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 15px;
-        letter-spacing: 0.9px;
-        color: #ffffff;
-    }
-    
-    .Nav ul li img {
+@media only screen and (max-width: 1200px) {
+    .both_nav_class ul li img {
         width: 25px;
         height: 25px;
-        object-fit: cover;
-        position: absolute;
-        top: 50%;
-        left: 10%;
-        transform: translateY(-50%);
     }
-}
-@media only screen and (max-width: 950px){   
-    .Nav ul li a {
-        display: block;
-        border-radius: 15px;
-        text-transform: capitalize;
-        width: 100%;
-        padding: 14px 15px 14px 55px;
-        font-family: sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 15px;
-        letter-spacing: 0.9px;
-        color: #ffffff;
-    }
-
 }
 @media only screen and (max-width: 850px) {
- 
+    .both_nav_class li {
+        gap: 15px;
+        padding: 12px 25px;
+        margin-bottom: 8px;
+        border-radius: 25px;
+    }
+    .teacher-navbar {
+        height: 97dvh;
+    }
     .circle {
         background-color: #3e305c;
         padding: 10px;
         width: 40px;
         height: 40px;
-        margin-top: 3%;
-        margin-left: 3%;
+        margin-top: 5%;
+        margin-left: 5%;
         margin-bottom: 5px;
     }
     .studentNavbar-box {
         display: none;
-    }
-    .teacher-navbar ul li img {
-        left: 10%;
-    }
-
-    .Nav ul li img {
-        left: 10%;
     }
 }

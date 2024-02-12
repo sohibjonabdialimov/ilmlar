@@ -36,16 +36,17 @@ function LessonsTeacher(props) {
   };
 
   return (
-    <div className="teacher edit_teacher">
+    <>
       <div className={modal ? "def modal-navbar" : "def yoq"}>
         <TeacherNavbar changeModal={changeModal} modal={modal} />
       </div>
       <div
-        className={
-          modal || modalDarslar
-            ? "blur w100 main_lesson mobile"
-            : "w100 main_lesson"
-        }
+        // className={
+        //   modal || modalDarslar
+        //     ? "blur w100 main_lesson mobile"
+        //     : "w100 main_lesson"
+        // }
+        className="mobile_display_none"
       >
         <MobileHeader
           changeModalDars={changeModalDars}
@@ -71,7 +72,7 @@ function LessonsTeacher(props) {
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
