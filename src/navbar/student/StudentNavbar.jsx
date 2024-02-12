@@ -88,7 +88,7 @@ function StudentNavbar({ changeModal, modal }) {
             }}
           >
             <img className="navbar_back" src={or4} alt="" />
-            <Link>orqaga</Link>
+            <p>orqaga</p>
           </li>
         )}
       </ul>
