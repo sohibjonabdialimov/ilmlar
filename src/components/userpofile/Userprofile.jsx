@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import "./style.css";
-import { profileContext } from "../../contexts/profileContext";
 import defaultimg from "../../imgs/user-1.png";
+import { profileContext } from "../../services/providers/profileContext";
 function deleteplatforma(url) {
   try {
     if (url?.includes("platforma")) {

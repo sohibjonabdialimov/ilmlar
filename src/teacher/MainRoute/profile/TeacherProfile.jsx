@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import MobileHeader from "../../../components/mobileHeader/mobileHeader";
 import TeacherNavbar from "../../../navbar/teacher/TeacherNavbar";
 import { useContext } from "react";
-import { teacherProfileContext } from "../../../contexts/teacherProfilContext";
+import { teacherProfileContext } from "../../../services/providers/teacherProfilContext";
 function deleteplatforma(url) {
   try {
     if (url.includes("platforma")) {
@@ -47,11 +47,6 @@ function TeacherProfile() {
         <TeacherNavbar changeModal={changeModal} modal={modal} />
       </div>
       <div
-        // className={
-        //   modal || modalDarslar
-        //     ? "blur w100 main_lesson mobile mobile_none"
-        //     : "w100 main_lesson mobile_none"
-        // }
         className="mobile_display_none"
       >
         <MobileHeader

@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import "./style.css";
 import prev from "../../imgs/prev.svg";
+import { myCoursesContext } from "../../services/providers/myCoursesContext";
 
-import { myCoursesContext } from "../../contexts/myCoursesContext";
 function deleteplatforma(url) {
   try {
     if (url.includes("platforma")) {

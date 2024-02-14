@@ -2,7 +2,7 @@ import TeachNav from "../../navbar/teacher/TeacherNavbar";
 import { Outlet, useNavigate } from "react-router-dom";
 import "../style.css";
 import { useContext, useEffect } from "react";
-import { teacherProfileContext } from "../../contexts/teacherProfilContext";
+import { teacherProfileContext } from "../../services/providers/teacherProfilContext";
 import axios from "axios";
 
 const TeacherLayout = () => {

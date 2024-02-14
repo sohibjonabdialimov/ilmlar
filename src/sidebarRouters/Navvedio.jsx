@@ -2,8 +2,8 @@ import React, { memo, useContext } from "react";
 import "./index.css";
 import prev from "../imgs/prev.svg";
 import { useNavigate } from "react-router-dom";
-import { myCoursesContext } from "../contexts/myCoursesContext";
-import { saveCoursesContext } from "../contexts/saveCoursesContext";
+import { myCoursesContext } from "../services/providers/myCoursesContext";
+import { saveCoursesContext } from "../services/providers/saveCoursesContext";
 function deleteplatforma(url) {
   try {
     if (url.includes("platforma")) {

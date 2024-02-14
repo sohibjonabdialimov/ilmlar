@@ -1,7 +1,7 @@
 import React, { memo, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
-import { myCoursesContext } from "../contexts/myCoursesContext";
+import { myCoursesContext } from "../services/providers/myCoursesContext";
 
 const Darslar = () => {
   const navigate = useNavigate();

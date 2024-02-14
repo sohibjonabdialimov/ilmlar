@@ -4,7 +4,7 @@ import "./style.css";
 import "../style.css";
 import MobileHeader from "../../../components/mobileHeader/mobileHeader";
 import TeacherNavbar from "../../../navbar/teacher/TeacherNavbar";
-import { teacherProfileContext } from "../../../contexts/teacherProfilContext";
+import { teacherProfileContext } from "../../../services/providers/teacherProfilContext";
 
 let money = 650000;
 money = money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");

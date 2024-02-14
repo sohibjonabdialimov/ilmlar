@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import user from "../../../imgs/user-1.png";
 import camera from "../../../imgs/camera.png";
 import axios from "axios";
-import { profileContext } from "../../../contexts/profileContext";
 import urlJoin from "url-join";
+import { profileContext } from "../../../services/providers/profileContext";
 function deleteplatforma(url) {
   try {
     if (url?.includes("platforma")) {

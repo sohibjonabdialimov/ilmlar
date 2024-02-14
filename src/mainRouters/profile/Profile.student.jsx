@@ -4,10 +4,8 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 import StudentNavbar from "../../navbar/student/StudentNavbar";
 import MobileHeader from "../../components/mobileHeader/mobileHeader";
-import axios from "axios";
 import default_img from "../../imgs/user-1.png";
-import urlJoin from "url-join";
-import { profileContext } from "../../contexts/profileContext";
+import { profileContext } from "../../services/providers/profileContext";
 function deleteplatforma(url) {
   try {
     if (url?.includes("platforma")) {

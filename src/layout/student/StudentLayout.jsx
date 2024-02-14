@@ -1,12 +1,12 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import "../style.css";
 import StudentNavbar from "../../navbar/student/StudentNavbar";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect} from "react";
 import axios from "axios";
-import { profileContext } from "../../contexts/profileContext";
-import { myCoursesContext } from "../../contexts/myCoursesContext";
-import { saveCoursesContext } from "../../contexts/saveCoursesContext";
-import { subsTeacherContext } from "../../contexts/subsTeacherContext";
+import { profileContext } from "../../services/providers/profileContext";
+import { saveCoursesContext } from "../../services/providers/saveCoursesContext";
+import { subsTeacherContext } from "../../services/providers/subsTeacherContext";
+import { myCoursesContext } from "../../services/providers/myCoursesContext";
 
 function StudentLayout() {
   const navigate = useNavigate();

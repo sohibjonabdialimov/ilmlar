@@ -5,7 +5,7 @@ import axios from "axios";
 import camera from "../../../imgs/camera.png";
 import user from "../../../imgs/user-1.png";
 import urlJoin from "url-join";
-import { teacherProfileContext } from "../../../contexts/teacherProfilContext";
+import { teacherProfileContext } from "../../../services/providers/teacherProfilContext";
 
 function deleteplatforma(url) {
   try {

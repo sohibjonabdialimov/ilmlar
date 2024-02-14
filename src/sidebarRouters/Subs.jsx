@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import defaultuser from "../imgs/user-1.png";
 import urlJoin from "url-join";
-import { subsTeacherContext } from "../contexts/subsTeacherContext";
+import { subsTeacherContext } from "../services/providers/subsTeacherContext";
 function deleteplatforma(url) {
   try {
     if (url.includes("platforma")) {
@@ -21,7 +21,6 @@ function deleteplatforma(url) {
 const Subs = () => {
   const navigate = useNavigate();
   const { subsTeacher } = useContext(subsTeacherContext);
-  console.log(subsTeacher);
   return (
     <div className="carts-wrapper">
       {subsTeacher?.map((item, index) => (

@@ -7,7 +7,7 @@ import t2 from "../../imgs/t2.svg";
 import t3 from "../../imgs/t3.svg";
 import t6 from "../../imgs/t6.svg";
 import prev from "../../imgs/prev.svg";
-import { teacherNavbarContext } from "../../contexts/teacherNavbarContext";
+import { teacherNavbarContext } from "../../services/providers/teacherNavbarContext";
 function TeacherNavbar({ changeModal, modal }) {
   const [modalClass, setModalClass] = useState("");
   const navigate = useNavigate();

@@ -7,7 +7,7 @@ import t2 from "../../imgs/t2.svg";
 import t6 from "../../imgs/t6.svg";
 import prev from "../../imgs/prev.svg";
 import or4 from "../../imgs/or4.svg";
-import { studentNavbarContext } from "../../contexts/studentNavbarContext";
+import { studentNavbarContext } from "../../services/providers/studentNavbarContext";
 function StudentNavbar({ changeModal, modal }) {
   const { lesson, setLesson, balance, setBalance, profile, setProfile } =
     useContext(studentNavbarContext);
