@@ -1,9 +1,9 @@
-import Hero from "./landing_components/hero/Hero";
-import About from "./landing_components/about/About";
-import Teacher from "./landing_components/teacher/Teacher";
-import Student from "./landing_components/student/Student";
-import Footer from "./landing_components/footer/Footer";
-import "./landing_components/style.css";
+import About from "./components/platforma-main/about/About";
+import Footer from "./components/platforma-main/footer/Footer";
+import Hero from "./components/platforma-main/hero/Hero";
+import Student from "./components/platforma-main/student/Student";
+import Teacher from "./components/platforma-main/teacher/Teacher";
+import "./components/platforma-main/style.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 function Begin() {

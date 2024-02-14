@@ -6,19 +6,14 @@ import "../style.css";
 import StudentNavbar from "../../navbar/student/StudentNavbar";
 import MobileHeader from "../../components/mobileHeader/mobileHeader";
 import axios from "axios";
-import Loader from "../../loader/Loader";
 import Skeleton from "../../components/ui/Skeleton";
-// import { Skeleton } from "antd";
 
 function Lessons() {
   const [courses, setCourses] = useState([]);
-  const [loader, setLoader] = useState(false);
   const [query, setquery] = useState("");
 
   useEffect(() => {
-    setLoader(true);
     axios.get("https://api.ilmlar.com/courses/?q=" + query).then((res) => {
-      setLoader(false);
       setCourses(res.data);
     });
   }, [query]);

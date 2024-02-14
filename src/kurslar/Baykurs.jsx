@@ -2,14 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "./courseInfo.css";
 import VideosNavbar from "../components/videosTeacherNavbar/VideosNavbar";
-import or3 from "../imgs/or3.svg";
-
 import styles from "./courseInfo.module.css";
 import axios from "axios";
 import MobileHeader from "../components/mobileHeader/mobileHeader";
 import ReactPlayer from "react-player";
-import Loader from "../loader/Loader";
-import VideoPlayer from 'react-video-js-player';
+import Loader from "../components/ui/loader/Loader";
 
 function deleteplatforma(url) {
   try {
@@ -46,7 +43,6 @@ function deleteplatforma(url) {
 //   xhr.send();
 // }
 
-
 function Baykurs() {
   const { kursId } = useParams();
   const courseId = kursId;
@@ -55,8 +51,6 @@ function Baykurs() {
   const [courseData, setCourseData] = useState([]);
   const [courseIndex, setCourseIndex] = useState(1);
   const [selectedVideo, setSelectedVideo] = useState({});
-  const [videoUrl, setVideoUrl] = useState("");
-  const [blobUrl, setBlobUrl] = useState(null);
 
   const customBlobUrlFunc = (src) => {
     let xhr = new XMLHttpRequest();
@@ -65,9 +59,8 @@ function Baykurs() {
     xhr.onload = (e) => {
       let blob = new Blob([xhr.response]);
       let url = URL.createObjectURL(blob);
-      setBlobUrl(url);
     };
-  
+
     xhr.send();
   };
 
@@ -103,14 +96,13 @@ function Baykurs() {
   }, [courseId]);
   useEffect(() => {
     if (selectedVideo.orni) {
-      
       // let stroka = `https://api.ilmlar.com/${deleteplatforma(
       //   selectedVideo?.orni
       // )}`;
       console.log("ishl");
-      customBlobUrlFunc(`https://api.ilmlar.com/${deleteplatforma(
-        selectedVideo?.orni
-      )}`);
+      customBlobUrlFunc(
+        `https://api.ilmlar.com/${deleteplatforma(selectedVideo?.orni)}`
+      );
       // console.log(stroka);
       // let blob = new Blob([stroka], { type: "text/plain" });
       // console.log(blob);
@@ -124,7 +116,6 @@ function Baykurs() {
     }
   };
   const handleVideoSelection = (video) => {
-    setBlobUrl(null);
     setSelectedVideo(video);
   };
   const handleCourseIndex = (index) => {
@@ -181,7 +172,7 @@ function Baykurs() {
             </div>
           </div>
           <div className="video_information video_information_scroll">
-          {/* <VideoPlayer
+            {/* <VideoPlayer
                     controls={true}
                     src={this.state.video.src}
                     poster={this.state.video.poster}
@@ -189,11 +180,9 @@ function Baykurs() {
                     height="420"
                     onReady={this.onPlayerReady.bind(this)}
                 /> */}
-            {
-            selectedVideo?.orni ? (
+            {selectedVideo?.orni ? (
               <ReactPlayer
                 playing={true}
-                
                 ref={videoRef}
                 // onClick={() =>
                 //   customBlobUrlFunc(
@@ -233,8 +222,9 @@ function Baykurs() {
                 // }}
                 // config={{ file: { attributes: { controlsList: "nodownload" } } }}
               />
-            ) : <Loader />
-            }
+            ) : (
+              <Loader />
+            )}
 
             <div className="video_information_content">
               <h3>

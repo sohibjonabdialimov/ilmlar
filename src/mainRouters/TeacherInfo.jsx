@@ -1,15 +1,12 @@
 import React, { memo, useEffect, useState } from "react";
-import Comminets from "../sidebarRouters/commentsList/CommentsList";
-import Darslar from "../sidebarRouters/Darslar";
 import { useNavigate, useParams } from "react-router-dom";
 import "./style.css";
-import Obuna from "../sidebarRouters/Obuna";
 import Subs from "../sidebarRouters/Subs";
 import axios from "axios";
-import Loader from "../loader/Loader";
 import urlJoin from "url-join";
 import MobileHeader from "../components/mobileHeader/mobileHeader";
 import defaultuser from "../imgs/user-1.png";
+import Loader from "../components/ui/loader/Loader";
 
 function TeacherInfo() {
   const [profile, setProfil] = useState({});
