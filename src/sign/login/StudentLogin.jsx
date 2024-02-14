@@ -41,13 +41,13 @@ const StudentLogin = () => {
   const onSubmit = (data) => {
     setButtonLoading(true);
     axios
-    .post("https://api.ilmlar.com/users/login", data)
-    .then((res) => {
-      console.log(res);
-      if (res.status === 200) {
-        localStorage.setItem("token", res.data.token);
-        navigate("/student/");
-        reset();
+      .post("https://api.ilmlar.com/users/login", data)
+      .then((res) => {
+        console.log(res);
+        if (res.status === 200) {
+          localStorage.setItem("token", res.data.token);
+          navigate("/student/");
+          reset();
         }
       })
       .catch((err) => {

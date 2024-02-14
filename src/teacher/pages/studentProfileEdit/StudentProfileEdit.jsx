@@ -43,7 +43,6 @@ const StudentProfileEdit = () => {
       `${firstnameref.current.value} ${lastnameref.current.value}`
     );
     formData.append("username", usernameRef.current.value);
-    // console.log("file", userimgRef.current.files[0]);
     formData.append("file", userimgRef.current.files[0]);
     axios
       .put("https://api.ilmlar.com/users/", formData, {
@@ -55,8 +54,8 @@ const StudentProfileEdit = () => {
       .then((res) => {
         setProfile(res.data);
         console.log(res.data);
-        navigate("/student/profile");
-        location.reload();
+        navigate("/student/profile/subs");
+        // location.reload();
       })
       .catch((error) => console.log(error));
   };
