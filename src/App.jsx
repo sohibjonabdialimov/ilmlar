@@ -7,14 +7,11 @@ import Darslar from "./sidebarRouters/Darslar";
 import TeacherInfo from "./mainRouters/TeacherInfo";
 import TeachPulyichishok from "./teacher/MainRoute/moneyProcess/Pulyichishok";
 import TeachEditProfile from "./teacher/MainRoute/editProfile/TeachEditProfile";
-import StudentLayout from "./layout/student/StudentLayout";
 import Lessons from "./mainRouters/lessons/Lessons.student";
 import Balance from "./mainRouters/balance/Balance.student";
-import Begin from "./Begin";
 import AboutCourseInfo from "./kurslar/AboutCourseInfo";
 import Profile from "./mainRouters/profile/Profile.student";
 import CourseStatistic from "./teacher/MainRoute/courseStatistic/CourseStatistic";
-import TeacherLayout from "./layout/teacher/TeacherLayout";
 import LessonsTeacher from "./teacher/MainRoute/Lessons/LessonsTeacher";
 import TakingMoney from "./teacher/MainRoute/takingMoney/TakingMoney";
 import PaidCourseDownload from "./teacher/MainRoute/paidCouseDownload/PaidCourseDownload";
@@ -35,12 +32,15 @@ import NotBoughtCourse from "./kurslar/NotBoughtCourse";
 import SelectLogin from "./select/SelectLogin";
 import PrivateStudentRoutes from "./services/privateRoutes/PrivateStudentRoutes";
 import PrivateTeacherRoutes from "./services/privateRoutes/PrivateTeacherRoutes";
+import PlatformMain from "./pages/PlatformMain";
+import StudentLayout from "./layout/StudentLayout";
+import TeacherLayout from "./layout/TeacherLayout";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Begin />} />
+        <Route path="/" element={<PlatformMain />} />
         <Route path="login" element={<StudentLogin />} />
         <Route path="registration" element={<StudentRegistration />} />
         <Route path="teacherlogin" element={<TeacherLogin />} />

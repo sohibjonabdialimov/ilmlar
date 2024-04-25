@@ -15,9 +15,7 @@
 .teacher .main_lesson {
   display: none;
 }
-/* .teacherHomePage {
-  height: 100%;
-} */
+
 @media only screen and (max-width: 1300px) {
   .app-content {
     gap: 10px;

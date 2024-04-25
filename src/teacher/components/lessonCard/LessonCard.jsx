@@ -56,10 +56,7 @@ const LessonCard = (props) => {
     },
   ];
   return (
-    <div
-     
-      className=""
-    >
+    <div className="">
       <div className="main-cart">
         <img
           onClick={() => {

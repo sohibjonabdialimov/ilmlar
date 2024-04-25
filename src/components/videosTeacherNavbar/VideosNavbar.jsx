@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import prev from "../../imgs/prev.svg";
-import or1 from "../../imgs/or1.svg";
 import or2 from "../../imgs/or2.svg";
 import './style.css';
 function VideosNavbar(props) {

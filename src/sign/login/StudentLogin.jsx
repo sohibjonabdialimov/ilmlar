@@ -40,6 +40,7 @@ const StudentLogin = () => {
   };
   const onSubmit = (data) => {
     setButtonLoading(true);
+    console.log(data);
     axios
       .post("https://api.ilmlar.com/users/login", data)
       .then((res) => {

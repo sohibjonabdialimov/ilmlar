@@ -1,23 +1,19 @@
-import { Outlet, useNavigate } from "react-router-dom";
-import "../style.css";
-import StudentNavbar from "../../navbar/student/StudentNavbar";
-import { useContext, useEffect} from "react";
+import { Outlet } from "react-router-dom";
+import "./style.css";
+import StudentNavbar from "../navbar/student/StudentNavbar";
+import { useContext, useEffect } from "react";
 import axios from "axios";
-import { profileContext } from "../../services/providers/profileContext";
-import { saveCoursesContext } from "../../services/providers/saveCoursesContext";
-import { subsTeacherContext } from "../../services/providers/subsTeacherContext";
-import { myCoursesContext } from "../../services/providers/myCoursesContext";
+import { profileContext } from "../services/providers/profileContext";
+import { saveCoursesContext } from "../services/providers/saveCoursesContext";
+import { subsTeacherContext } from "../services/providers/subsTeacherContext";
+import { myCoursesContext } from "../services/providers/myCoursesContext";
 
 function StudentLayout() {
-  const navigate = useNavigate();
-  const {profile, setProfile} = useContext(profileContext);
-  const {setMyCourses} = useContext(myCoursesContext);
-  const {setSave} = useContext(saveCoursesContext);
-  const {setSubsTeacher} = useContext(subsTeacherContext);
+  const { profile, setProfile } = useContext(profileContext);
+  const { setMyCourses } = useContext(myCoursesContext);
+  const { setSave } = useContext(saveCoursesContext);
+  const { setSubsTeacher } = useContext(subsTeacherContext);
   useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      navigate("/login");
-    }
     axios
       .get("https://api.ilmlar.com/usersme", {
         headers: {
@@ -29,9 +25,8 @@ function StudentLayout() {
       });
   }, []);
 
-
   useEffect(() => {
-    const fetchMyCourses= async () => {
+    const fetchMyCourses = async () => {
       const fetchedMyCourseData = [];
       for (let i = 0; i < profile?.mycurs.length; i++) {
         const response = await axios.get(
