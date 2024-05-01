@@ -132,7 +132,6 @@
 .modal-navbar .videos_navbar {
   width: 100%;
   position: absolute;
-  /* left: -400%; */
   animation-name: mobileBurger;
   animation-duration: 1s;
   animation-fill-mode: forwards;

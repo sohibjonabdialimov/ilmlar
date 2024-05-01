@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./courseInfo.css";
 import VideosNavbar from "../../../components/videosTeacherNavbar/VideosNavbar";
 
 import styles from "./courseInfo.module.css";
-import "./CourseInfo.css"
-import video_player from "../../../imgs/video_player.png";
-import VideoInformation from "../../components/videoInformation/VideoInformation";
 import axios from "axios";
 import MobileHeader from "../../../components/mobileHeader/mobileHeader";
 import ReactPlayer from "react-player";

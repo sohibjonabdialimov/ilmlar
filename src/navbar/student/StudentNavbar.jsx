@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../style.css";
 import Userprofile from "../../components/userpofile/Userprofile";
 import t1 from "../../imgs/t1.svg";
