@@ -52,7 +52,7 @@ function Navvedio({ modalDarslar, changeModalDars, topic }) {
               }}
             >
               <img
-                src={"https://api.ilmlar.com" + deleteplatforma(item.obloshka)}
+                src={"http://64.226.118.71:5001" + deleteplatforma(item.obloshka)}
                 alt=""
               />
               <div className="text_info">
@@ -74,7 +74,7 @@ function Navvedio({ modalDarslar, changeModalDars, topic }) {
               }}
             >
               <img
-                src={"https://api.ilmlar.com" + deleteplatforma(item.obloshka)}
+                src={"http://64.226.118.71:5001" + deleteplatforma(item.obloshka)}
                 alt=""
               />
               <div className="text_info">

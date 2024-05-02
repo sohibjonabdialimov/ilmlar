@@ -82,7 +82,7 @@ function TeachUpdateonekurs() {
   const onSendForm = async (e) => {
     await axios
       .put(
-        `https://api.ilmlar.com/courses/${courseId}`,
+        `http://64.226.118.71:5001/courses/${courseId}`,
         {
           name: courseNameRef.current.value,
           desc: courseDescRef.current.value,
@@ -113,7 +113,7 @@ function TeachUpdateonekurs() {
   useEffect(() => {
     axios
       .post(
-        "https://api.ilmlar.com/courseone/me",
+        "http://64.226.118.71:5001/courseone/me",
         { cursId: courseId },
         {
           headers: {

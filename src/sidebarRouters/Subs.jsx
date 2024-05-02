@@ -36,7 +36,7 @@ const Subs = () => {
             <img
               className="teacher_img"
               src={urlJoin(
-                "https://api.ilmlar.com",
+                "http://64.226.118.71:5001",
                 `${deleteplatforma(item.path)}`
               )}
               alt=""

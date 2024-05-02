@@ -11,7 +11,7 @@ const TeacherLayout = () => {
   );
   useEffect(() => {
     axios
-      .get("https://api.ilmlar.com/teacherme/", {
+      .get("http://64.226.118.71:5001/teacherme/", {
         headers: {
           Authorization: localStorage.getItem("token"),
         },

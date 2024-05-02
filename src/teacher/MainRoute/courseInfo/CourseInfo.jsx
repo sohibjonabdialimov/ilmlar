@@ -13,8 +13,7 @@ function deleteplatforma(url) {
     if (url.includes("platforma")) {
       const parts = url.split("/");
       const s = parts.slice(2).join("/");
-      // console.log(s);
-      return s; // Remove the first 3 segments of the URL
+      return s; 
     }
     return url;
   } catch (error) {
@@ -50,7 +49,7 @@ function CourseInfo() {
   useEffect(() => {
     axios
       .post(
-        "https://api.ilmlar.com/courseone/me",
+        "http://64.226.118.71:5001/courseone/me",
         { cursId: courseId },
         {
           headers: {
@@ -124,7 +123,7 @@ function CourseInfo() {
           <div className="video_information video_information_scroll">
           <ReactPlayer
               playing={true}
-              url={`https://api.ilmlar.com/${deleteplatforma(
+              url={`http://64.226.118.71:5001/${deleteplatforma(
                 selectedVideo.orni
               )}`}
               alt="Video"
@@ -138,7 +137,7 @@ function CourseInfo() {
               config={{ file: { attributes: { controlsList: "nodownload" } } }}
             />
               {/* <video
-                src={`https://api.ilmlar.com/${deleteplatforma(
+                src={`http://64.226.118.71:5001/${deleteplatforma(
                   selectedVideo.orni
                 )}`}
                 alt=""

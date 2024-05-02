@@ -39,7 +39,7 @@ function AboutCourseInfo() {
   function savekurs(id) {
     axios
       .post(
-        "https://api.ilmlar.com/users/savecurs",
+        "http://64.226.118.71:5001/users/savecurs",
         {
           cursId: id,
         },
@@ -55,7 +55,7 @@ function AboutCourseInfo() {
 
   useEffect(() => {
     axios
-      .get("https://api.ilmlar.com/usersme", {
+      .get("http://64.226.118.71:5001/usersme", {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
@@ -99,7 +99,7 @@ function AboutCourseInfo() {
   }
   useEffect(() => {
     axios
-      .get("https://api.ilmlar.com/courses/" + kursId, {
+      .get("http://64.226.118.71:5001/courses/" + kursId, {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
@@ -109,8 +109,8 @@ function AboutCourseInfo() {
         axios
           .get(
             res.data.teacher_Id
-              ? "https://api.ilmlar.com/teacherinfo/" + res.data.teacher_Id
-              : "https://api.ilmlar.com/teacherinfo/" + res.data.teacherId
+              ? "http://64.226.118.71:5001/teacherinfo/" + res.data.teacher_Id
+              : "http://64.226.118.71:5001/teacherinfo/" + res.data.teacherId
           )
           .then((res) => {
             setTeacher(res.data);
@@ -119,7 +119,7 @@ function AboutCourseInfo() {
   }, []);
   useEffect(() => {
     axios
-      .get("https://api.ilmlar.com/usersme", {
+      .get("http://64.226.118.71:5001/usersme", {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
@@ -203,7 +203,7 @@ function AboutCourseInfo() {
               kurs?.obloshka ? 
               <img
                 className="every__cource-bigImg"
-                src={urlJoin("https://api.ilmlar.com/", `${kurs?.obloshka}`)}
+                src={urlJoin("http://64.226.118.71:5001/", `${kurs?.obloshka}`)}
                 alt=""
               /> : <img
               className="every__cource-bigImg"
@@ -218,7 +218,7 @@ function AboutCourseInfo() {
                 disablePictureInPicture
                 controlsList="nodownload"
                 className="every__cource-bigImg"
-                src={urlJoin("https://api.ilmlar.com/", `${kurs?.treeler}`)}
+                src={urlJoin("http://64.226.118.71:5001/", `${kurs?.treeler}`)}
               ></video>
             )}
           </div>
@@ -238,7 +238,7 @@ function AboutCourseInfo() {
                   <img
                     className="small_img"
                     src={urlJoin(
-                      "https://api.ilmlar.com",
+                      "http://64.226.118.71:5001",
                       `${deleteplatforma(teacher.path)}`
                     )}
                     alt=""

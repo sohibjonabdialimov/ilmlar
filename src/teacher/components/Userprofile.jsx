@@ -30,7 +30,7 @@ function TeachUserprofile() {
           {teacherProfile?.path ? (
             <img
               src={
-                "https://api.ilmlar.com" + deleteplatforma(teacherProfile?.path)
+                "http://64.226.118.71:5001" + deleteplatforma(teacherProfile?.path)
               }
               alt=""
             />

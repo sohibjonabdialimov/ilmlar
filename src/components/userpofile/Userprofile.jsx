@@ -30,7 +30,7 @@ function Userprofile() {
         <div className="flex items-center justify-center">
           {profile?.path ? (
             <img
-              src={"https://api.ilmlar.com" + deleteplatforma(profile?.path)}
+              src={"http://64.226.118.71:5001" + deleteplatforma(profile?.path)}
               alt=""
             />
           ) : (

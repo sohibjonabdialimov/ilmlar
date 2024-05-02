@@ -52,7 +52,7 @@ function CommentsList({ modalDarslar, changeModalDars, commints }) {
     if (izohref.current.value.trim() !== "") {
       axios
         .post(
-          "https://api.ilmlar.com/courses/commint",
+          "http://64.226.118.71:5001/courses/commint",
           {
             cursId: cursId,
             text: izohref.current.value.trim(),
@@ -84,7 +84,7 @@ function CommentsList({ modalDarslar, changeModalDars, commints }) {
 
   useEffect(() => {
     axios
-      .get("https://api.ilmlar.com/usersme", {
+      .get("http://64.226.118.71:5001/usersme", {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
@@ -122,7 +122,7 @@ function CommentsList({ modalDarslar, changeModalDars, commints }) {
                     <img
                       width={"35px"}
                       src={
-                        "https://api.ilmlar.com" +
+                        "http://64.226.118.71:5001" +
                         deleteplatforma(commint.userPath)
                       }
                       alt=""

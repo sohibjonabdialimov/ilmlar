@@ -58,7 +58,7 @@ const StudentRegistration = () => {
     delete data.surname;
     setButtonLoading(true);
     axios
-      .post("https://api.ilmlar.com/users/register/", data)
+      .post("http://64.226.118.71:5001/users/register/", data)
       .then((response) => {
         console.log(response);
         setverifycode(true);
@@ -96,7 +96,7 @@ const StudentRegistration = () => {
   //   setemail(emailRef.current.value);
   //   console.log(formData);
   //   axios
-  //     .post("https://api.ilmlar.com/users/register/", formData)
+  //     .post("http://64.226.118.71:5001/users/register/", formData)
   //     .then((response) => {
   //       toast.info(
   //         `${emailRef.current.value} ga kod yuborildi. Tasdiqlash kodni kiriting`,
@@ -125,7 +125,7 @@ const StudentRegistration = () => {
       code: emailcodeRef.current.value,
     });
     axios
-      .post("https://api.ilmlar.com/users/register/verify", {
+      .post("http://64.226.118.71:5001/users/register/verify", {
         email: email,
         code: emailcodeRef.current.value,
       })

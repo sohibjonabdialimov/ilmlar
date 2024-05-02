@@ -10,7 +10,7 @@ function LessonsTeacher(props) {
   const [courses, setCourses] = useState([]);
   useEffect(() => {
     axios
-      .get("https://api.ilmlar.com/teacher-mycurs/", {
+      .get("http://64.226.118.71:5001/teacher-mycurs/", {
         headers: {
           Authorization: localStorage.getItem("token"),
         },

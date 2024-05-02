@@ -62,7 +62,7 @@ const LessonCard = (props) => {
           onClick={() => {
             navigate("/teacher/course/" + courseId);
           }}
-          src={"https://api.ilmlar.com" + deleteplatforma(props.cart.obloshka)}
+          src={"http://64.226.118.71:5001" + deleteplatforma(props.cart.obloshka)}
           alt=""
         />
         <div className="cart__content">

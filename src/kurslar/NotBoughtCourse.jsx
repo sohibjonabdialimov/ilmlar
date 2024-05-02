@@ -38,7 +38,7 @@ function NotBoughtCourse() {
   }
   useEffect(() => {
     axios
-      .get("https://api.ilmlar.com/courses/" + kursId, {
+      .get("http://64.226.118.71:5001/courses/" + kursId, {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
@@ -48,8 +48,8 @@ function NotBoughtCourse() {
         axios
           .get(
             res.data.teacher_Id
-              ? "https://api.ilmlar.com/teacherinfo/" + res.data.teacher_Id
-              : "https://api.ilmlar.com/teacherinfo/" + res.data.teacherId
+              ? "http://64.226.118.71:5001/teacherinfo/" + res.data.teacher_Id
+              : "http://64.226.118.71:5001/teacherinfo/" + res.data.teacherId
           )
           .then((res) => {
             setTeacher(res.data);
@@ -69,7 +69,7 @@ function NotBoughtCourse() {
   function kursOlish(kursId) {
     axios
       .post(
-        "https://api.ilmlar.com/baycurs",
+        "http://64.226.118.71:5001/baycurs",
         {
           cursId: kursId,
         },
@@ -116,7 +116,7 @@ function NotBoughtCourse() {
             className="every__cource-bigImg"
             style={{
               backgroundImage: `url(${urlJoin(
-                "https://api.ilmlar.com/",
+                "http://64.226.118.71:5001/",
                 `${kurs?.obloshka}`
               )})`,
             }}
@@ -135,7 +135,7 @@ function NotBoughtCourse() {
                   <img
                     className="small_img"
                     src={urlJoin(
-                      "https://api.ilmlar.com",
+                      "http://64.226.118.71:5001",
                       `${deleteplatforma(teacher.path)}`
                     )}
                     alt=""

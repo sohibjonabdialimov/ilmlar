@@ -34,7 +34,7 @@ const Darslar = () => {
           className="cursor_bought_class bought_lessons"
         >
           <img
-            src={"https://api.ilmlar.com" + deleteplatforma(item.obloshka)}
+            src={"http://64.226.118.71:5001" + deleteplatforma(item.obloshka)}
             alt=""
           />
           <div className="text_info">

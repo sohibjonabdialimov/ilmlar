@@ -42,7 +42,7 @@ const StudentLogin = () => {
     setButtonLoading(true);
     console.log(data);
     axios
-      .post("https://api.ilmlar.com/users/login", data)
+      .post("http://64.226.118.71:5001/users/login", data)
       .then((res) => {
         console.log(res);
         if (res.status === 200) {

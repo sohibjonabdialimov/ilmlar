@@ -57,8 +57,9 @@ const TeacherRegistration = () => {
     delete data.name;
     delete data.surname;
     setButtonLoading(true);
+    console.log(data);
     axios
-      .post("https://api.ilmlar.com/teacher/register/", data)
+      .post("http://64.226.118.71:5001/teacher/register", data)
       .then((response) => {
         toast.info(
           `${data.email} ga kod yuborildi. Tasdiqlash kodini kiriting`,
@@ -73,6 +74,7 @@ const TeacherRegistration = () => {
             theme: "light",
           }
         );
+        console.log(response);
         setverifycode(true);
       })
       .catch((error) => {
@@ -86,7 +88,7 @@ const TeacherRegistration = () => {
     e.preventDefault();
     setButtonLoading(true);
     axios
-      .post("https://api.ilmlar.com/teacher/register/verify", {
+      .post("http://64.226.118.71:5001/teacher/register/verify", {
         email: email,
         code: emailcodeRef.current.value,
       })

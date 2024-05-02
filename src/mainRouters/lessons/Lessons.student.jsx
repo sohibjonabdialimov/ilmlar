@@ -13,12 +13,12 @@ function Lessons() {
   const [query, setquery] = useState("");
 
   useEffect(() => {
-    axios.get("https://api.ilmlar.com/courses/?q=" + query).then((res) => {
+    axios.get("http://64.226.118.71:5001/courses/?q=" + query).then((res) => {
       setCourses(res.data);
     });
   }, [query]);
   function onMore() {
-    axios.get("https://api.ilmlar.com/courses/?q=" + query).then((res) => {
+    axios.get("http://64.226.118.71:5001/courses/?q=" + query).then((res) => {
       setCourses([...courses, ...res.data]);
     });
   }
