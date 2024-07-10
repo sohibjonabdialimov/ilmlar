@@ -42,7 +42,7 @@ const TeacherLogin = () => {
   const onSubmit = (data) => {
     setButtonLoading(true);
     axios
-      .post("http://64.226.118.71:5001/teacher/login", data)
+      .post("https://api.ilmlar.com/teacher/login", data)
       .then((res) => {
         if (res.status === 200) {
           localStorage.setItem("token", res.data.token);

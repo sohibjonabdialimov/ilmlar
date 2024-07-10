@@ -45,7 +45,7 @@ const StudentProfileEdit = () => {
     formData.append("username", usernameRef.current.value);
     formData.append("file", userimgRef.current.files[0]);
     axios
-      .put("http://64.226.118.71:5001/users/", formData, {
+      .put("https://api.ilmlar.com/users/", formData, {
         headers: {
           Authorization: localStorage.getItem("token"),
           "Content-Type": "multipart/form-data",
@@ -84,7 +84,7 @@ const StudentProfileEdit = () => {
                 <img
                   className={style.imgs_div_img}
                   src={urlJoin(
-                    "http://64.226.118.71:5001",
+                    "https://api.ilmlar.com",
                     `${deleteplatforma(profile?.path)}`
                   )}
                   alt=""

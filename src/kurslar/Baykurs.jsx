@@ -81,7 +81,7 @@ function Baykurs() {
 
   useEffect(() => {
     axios
-      .get("http://64.226.118.71:5001/courses/" + kursId, {
+      .get("https://api.ilmlar.com/courses/" + kursId, {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
@@ -96,12 +96,12 @@ function Baykurs() {
   }, [courseId]);
   useEffect(() => {
     if (selectedVideo.orni) {
-      // let stroka = `http://64.226.118.71:5001/${deleteplatforma(
+      // let stroka = `https://api.ilmlar.com/${deleteplatforma(
       //   selectedVideo?.orni
       // )}`;
       console.log("ishl");
       customBlobUrlFunc(
-        `http://64.226.118.71:5001/${deleteplatforma(selectedVideo?.orni)}`
+        `https://api.ilmlar.com/${deleteplatforma(selectedVideo?.orni)}`
       );
       // console.log(stroka);
       // let blob = new Blob([stroka], { type: "text/plain" });
@@ -186,13 +186,13 @@ function Baykurs() {
                 ref={videoRef}
                 // onClick={() =>
                 //   customBlobUrlFunc(
-                //     `http://64.226.118.71:5001/${deleteplatforma(
+                //     `https://api.ilmlar.com/${deleteplatforma(
                 //       selectedVideo?.orni
                 //     )}`,
                 //     videoRef
                 //   )
                 // }
-                url={`http://64.226.118.71:5001/${deleteplatforma(
+                url={`https://api.ilmlar.com/${deleteplatforma(
                   selectedVideo?.orni
                 )}`}
                 // url={blobUrl}

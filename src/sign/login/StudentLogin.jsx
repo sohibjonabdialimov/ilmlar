@@ -42,9 +42,10 @@ const StudentLogin = () => {
     setButtonLoading(true);
     console.log(data);
     axios
-      .post("http://64.226.118.71:5001/users/login", data)
+      .post("https://api.ilmlar.com/users/login", data)
       .then((res) => {
         console.log(res);
+        console.log(import.meta.env.VITE_API_KEY);
         if (res.status === 200) {
           localStorage.setItem("token", res.data.token);
           navigate("/student/");

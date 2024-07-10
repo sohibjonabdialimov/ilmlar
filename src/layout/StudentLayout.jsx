@@ -15,7 +15,7 @@ function StudentLayout() {
   const { setSubsTeacher } = useContext(subsTeacherContext);
   useEffect(() => {
     axios
-      .get("http://64.226.118.71:5001/usersme", {
+      .get("https://api.ilmlar.com/usersme", {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
@@ -30,7 +30,7 @@ function StudentLayout() {
       const fetchedMyCourseData = [];
       for (let i = 0; i < profile?.mycurs.length; i++) {
         const response = await axios.get(
-          "http://64.226.118.71:5001/courses/" + profile.mycurs[i].cursId,
+          "https://api.ilmlar.com/courses/" + profile.mycurs[i].cursId,
           {
             headers: {
               Authorization: localStorage.getItem("token"),
@@ -51,7 +51,7 @@ function StudentLayout() {
       const fetchedTeacherData = [];
       for (let i = 0; i < profile?.savecurss.length; i++) {
         const response = await axios.get(
-          "http://64.226.118.71:5001/courses/" + profile?.savecurss[i],
+          "https://api.ilmlar.com/courses/" + profile?.savecurss[i],
           {
             headers: {
               Authorization: localStorage.getItem("token"),
@@ -72,7 +72,7 @@ function StudentLayout() {
       const fetchedTeacherData = [];
       for (let i = 0; i < profile?.teachers.length; i++) {
         const response = await axios.get(
-          "http://64.226.118.71:5001/teacherinfo/" + profile?.teachers[i]
+          "https://api.ilmlar.com/teacherinfo/" + profile?.teachers[i]
         );
         fetchedTeacherData.push(response.data);
       }

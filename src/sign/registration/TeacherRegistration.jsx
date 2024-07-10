@@ -59,7 +59,7 @@ const TeacherRegistration = () => {
     setButtonLoading(true);
     console.log(data);
     axios
-      .post("http://64.226.118.71:5001/teacher/register", data)
+      .post("https://api.ilmlar.com/teacher/register", data)
       .then((response) => {
         toast.info(
           `${data.email} ga kod yuborildi. Tasdiqlash kodini kiriting`,
@@ -88,7 +88,7 @@ const TeacherRegistration = () => {
     e.preventDefault();
     setButtonLoading(true);
     axios
-      .post("http://64.226.118.71:5001/teacher/register/verify", {
+      .post("https://api.ilmlar.com/teacher/register/verify", {
         email: email,
         code: emailcodeRef.current.value,
       })

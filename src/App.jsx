@@ -35,6 +35,7 @@ import PrivateTeacherRoutes from "./services/privateRoutes/PrivateTeacherRoutes"
 import PlatformMain from "./pages/PlatformMain";
 import StudentLayout from "./layout/StudentLayout";
 import TeacherLayout from "./layout/TeacherLayout";
+console.log(import.meta.env.VITE_API_KEY);
 
 function App() {
   return (

@@ -38,7 +38,7 @@ function TeacherInfo() {
   }
 
   useEffect(() => {
-    axios.get("http://64.226.118.71:5001/teacherinfo/" + teacherId).then((res) => {
+    axios.get("https://api.ilmlar.com/teacherinfo/" + teacherId).then((res) => {
       setTeacherData(res.data.mekurs);
       setProfil(res.data);
     });
@@ -49,7 +49,7 @@ function TeacherInfo() {
   };
   useEffect(() => {
     axios
-      .get("http://64.226.118.71:5001/usersme", {
+      .get("https://api.ilmlar.com/usersme", {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
@@ -71,7 +71,7 @@ function TeacherInfo() {
     setLoader(true);
     for (let i = 0; i < teacherData.length; i++) {
       const response = await axios.get(
-        "http://64.226.118.71:5001/courses/" + teacherData[i],
+        "https://api.ilmlar.com/courses/" + teacherData[i],
         {
           headers: {
             Authorization: localStorage.getItem("token"),
@@ -94,7 +94,7 @@ function TeacherInfo() {
   function saveObuna(id) {
     axios
       .post(
-        "http://64.226.118.71:5001/users/obuna",
+        "https://api.ilmlar.com/users/obuna",
         {
           teacher_Id: id,
         },
@@ -141,7 +141,7 @@ function TeacherInfo() {
                   <img
                     className="teacher_img"
                     src={urlJoin(
-                      "http://64.226.118.71:5001",
+                      "https://api.ilmlar.com",
                       `${deleteplatforma(profile.path)}`
                     )}
                     alt=""
@@ -203,7 +203,7 @@ function TeacherInfo() {
                         >
                           <img
                             src={urlJoin(
-                              "http://64.226.118.71:5001",
+                              "https://api.ilmlar.com",
                               `${deleteplatforma(item.obloshka)}`
                             )}
                             alt=""

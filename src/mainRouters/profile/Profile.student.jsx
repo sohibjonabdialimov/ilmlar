@@ -77,7 +77,7 @@ function Profile() {
           <div className="profile_img_wrapper">
             {profile?.path ? (
               <img
-                src={"http://64.226.118.71:5001" + deleteplatforma(profile?.path)}
+                src={"https://api.ilmlar.com" + deleteplatforma(profile?.path)}
                 alt=""
               />
             ) : (
