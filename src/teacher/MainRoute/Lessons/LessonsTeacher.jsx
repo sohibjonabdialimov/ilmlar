@@ -10,12 +10,14 @@ function LessonsTeacher(props) {
   const [courses, setCourses] = useState([]);
   useEffect(() => {
     axios
-      .get("https://api.ilmlar.com/teacher-mycurs/", {
+      .get(`${import.meta.env.VITE_API_KEY}/teacher-mycurs/`, {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
       })
       .then((res) => {
+        console.log(res.data);
+        
         setCourses(res.data);
       });
   }, []);

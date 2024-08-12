@@ -63,7 +63,7 @@ function TeacherProfile() {
           {teacherProfile?.path ? (
             <img
               src={
-                "https://api.ilmlar.com" + deleteplatforma(teacherProfile?.path)
+                  `${import.meta.env.VITE_API_KEY}` + deleteplatforma(teacherProfile?.path)
               }
               alt=""
             />

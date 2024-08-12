@@ -42,7 +42,7 @@ const TeacherLogin = () => {
   const onSubmit = (data) => {
     setButtonLoading(true);
     axios
-      .post("https://api.ilmlar.com/teacher/login", data)
+      .post(`${import.meta.env.VITE_API_KEY}/teacher/login`, data)
       .then((res) => {
         if (res.status === 200) {
           localStorage.setItem("token", res.data.token);

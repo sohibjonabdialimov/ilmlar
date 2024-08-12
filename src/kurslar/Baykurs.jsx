@@ -81,7 +81,7 @@ function Baykurs() {
 
   useEffect(() => {
     axios
-      .get("https://api.ilmlar.com/courses/" + kursId, {
+      .get(`${import.meta.env.VITE_API_KEY}/courses/` + kursId, {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
@@ -101,7 +101,7 @@ function Baykurs() {
       // )}`;
       console.log("ishl");
       customBlobUrlFunc(
-        `https://api.ilmlar.com/${deleteplatforma(selectedVideo?.orni)}`
+        `${import.meta.env.VITE_API_KEY}/${deleteplatforma(selectedVideo?.orni)}`
       );
       // console.log(stroka);
       // let blob = new Blob([stroka], { type: "text/plain" });
@@ -192,7 +192,7 @@ function Baykurs() {
                 //     videoRef
                 //   )
                 // }
-                url={`https://api.ilmlar.com/${deleteplatforma(
+                url={`${import.meta.env.VITE_API_KEY}/${deleteplatforma(
                   selectedVideo?.orni
                 )}`}
                 // url={blobUrl}

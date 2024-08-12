@@ -11,7 +11,7 @@ const TeacherLayout = () => {
   );
   useEffect(() => {
     axios
-      .get("https://api.ilmlar.com/teacherme/", {
+      .get(`${import.meta.env.VITE_API_KEY}/teacherme/`, {
         headers: {
           Authorization: localStorage.getItem("token"),
         },

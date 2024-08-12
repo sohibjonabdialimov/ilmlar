@@ -42,7 +42,7 @@ const StudentLogin = () => {
     setButtonLoading(true);
     console.log(data);
     axios
-      .post("https://api.ilmlar.com/users/login", data)
+      .post(`${import.meta.env.VITE_API_KEY}/users/login`, data)
       .then((res) => {
         console.log(res);
         console.log(import.meta.env.VITE_API_KEY);

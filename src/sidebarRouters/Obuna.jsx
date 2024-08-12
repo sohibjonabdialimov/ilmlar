@@ -28,6 +28,7 @@ function Obuna({ modalDarslar, changeModalDars, topic, me }) {
             <NavLink to="/student/profile/subs" className={"necha"}>
               obunalar
             </NavLink>
+            
             <NavLink to="/student/profile/darslar">darslar</NavLink>
           </div>
         </div>

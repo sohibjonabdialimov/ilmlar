@@ -38,7 +38,7 @@ function TeacherInfo() {
   }
 
   useEffect(() => {
-    axios.get("https://api.ilmlar.com/teacherinfo/" + teacherId).then((res) => {
+    axios.get(`${import.meta.env.VITE_API_KEY}/teacherinfo/` + teacherId).then((res) => {
       setTeacherData(res.data.mekurs);
       setProfil(res.data);
     });
@@ -49,7 +49,7 @@ function TeacherInfo() {
   };
   useEffect(() => {
     axios
-      .get("https://api.ilmlar.com/usersme", {
+      .get(`${import.meta.env.VITE_API_KEY}/usersme`, {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
@@ -71,7 +71,7 @@ function TeacherInfo() {
     setLoader(true);
     for (let i = 0; i < teacherData.length; i++) {
       const response = await axios.get(
-        "https://api.ilmlar.com/courses/" + teacherData[i],
+        `${import.meta.env.VITE_API_KEY}/courses/` + teacherData[i],
         {
           headers: {
             Authorization: localStorage.getItem("token"),
@@ -94,7 +94,7 @@ function TeacherInfo() {
   function saveObuna(id) {
     axios
       .post(
-        "https://api.ilmlar.com/users/obuna",
+        `${import.meta.env.VITE_API_KEY}/users/obuna`,
         {
           teacher_Id: id,
         },
@@ -141,7 +141,7 @@ function TeacherInfo() {
                   <img
                     className="teacher_img"
                     src={urlJoin(
-                      "https://api.ilmlar.com",
+                      `${import.meta.env.VITE_API_KEY}`,
                       `${deleteplatforma(profile.path)}`
                     )}
                     alt=""
@@ -203,7 +203,7 @@ function TeacherInfo() {
                         >
                           <img
                             src={urlJoin(
-                              "https://api.ilmlar.com",
+                              `${import.meta.env.VITE_API_KEY}`,
                               `${deleteplatforma(item.obloshka)}`
                             )}
                             alt=""

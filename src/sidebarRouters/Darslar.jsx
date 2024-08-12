@@ -34,7 +34,7 @@ const Darslar = () => {
           className="cursor_bought_class bought_lessons"
         >
           <img
-            src={"https://api.ilmlar.com" + deleteplatforma(item.obloshka)}
+            src={`${import.meta.env.VITE_API_KEY}` + deleteplatforma(item.obloshka)}
             alt=""
           />
           <div className="text_info">

@@ -57,8 +57,10 @@ const StudentRegistration = () => {
     delete data.name;
     delete data.surname;
     setButtonLoading(true);
+    console.log(data);
+    
     axios
-      .post("https://api.ilmlar.com/users/register/", data)
+      .post(`${import.meta.env.VITE_API_KEY}/users/register/`, data)
       .then((response) => {
         console.log(response);
         setverifycode(true);
@@ -125,7 +127,7 @@ const StudentRegistration = () => {
       code: emailcodeRef.current.value,
     });
     axios
-      .post("https://api.ilmlar.com/users/register/verify", {
+      .post(`${import.meta.env.VITE_API_KEY}/users/register/verify`, {
         email: email,
         code: emailcodeRef.current.value,
       })

@@ -59,7 +59,7 @@ const TeacherRegistration = () => {
     setButtonLoading(true);
     console.log(data);
     axios
-      .post("https://api.ilmlar.com/teacher/register", data)
+      .post(`${import.meta.env.VITE_API_KEY}/teacher/register`, data)
       .then((response) => {
         toast.info(
           `${data.email} ga kod yuborildi. Tasdiqlash kodini kiriting`,
@@ -88,7 +88,7 @@ const TeacherRegistration = () => {
     e.preventDefault();
     setButtonLoading(true);
     axios
-      .post("https://api.ilmlar.com/teacher/register/verify", {
+      .post(`${import.meta.env.VITE_API_KEY}/teacher/register/verify`, {
         email: email,
         code: emailcodeRef.current.value,
       })

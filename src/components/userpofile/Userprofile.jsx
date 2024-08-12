@@ -30,7 +30,7 @@ function Userprofile() {
         <div className="flex items-center justify-center">
           {profile?.path ? (
             <img
-              src={"https://api.ilmlar.com" + deleteplatforma(profile?.path)}
+              src={`${import.meta.env.VITE_API_KEY}` + deleteplatforma(profile?.path)}
               alt=""
             />
           ) : (

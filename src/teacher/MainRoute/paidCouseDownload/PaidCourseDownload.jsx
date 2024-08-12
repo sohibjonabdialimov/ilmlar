@@ -24,6 +24,8 @@ function FreeCourseDownload() {
   const [videoLessons, setVideoLessons] = useState([{ id: 1 }]);
   const [narx, setnarx] = useState(0);
   const [upload, setupload] = useState(0);
+  const [image, setImage] = useState("");
+  const [video, setvideo] = useState("");
 
   const [videoDataArray, setVideoDataArray] = useState([]);
   const navigate = useNavigate();
@@ -107,7 +109,7 @@ function FreeCourseDownload() {
     }
 
     axios
-      .post("https://api.ilmlar.com/courses/", formData, {
+      .post(`${import.meta.env.VITE_API_KEY}/courses/`, formData, {
         headers: {
           Authorization: localStorage.getItem("token"),
           "Content-Type": "multipart/form-data",
@@ -124,8 +126,7 @@ function FreeCourseDownload() {
       });
   };
 
-  const [image, setImage] = useState("");
-  const [video, setvideo] = useState("");
+
 
   const handleInputChange = (event) => {
     const file = event.target.files[0];

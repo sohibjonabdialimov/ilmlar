@@ -56,7 +56,7 @@ const TeachEditProfile = () => {
     formData.append("file", userimgRef.current.files[0]);
 
     axios
-      .put("https://api.ilmlar.com/teacher/", formData, {
+      .put(`${import.meta.env.VITE_API_KEY}/teacher/`, formData, {
         headers: {
           Authorization: localStorage.getItem("token"),
           "Content-Type": "multipart/form-data",

@@ -36,7 +36,7 @@ const Subs = () => {
             <img
               className="teacher_img"
               src={urlJoin(
-                "https://api.ilmlar.com",
+                `${import.meta.env.VITE_API_KEY}`,
                 `${deleteplatforma(item.path)}`
               )}
               alt=""

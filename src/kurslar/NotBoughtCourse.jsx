@@ -38,7 +38,7 @@ function NotBoughtCourse() {
   }
   useEffect(() => {
     axios
-      .get("https://api.ilmlar.com/courses/" + kursId, {
+      .get(`${import.meta.env.VITE_API_KEY}/courses/` + kursId, {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
@@ -48,8 +48,8 @@ function NotBoughtCourse() {
         axios
           .get(
             res.data.teacher_Id
-              ? "https://api.ilmlar.com/teacherinfo/" + res.data.teacher_Id
-              : "https://api.ilmlar.com/teacherinfo/" + res.data.teacherId
+              ? `${import.meta.env.VITE_API_KEY}/teacherinfo/` + res.data.teacher_Id
+              : `${import.meta.env.VITE_API_KEY}/teacherinfo/` + res.data.teacherId
           )
           .then((res) => {
             setTeacher(res.data);
@@ -69,7 +69,7 @@ function NotBoughtCourse() {
   function kursOlish(kursId) {
     axios
       .post(
-        "https://api.ilmlar.com/baycurs",
+        `${import.meta.env.VITE_API_KEY}/baycurs`,
         {
           cursId: kursId,
         },
@@ -116,7 +116,7 @@ function NotBoughtCourse() {
             className="every__cource-bigImg"
             style={{
               backgroundImage: `url(${urlJoin(
-                "https://api.ilmlar.com/",
+                `${import.meta.env.VITE_API_KEY}/`,
                 `${kurs?.obloshka}`
               )})`,
             }}
@@ -135,7 +135,7 @@ function NotBoughtCourse() {
                   <img
                     className="small_img"
                     src={urlJoin(
-                      "https://api.ilmlar.com",
+                      `${import.meta.env.VITE_API_KEY}`,
                       `${deleteplatforma(teacher.path)}`
                     )}
                     alt=""

@@ -77,7 +77,7 @@ function Profile() {
           <div className="profile_img_wrapper">
             {profile?.path ? (
               <img
-                src={"https://api.ilmlar.com" + deleteplatforma(profile?.path)}
+                src={`${import.meta.env.VITE_API_KEY}` + deleteplatforma(profile?.path)}
                 alt=""
               />
             ) : (

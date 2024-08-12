@@ -123,7 +123,7 @@ function CourseInfo() {
           <div className="video_information video_information_scroll">
           <ReactPlayer
               playing={true}
-              url={`https://api.ilmlar.com/${deleteplatforma(
+              url={`${import.meta.env.VITE_API_KEY}/${deleteplatforma(
                 selectedVideo.orni
               )}`}
               alt="Video"

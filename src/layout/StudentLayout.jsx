@@ -15,7 +15,7 @@ function StudentLayout() {
   const { setSubsTeacher } = useContext(subsTeacherContext);
   useEffect(() => {
     axios
-      .get("https://api.ilmlar.com/usersme", {
+      .get(`${import.meta.env.VITE_API_KEY}/usersme`, {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
@@ -30,7 +30,7 @@ function StudentLayout() {
       const fetchedMyCourseData = [];
       for (let i = 0; i < profile?.mycurs.length; i++) {
         const response = await axios.get(
-          "https://api.ilmlar.com/courses/" + profile.mycurs[i].cursId,
+          `${import.meta.env.VITE_API_KEY}/courses/` + profile.mycurs[i].cursId,
           {
             headers: {
               Authorization: localStorage.getItem("token"),
@@ -51,7 +51,7 @@ function StudentLayout() {
       const fetchedTeacherData = [];
       for (let i = 0; i < profile?.savecurss.length; i++) {
         const response = await axios.get(
-          "https://api.ilmlar.com/courses/" + profile?.savecurss[i],
+          `${import.meta.env.VITE_API_KEY}/courses/` + profile?.savecurss[i],
           {
             headers: {
               Authorization: localStorage.getItem("token"),
@@ -72,7 +72,7 @@ function StudentLayout() {
       const fetchedTeacherData = [];
       for (let i = 0; i < profile?.teachers.length; i++) {
         const response = await axios.get(
-          "https://api.ilmlar.com/teacherinfo/" + profile?.teachers[i]
+          `${import.meta.env.VITE_API_KEY}/teacherinfo/` + profile?.teachers[i]
         );
         fetchedTeacherData.push(response.data);
       }
