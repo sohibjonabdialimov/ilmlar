@@ -14,7 +14,6 @@ import Profile from "./mainRouters/profile/Profile.student";
 import CourseStatistic from "./teacher/MainRoute/courseStatistic/CourseStatistic";
 import LessonsTeacher from "./teacher/MainRoute/Lessons/LessonsTeacher";
 import TakingMoney from "./teacher/MainRoute/takingMoney/TakingMoney";
-import PaidCourseDownload from "./teacher/MainRoute/paidCouseDownload/PaidCourseDownload";
 import TeacherProfile from "./teacher/MainRoute/profile/TeacherProfile";
 import SelectDownloadCourse from "./teacher/MainRoute/selectDownloadCourse/SelectDownloadCourse";
 import TeacherBalance from "./teacher/MainRoute/teacherBalance/TeacherBalance";
@@ -24,7 +23,6 @@ import TeachUpdateonekurs from "./teacher/MainRoute/updateCourseOne/Updateonekur
 import StudentLogin from "./sign/login/StudentLogin";
 import TeacherLogin from "./sign/login/TeacherLogin";
 import Select from "./select/Select";
-import ProcessFreeDownload from "./teacher/MainRoute/processFreeDownload/ProcessFreeDownload";
 import SuccessFreeDownload from "./teacher/MainRoute/successFreeDownload/SuccessFreeDownload";
 import StudentRegistration from "./sign/registration/StudentRegistration";
 import TeacherRegistration from "./sign/registration/TeacherRegistration";
@@ -35,6 +33,8 @@ import PrivateTeacherRoutes from "./services/privateRoutes/PrivateTeacherRoutes"
 import PlatformMain from "./pages/PlatformMain";
 import StudentLayout from "./layout/StudentLayout";
 import TeacherLayout from "./layout/TeacherLayout";
+import CourseFragment from "./teacher/MainRoute/courseFragment/courseFragment";
+import PaidCourseDownload from "./teacher/MainRoute/paidCouseDownload/PaidCourseDownload";
 console.log(import.meta.env.VITE_API_KEY);
 
 function App() {
@@ -77,10 +77,10 @@ function App() {
             <Route path="darslar" element={<LessonsTeacher where="lesson" />} />
             <Route path="hisoblar" element={<TeacherBalance />} />
             <Route path="Kurs/:id" element={<AboutCourseInfo />} />
-            <Route path="kurs/" element={<SelectDownloadCourse />} />
+            <Route path="kurs" element={<SelectDownloadCourse />} />
 
             <Route
-              path="update/kurs/"
+              path="update/kurs"
               element={<LessonsTeacher where="update" />}
             />
             <Route
@@ -103,12 +103,8 @@ function App() {
             element={<CourseStatistic />}
           />
           <Route
-            path="teacher/processfreedownload"
-            element={<ProcessFreeDownload />}
-          />
-          <Route
-            path="teacher/processmoneydownload"
-            element={<ProcessFreeDownload />}
+            path="teacher/course-fragment"
+            element={<CourseFragment />}
           />
           <Route
             path="teacher/update/kurs/:id"

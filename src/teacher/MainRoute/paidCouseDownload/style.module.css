@@ -1,7 +1,7 @@
-.back {
+.fragment_video_download .back, .kurs_yuklash .back {
   position: absolute;
-  top: 22px;
-  left: 27px;
+  top: 22px !important;
+  left: 27px !important;
   background-color: #48386a;
   border: none;
   outline: none;
@@ -13,19 +13,16 @@
   align-items: center;
   cursor: pointer;
 }
-.free_global_wrap {
-  background-color: #5b4784;
-  width: 100%;
-  height: 95dvh;
-  margin: 0 auto;
-  box-shadow: 15px 15px 100px rgba(0, 0, 0, 0.3);
-  border-radius: 50px;
-  overflow-y: scroll;
-}
 .back ion-icon {
   color: #fff;
   font-size: 27px;
 }
+.course_download_wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
 ._plus_btn_idk4j_277 {
   height: 24px;
   width: 24px;
@@ -34,6 +31,7 @@
 .kurs_yuklash {
   position: relative;
   padding: 0 20px;
+  height: 100%;
 }
 
 .kurs_yuklash h1 {
@@ -41,11 +39,16 @@
   font-family: sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 24px;
   line-height: 24px;
-  padding-top: 29px;
+  padding-top: 50px;
   margin-bottom: 10px;
   color: #ffffff;
+}
+.kurs_yuklash_form {
+  margin-top: 25px;
+  width: 60%;
+  margin: 0 auto;
 }
 .input_file img {
   border-radius: 20px;
@@ -54,7 +57,7 @@
   position: relative;
   cursor: pointer;
   color: #fff;
-  width: 140px;
+  text-align: center;
   height: 180px;
   display: flex;
   align-items: center;
@@ -215,7 +218,6 @@
   grid-area: text;
 }
 
-
 .down_btn {
   display: block;
   background-color: #2d2341;
@@ -223,7 +225,7 @@
   outline: none;
   border: 1px solid #aaa;
   padding: 10px 100px;
-  font-size: 24px;
+  font-size: 16px;
   border-radius: 20px;
 }
 .plus_btn {
@@ -252,7 +254,6 @@
   width: 10%;
 }
 
-
 .amount {
   font-family: sans-serif;
   font-style: normal;
@@ -260,28 +261,28 @@
   font-size: 18px;
   line-height: 22px;
   color: #ffffff;
+  width: 50%;
+  margin-top: 20px;
 }
-.style_wrap{
+.style_wrap {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
-.btn {
+.kurs_yuklash .btn {
   font-family: sans-serif;
   outline: none;
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 16px;
   line-height: 29px;
   color: #ffffff;
-  background: #8300ea;
-  border-radius: 20px;
-  border: 3px solid #4f0190;
+  background-color: #40325dff;
+  border-radius: 15px;
   padding: 12px 24px;
   display: block;
   margin: 0px auto;
-  margin-top: -45px;
-  margin-bottom: 15px;
+  margin-top: 40px;
 }
 .plus_minus {
   display: flex;
@@ -377,10 +378,10 @@
   gap: 8px;
   justify-content: space-between;
 }
-.free_video_input_wrapper input:first-child{
+.free_video_input_wrapper input:first-child {
   width: 40%;
 }
-.free_video_input_wrapper input:last-child{
+.free_video_input_wrapper input:last-child {
   width: 60%;
 }
 .free_video_button_wrapper {
@@ -394,19 +395,9 @@
   flex-direction: column;
   gap: 10px;
 }
-.file_input_wrap{
-  width: 120px;
-  border-radius: 5px;
-  background-color: #6B6B6B;
-  text-align: center;
-  height: 25px;
-  line-height: 25px;
-  font-size: 16px;
-  position: relative;
-  cursor: pointer;
-}
 
-.file_input_wrap input{
+
+.file_input_wrap input {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -419,6 +410,9 @@
 }
 
 @media only screen and (max-width: 1000px) {
+  .kurs_yuklash_form {
+    width: 70%;
+  }
   .free_modal_content {
     width: 60%;
   }
@@ -457,7 +451,7 @@
     border-radius: 10px;
     color: #ffffff;
   }
-  .style_wrap{
+  .style_wrap {
     width: 50%;
   }
   .muqova_wrapper {
@@ -481,28 +475,17 @@
   .input_wrap label {
     font-size: 16px;
   }
-  .btn {
-    font-family: sans-serif;
-    outline: none;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
+  .kurs_yuklash .btn {
+    font-size: 12px;
     line-height: 29px;
-    color: #ffffff;
-    background: #8300ea;
     border-radius: 20px;
-    border: 3px solid #4f0190;
     padding: 5px 24px;
     cursor: pointer;
-  }
-
-  .kurs_yuklash {
-    padding: 0 10px;
   }
   .video_download {
     padding: 5px 10px;
   }
- 
+
   .video_download p {
     font-family: sans-serif;
     font-style: normal;
@@ -512,46 +495,33 @@
     padding-top: 15px;
     color: #ffffff;
   }
-  
 }
 @media only screen and (max-width: 750px) {
+  .kurs_yuklash_form {
+    width: 100%;
+  }
   .input_file {
     width: 100%;
     height: 120px;
   }
   .amount {
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 22px;
-    color: #ffffff;
+    font-size: 15px;
+    margin-top: 5px;
+    text-align: center;
   }
-  .file_input_wrap{
+  .file_input_wrap {
     font-size: 14px;
   }
-  .free_video_input_wrapper input:first-child{
+  .free_video_input_wrapper input:first-child {
     width: 100%;
   }
-  .free_video_input_wrapper input:last-child{
+  .free_video_input_wrapper input:last-child {
     width: 100%;
   }
-  .btn {
-    font-family: sans-serif;
-    outline: none;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 29px;
-    color: #ffffff;
-    background: #8300ea;
-    border-radius: 20px;
-    border: 3px solid #4f0190;
+  .kurs_yuklash .btn {
+    font-size: 14px;
     padding: 5px 24px;
     margin: 15px auto;
-  }
-  .kurs_yuklash {
-    padding: 0 5px;
   }
   .videos {
     width: 100%;
@@ -627,4 +597,3 @@
     color: #ffffff;
   }
 }
-

@@ -308,10 +308,6 @@ input {
   .sign_wrap {
     padding-top: 10px;
   }
-  .back {
-    margin-top: 10px !important;
-    left: 15px !important;
-  }
   .sign_form {
     max-width: 390px;
     width: 90%;

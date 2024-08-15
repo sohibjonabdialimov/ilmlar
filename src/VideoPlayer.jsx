@@ -43,6 +43,9 @@ const VideoPlayer = () => {
   const [duration, setDuration] = useState(0);
   const [paused, setPaused] = useState(false);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [videoTimeData, setVideoTimeData] = useState(
+    JSON.parse(localStorage.getItem("time_data")) || []
+  );
 
   useEffect(() => {
     const video = videoRef.current;
@@ -78,15 +81,20 @@ const VideoPlayer = () => {
   const handleEnded = () => {
     if (currentVideoIndex < videoUrls.length - 1) {
       setCurrentVideoIndex(currentVideoIndex + 1);
-    }
-    console.dir((sliderRef.current.children[2].childNodes.value = 20));
-
-    // sliderRef.current.value = 10;
+    } 
+    setPosition(video.currentTime + 100);
+    
   };
 
-  const handleSliderChange = (_, value) => {
-    console.log(value);
+  // useEffect(() => {
+  //   if(duration){
+  //     setVideoTimeData((prev) => [...prev, duration]);
+  //   }
+  //   localStorage.setItem("time_data", JSON.stringify(videoTimeData));
+  // }, [duration]);
+  // console.log(videoTimeData);
 
+  const handleSliderChange = (_, value) => {
     setPosition(value);
     videoRef.current.currentTime = value;
   };
