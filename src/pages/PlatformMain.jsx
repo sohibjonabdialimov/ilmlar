@@ -9,6 +9,7 @@ import ReactPlayer from "react-player";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import axios from "axios";
 import VideoPlayer from "../VideoPlayer";
+import NewPlayer from "../NewPlayer";
 
 function PlatformMain() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -70,7 +71,8 @@ function PlatformMain() {
         />
         <button onClick={handleStart}>Play Custom Segment</button>
       </div> */}
-      <VideoPlayer />
+      <NewPlayer />
+      {/* <VideoPlayer /> */}
       <About />
       <Teacher />
       <Student />

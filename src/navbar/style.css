@@ -16,9 +16,19 @@
     padding: 12px 20px;
     cursor: pointer;
     margin-bottom: 8px;
+    transition: all 0.3s;
     border-radius: 25px;
 }
-.both_nav_class li:hover,
+
+.both_nav_class li:hover{
+    font-weight: 700;
+    /* background-image: linear-gradient(to right,
+    #F2F2F2FF, 
+        transparent
+      ); */
+      background-color: #4e3f6e;
+      opacity: 0.8;
+}
 .both_nav_class li.active {
     font-weight: 700;
     background-color: #3e305c;
