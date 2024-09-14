@@ -53,11 +53,11 @@ const VideoPlayerComponent = (props) => {
 
       for (let i = 0; i < videos.length; i++) {
         const videoDuration = videos[i].duration;
-        if(Number(videoDuration)){
+        if (Number(videoDuration)) {
           sumAllVideosTime += videoDuration;
           timeArr.push(sumAllVideosTime);
         }
-        
+
       }
 
       setVideoTimeArr(timeArr);
@@ -140,18 +140,28 @@ const VideoPlayerComponent = (props) => {
               <video key={videoUrl} className="hidden" width="100%" height="auto" src={videoUrl} />
             ))}
           </div>
-          {videoUrls.map((videoUrl,index) => (
-            <video
-              ref={videoRef}
-              width="100%"
-              key={videoUrl}
-              className="videoplayerr"
-              style={{ display: index === currentVideoIndex ? "block" : "none" }} // faqat joriy video ko'rinadi
-              height="auto"
-              autoPlay
-              onEnded={handleEnded}
-              src={videoUrl}
-            />
+          {videoUrls.map((videoUrl, index) => (
+            index === currentVideoIndex ?
+              <video
+                ref={videoRef}
+                width="100%"
+                key={videoUrl}
+                className="videoplayerr"
+                style={{ display: "block" }} // faqat joriy video ko'rinadi
+                height="auto"
+                onEnded={handleEnded}
+                src={videoUrl}
+              /> : <video
+                ref={videoRef}
+                width="100%"
+                key={videoUrl}
+                className="videoplayerr"
+                style={{ display: "none" }} // faqat joriy video ko'rinadi
+                height="auto"
+                muted
+                onEnded={handleEnded}
+                src={videoUrl}
+              />
           ))}
           <SliderComponent
             position={position}
