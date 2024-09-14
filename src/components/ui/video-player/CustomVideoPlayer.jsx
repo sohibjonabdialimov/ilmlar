@@ -7,7 +7,11 @@ import PlayArrowRounded from "@mui/icons-material/PlayArrowRounded";
 import FastForwardRounded from "@mui/icons-material/FastForwardRounded";
 import FastRewindRounded from "@mui/icons-material/FastRewindRounded";
 import Typography from "@mui/material/Typography";
+<<<<<<< HEAD:src/VideoPlayer.jsx
 import SliderComponent from "./SliderComponent";
+=======
+import CustomSlider from "./CustomSlider";
+>>>>>>> 8dd5f997e66e07d975b4b508bc41c42b66c4c3db:src/components/ui/video-player/CustomVideoPlayer.jsx
 
 const theme = createTheme();
 
@@ -31,11 +35,16 @@ const TinyText = styled(Typography)({
   letterSpacing: 0.2,
 });
 
+<<<<<<< HEAD:src/VideoPlayer.jsx
 const VideoPlayerComponent = () => {
   const videoUrls = [
     "http://static.kremlin.ru/media/events/video/ru/video_low/btQlxg5CoYIFvpf6iSYs2WqLqqLe1hNH.mp4", // First video URL
     "http://static.kremlin.ru/media/events/video/ru/video_low/kmkoPsYdq7EoAhOAac6COZaNZ4OV6vSA.mp4", // Second video URL
   ];
+=======
+const CustomVideoPlayer = ({urls}) => {
+
+>>>>>>> 8dd5f997e66e07d975b4b508bc41c42b66c4c3db:src/components/ui/video-player/CustomVideoPlayer.jsx
 
   const videoRef = useRef(null);
   const videosParentRef = useRef(null);
@@ -100,11 +109,16 @@ const VideoPlayerComponent = () => {
     setAllEndingVideoLength(allendingvideolength + currentVideoDuration);
 
     // Agar boshqa video mavjud bo'lsa, keyingi videoga o'tamiz
+<<<<<<< HEAD:src/VideoPlayer.jsx
     if (currentVideoIndex < videoUrls.length - 1) {
+=======
+    if (currentVideoIndex < urls.length - 1) {
+>>>>>>> 8dd5f997e66e07d975b4b508bc41c42b66c4c3db:src/components/ui/video-player/CustomVideoPlayer.jsx
       setCurrentVideoIndex(currentVideoIndex + 1);
       const nextVideo = document.getElementsByClassName("videoplayerr")[currentVideoIndex + 1];
       nextVideo.play();
     }
+<<<<<<< HEAD:src/VideoPlayer.jsx
   };
   const toggleFullScreen = () => {
     if (!document.fullscreenElement) {
@@ -114,6 +128,8 @@ const VideoPlayerComponent = () => {
       document.exitFullscreen();
       setIsFullScreen(false);
     }
+=======
+>>>>>>> 8dd5f997e66e07d975b4b508bc41c42b66c4c3db:src/components/ui/video-player/CustomVideoPlayer.jsx
   };
   const togglePlayPause = () => {
     const video = document.getElementsByClassName("videoplayerr")[currentVideoIndex];
@@ -143,11 +159,19 @@ const VideoPlayerComponent = () => {
       >
         <Widget>
           <div ref={videosParentRef}>
+<<<<<<< HEAD:src/VideoPlayer.jsx
             {videoUrls.map((videoUrl) => (
               <video key={videoUrl} className="hidden" width="100%" height="auto" src={videoUrl} />
             ))}
           </div>
           {videoUrls.map((videoUrl, index) => (
+=======
+            {urls.map((videoUrl) => (
+              <video key={videoUrl} className="hidden" width="100%" height="auto" src={videoUrl} />
+            ))}
+          </div>
+          {urls.map((videoUrl,index) => (
+>>>>>>> 8dd5f997e66e07d975b4b508bc41c42b66c4c3db:src/components/ui/video-player/CustomVideoPlayer.jsx
             <video
               ref={videoRef}
               width="100%"
@@ -160,7 +184,11 @@ const VideoPlayerComponent = () => {
               src={videoUrl}
             />
           ))}
+<<<<<<< HEAD:src/VideoPlayer.jsx
           <SliderComponent
+=======
+          <CustomSlider 
+>>>>>>> 8dd5f997e66e07d975b4b508bc41c42b66c4c3db:src/components/ui/video-player/CustomVideoPlayer.jsx
             position={position}
             videostimearr={videostimearr}
             duration={duration}
@@ -217,4 +245,8 @@ const VideoPlayerComponent = () => {
   );
 };
 
+<<<<<<< HEAD:src/VideoPlayer.jsx
 export default VideoPlayerComponent;
+=======
+export default CustomVideoPlayer;
+>>>>>>> 8dd5f997e66e07d975b4b508bc41c42b66c4c3db:src/components/ui/video-player/CustomVideoPlayer.jsx

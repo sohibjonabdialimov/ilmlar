@@ -11,7 +11,7 @@ import { SaveCoursesProvider } from "./services/providers/saveCoursesContext.jsx
 import { SubsTeacherProvider } from "./services/providers/subsTeacherContext.jsx";
 import { StudentNavbarProvider } from "./services/providers/studentNavbarContext.jsx";
 import { TeacherNavbarProvider } from "./services/providers/teacherNavbarContext.jsx";
-
+import "plyr-react/plyr.css"
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <ProfileProvider>
