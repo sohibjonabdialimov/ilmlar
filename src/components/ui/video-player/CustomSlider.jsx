@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "@mui/material/Slider";
 
-const CustomSlider = ({ position, duration, setCurrentVideoIndex, videostimearr, setPosition, currentVideoIndex, videoRef }) => {
+const SliderComponent = ({ position, duration, setCurrentVideoIndex, videostimearr, setPosition, currentVideoIndex, videoRef }) => {
   const handleSliderChange = (_, value) => {
     let index = currentVideoIndex;
     setPosition(value);  
@@ -69,4 +69,4 @@ const CustomSlider = ({ position, duration, setCurrentVideoIndex, videostimearr,
   );
 };
 
-export default CustomSlider;
+export default SliderComponent;

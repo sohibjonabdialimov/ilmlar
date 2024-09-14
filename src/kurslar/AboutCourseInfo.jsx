@@ -11,6 +11,7 @@ import defaultuser from "../imgs/user-1.png";
 import default_lesson from "../imgs/default_lesson.png";
 
 import { Progress, Space } from "antd";
+import CustomVideo from "../components/ui/video-player";
 function findCursById(cursList, cursId) {
   for (let i = 0; i < cursList?.length; i++) {
     if (cursList[i]?.cursId === cursId) {
@@ -211,15 +212,7 @@ function AboutCourseInfo() {
               alt=""
             />
             ) : (
-              <video
-                controls
-                autoPlay
-                muted
-                disablePictureInPicture
-                controlsList="nodownload"
-                className="every__cource-bigImg"
-                src={urlJoin(`${kurs?.treeler}`)}
-              ></video>
+             <CustomVideo videosrc={kurs?.treeler} />
             )}
           </div>
 
