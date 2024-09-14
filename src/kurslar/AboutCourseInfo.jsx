@@ -203,7 +203,7 @@ function AboutCourseInfo() {
               kurs?.obloshka ? 
               <img
                 className="every__cource-bigImg"
-                src={urlJoin(`${import.meta.env.VITE_API_KEY}/`, `${kurs?.obloshka}`)}
+                src={urlJoin( `${kurs?.obloshka}`)}
                 alt=""
               /> : <img
               className="every__cource-bigImg"
@@ -218,7 +218,7 @@ function AboutCourseInfo() {
                 disablePictureInPicture
                 controlsList="nodownload"
                 className="every__cource-bigImg"
-                src={urlJoin(`${import.meta.env.VITE_API_KEY}/`, `${kurs?.treeler}`)}
+                src={urlJoin(`${kurs?.treeler}`)}
               ></video>
             )}
           </div>
@@ -237,10 +237,7 @@ function AboutCourseInfo() {
                 {teacher.path ? (
                   <img
                     className="small_img"
-                    src={urlJoin(
-                      `${import.meta.env.VITE_API_KEY}`,
-                      `${deleteplatforma(teacher.path)}`
-                    )}
+                    src={deleteplatforma(teacher.path)}
                     alt=""
                   />
                 ) : (

@@ -84,7 +84,6 @@ const StudentProfileEdit = () => {
                 <img
                   className={style.imgs_div_img}
                   src={urlJoin(
-                    `${import.meta.env.VITE_API_KEY}`,
                     `${deleteplatforma(profile?.path)}`
                   )}
                   alt=""

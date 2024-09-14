@@ -77,7 +77,7 @@ function Profile() {
           <div className="profile_img_wrapper">
             {profile?.path ? (
               <img
-                src={`${import.meta.env.VITE_API_KEY}` + deleteplatforma(profile?.path)}
+                src={deleteplatforma(profile?.path)}
                 alt=""
               />
             ) : (

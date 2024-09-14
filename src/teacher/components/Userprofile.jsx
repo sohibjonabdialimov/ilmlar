@@ -30,7 +30,7 @@ function TeachUserprofile() {
           {teacherProfile?.path ? (
             <img
               src={
-                `${import.meta.env.VITE_API_KEY}` + deleteplatforma(teacherProfile?.path)
+                deleteplatforma(teacherProfile?.path)
               }
               alt=""
             />

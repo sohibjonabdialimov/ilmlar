@@ -52,7 +52,7 @@ function Navvedio({ modalDarslar, changeModalDars, topic }) {
               }}
             >
               <img
-                src={`${import.meta.env.VITE_API_KEY}` + deleteplatforma(item.obloshka)}
+                src={deleteplatforma(item.obloshka)}
                 alt=""
               />
               <div className="text_info">
@@ -74,7 +74,7 @@ function Navvedio({ modalDarslar, changeModalDars, topic }) {
               }}
             >
               <img
-                src={`${import.meta.env.VITE_API_KEY}` + deleteplatforma(item.obloshka)}
+                src={deleteplatforma(item.obloshka)}
                 alt=""
               />
               <div className="text_info">

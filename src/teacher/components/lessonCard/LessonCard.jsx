@@ -62,7 +62,7 @@ const LessonCard = (props) => {
           onClick={() => {
             navigate("/teacher/course/" + courseId);
           }}
-          src={`${import.meta.env.VITE_API_KEY}` + deleteplatforma(props.cart.obloshka)}
+          src={props.cart.obloshka}
           alt=""
         />
         <div className="cart__content">

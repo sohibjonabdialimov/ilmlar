@@ -45,7 +45,7 @@ const CourseStatistic = () => {
           </button>
           <div className={styles.course_statictic_wrap}>
             <div className={styles.img_card}>
-              <img src={`${import.meta.env.VITE_API_KEY}` + deleteplatforma(courses.obloshka)} alt="" />
+              <img src={deleteplatforma(courses.obloshka)} alt="" />
               <div className={styles.img_card_desc}>
                 <h3>{courses.Kursname}</h3>
                 <p>{courses.Kursdesc}</p>

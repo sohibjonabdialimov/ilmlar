@@ -1,13 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import { styled, ThemeProvider, createTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Slider from "@mui/material/Slider";
 import IconButton from "@mui/material/IconButton";
 import PauseRounded from "@mui/icons-material/PauseRounded";
 import PlayArrowRounded from "@mui/icons-material/PlayArrowRounded";
 import FastForwardRounded from "@mui/icons-material/FastForwardRounded";
 import FastRewindRounded from "@mui/icons-material/FastRewindRounded";
 import Typography from "@mui/material/Typography";
+import SliderComponent from "./SliderComponent";
 
 const theme = createTheme();
 
@@ -31,43 +31,58 @@ const TinyText = styled(Typography)({
   letterSpacing: 0.2,
 });
 
-const VideoPlayer = () => {
+const VideoPlayerComponent = () => {
   const videoUrls = [
     "http://static.kremlin.ru/media/events/video/ru/video_low/btQlxg5CoYIFvpf6iSYs2WqLqqLe1hNH.mp4", // First video URL
     "http://static.kremlin.ru/media/events/video/ru/video_low/kmkoPsYdq7EoAhOAac6COZaNZ4OV6vSA.mp4", // Second video URL
   ];
+
   const videoRef = useRef(null);
   const videosParentRef = useRef(null);
-  const sliderRef = useRef(null);
   const [position, setPosition] = useState(0);
   const [duration, setDuration] = useState(0);
   const [paused, setPaused] = useState(false);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [videoTimeData, setVideoTimeData] = useState(
-    JSON.parse(localStorage.getItem("time_data")) || []
-  );
+  const [allendingvideolength, setAllEndingVideoLength] = useState(0);
+  const [videostimearr, setVideoTimeArr] = useState([]);
 
   useEffect(() => {
-    const video = videoRef.current;
-    videoRef.current.controls = false;
-    // video.play();
-    setPaused(false);
-
-    // console.dir(videosParentRef.current.childNodes);
+    const videos = document.getElementsByClassName("videoplayerr");
 
     const handleLoadedMetadata = () => {
-      // setDuration(video.duration);
       let sumAllVideosTime = 0;
-      videosParentRef.current.childNodes.forEach((element) => {
-        sumAllVideosTime += element.duration;
-      });
+      let timeArr = [];
 
+      for (let i = 0; i < videos.length; i++) {
+        const videoDuration = videos[i].duration;
+        sumAllVideosTime += videoDuration;
+        timeArr.push(sumAllVideosTime);
+      }
+
+      setVideoTimeArr(timeArr);
       setDuration(sumAllVideosTime);
     };
-
     const handleTimeUpdate = () => {
-      setPosition(video.currentTime);
+      const videos = document.getElementsByClassName("videoplayerr");
+
+      let currentTime = 0;
+
+      // Avvalgi barcha videolarning davomiyligini yig'amiz
+      for (let i = 0; i < currentVideoIndex; i++) {
+        currentTime += videos[i].duration;
+      }
+
+      // Joriy videoning vaqtini ham qo'shamiz
+      currentTime += videos[currentVideoIndex].currentTime;
+
+      // Slayder pozitsiyasini umumiy vaqtni ko'rsatadigan qilib yangilaymiz
+      setPosition(currentTime);
     };
+
+
+    const video = videos[currentVideoIndex];
+    videoRef.current.controls = false;
+    setPaused(false);
 
     video.addEventListener("loadedmetadata", handleLoadedMetadata);
     video.addEventListener("timeupdate", handleTimeUpdate);
@@ -76,31 +91,32 @@ const VideoPlayer = () => {
       video.removeEventListener("loadedmetadata", handleLoadedMetadata);
       video.removeEventListener("timeupdate", handleTimeUpdate);
     };
-  }, []);
+  }, [currentVideoIndex]);
 
   const handleEnded = () => {
+    const currentVideoDuration = document.getElementsByClassName("videoplayerr")[currentVideoIndex].duration;
+
+    // Avvalgi barcha videolar davomiyligini umumiy yig'indi sifatida saqlaymiz
+    setAllEndingVideoLength(allendingvideolength + currentVideoDuration);
+
+    // Agar boshqa video mavjud bo'lsa, keyingi videoga o'tamiz
     if (currentVideoIndex < videoUrls.length - 1) {
       setCurrentVideoIndex(currentVideoIndex + 1);
-    } 
-    setPosition(video.currentTime + 100);
-    
+      const nextVideo = document.getElementsByClassName("videoplayerr")[currentVideoIndex + 1];
+      nextVideo.play();
+    }
   };
-
-  // useEffect(() => {
-  //   if(duration){
-  //     setVideoTimeData((prev) => [...prev, duration]);
-  //   }
-  //   localStorage.setItem("time_data", JSON.stringify(videoTimeData));
-  // }, [duration]);
-  // console.log(videoTimeData);
-
-  const handleSliderChange = (_, value) => {
-    setPosition(value);
-    videoRef.current.currentTime = value;
+  const toggleFullScreen = () => {
+    if (!document.fullscreenElement) {
+      videoRef.current.parentElement.requestFullscreen();
+      setIsFullScreen(true);
+    } else {
+      document.exitFullscreen();
+      setIsFullScreen(false);
+    }
   };
-
   const togglePlayPause = () => {
-    const video = videoRef.current;
+    const video = document.getElementsByClassName("videoplayerr")[currentVideoIndex];
     if (paused) {
       video.play();
     } else {
@@ -114,7 +130,6 @@ const VideoPlayer = () => {
     const secondLeft = value - minute * 60;
     return `${minute}:${secondLeft < 10 ? `0${secondLeft}` : secondLeft}`;
   };
-
   return (
     <ThemeProvider theme={theme}>
       <Box
@@ -128,63 +143,31 @@ const VideoPlayer = () => {
       >
         <Widget>
           <div ref={videosParentRef}>
-            {videoUrls.map((videoUrl) => {
-              return (
-                <video
-                  key={videoUrl}
-                  className="hidden"
-                  width="100%"
-                  height="auto"
-                  src={videoUrl}
-                />
-              );
-            })}
+            {videoUrls.map((videoUrl) => (
+              <video key={videoUrl} className="hidden" width="100%" height="auto" src={videoUrl} />
+            ))}
           </div>
-          <video
-            ref={videoRef}
-            width="100%"
-            height="auto"
-            autoPlay
-            onEnded={handleEnded}
-            src={videoUrls[currentVideoIndex]}
-          />
-
-          <Slider
-            aria-label="time-indicator"
-            size="small"
-            ref={sliderRef}
-            value={position}
-            min={0}
-            step={1}
-            max={duration}
-            onChange={handleSliderChange}
-            sx={{
-              color:
-                theme.palette.mode === "dark" ? "#fff" : "rgba(0,0,0,0.87)",
-              height: 4,
-              "& .MuiSlider-thumb": {
-                width: 8,
-                height: 8,
-                transition: "0.3s cubic-bezier(.47,1.64,.41,.8)",
-                "&::before": {
-                  boxShadow: "0 2px 12px 0 rgba(0,0,0,0.4)",
-                },
-                "&:hover, &.Mui-focusVisible": {
-                  boxShadow: `0px 0px 0px 8px ${
-                    theme.palette.mode === "dark"
-                      ? "rgb(255 255 255 / 16%)"
-                      : "rgb(0 0 0 / 16%)"
-                  }`,
-                },
-                "&.Mui-active": {
-                  width: 20,
-                  height: 20,
-                },
-              },
-              "& .MuiSlider-rail": {
-                opacity: 0.28,
-              },
-            }}
+          {videoUrls.map((videoUrl, index) => (
+            <video
+              ref={videoRef}
+              width="100%"
+              key={videoUrl}
+              className="videoplayerr"
+              style={{ display: index === currentVideoIndex ? "block" : "none" }} // faqat joriy video ko'rinadi
+              height="auto"
+              autoPlay
+              onEnded={handleEnded}
+              src={videoUrl}
+            />
+          ))}
+          <SliderComponent
+            position={position}
+            videostimearr={videostimearr}
+            duration={duration}
+            setPosition={setPosition}
+            currentVideoIndex={currentVideoIndex}
+            videoRef={videoRef}
+            setCurrentVideoIndex={setCurrentVideoIndex}
           />
           <Box
             sx={{
@@ -234,4 +217,4 @@ const VideoPlayer = () => {
   );
 };
 
-export default VideoPlayer;
+export default VideoPlayerComponent;

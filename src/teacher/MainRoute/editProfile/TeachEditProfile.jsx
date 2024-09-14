@@ -91,7 +91,7 @@ const TeachEditProfile = () => {
           ) : teacherProfile?.path ? (
             <img
               className={styles.imgs_div_img}
-              src={urlJoin("https://api.ilmlar.com", `${deleteplatforma(teacherProfile?.path)}`)}
+              src={teacherProfile?.path}
               alt=""
             />
           ) : (

@@ -116,7 +116,6 @@ function NotBoughtCourse() {
             className="every__cource-bigImg"
             style={{
               backgroundImage: `url(${urlJoin(
-                `${import.meta.env.VITE_API_KEY}/`,
                 `${kurs?.obloshka}`
               )})`,
             }}
@@ -134,10 +133,8 @@ function NotBoughtCourse() {
                 {teacher.path ? (
                   <img
                     className="small_img"
-                    src={urlJoin(
-                      `${import.meta.env.VITE_API_KEY}`,
-                      `${deleteplatforma(teacher.path)}`
-                    )}
+                    src={
+                      (teacher.path)}
                     alt=""
                   />
                 ) : (
