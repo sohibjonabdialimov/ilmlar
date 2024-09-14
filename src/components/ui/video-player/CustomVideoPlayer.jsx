@@ -33,7 +33,7 @@ const TinyText = styled(Typography)({
 
 const VideoPlayerComponent = (props) => {
   console.log(props)
-  const videoUrls = props.urls
+  const videoUrls = props.urls;
 
   const videoRef = useRef(null);
   const videosParentRef = useRef(null);
@@ -130,8 +130,9 @@ const VideoPlayerComponent = (props) => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "100vh",
+          height: "55vh",
           backgroundColor: "#f0f0f0",
+          position: "relative"
         }}
       >
         <Widget>
@@ -188,15 +189,13 @@ const VideoPlayerComponent = (props) => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
               mt: -1,
             }}
           >
-            <IconButton
-              aria-label="previous"
-              onClick={() => (videoRef.current.currentTime -= 10)}
-            >
-              <FastRewindRounded fontSize="large" />
-            </IconButton>
             <IconButton
               aria-label={paused ? "play" : "pause"}
               onClick={togglePlayPause}
@@ -206,12 +205,6 @@ const VideoPlayerComponent = (props) => {
               ) : (
                 <PauseRounded sx={{ fontSize: "3rem" }} />
               )}
-            </IconButton>
-            <IconButton
-              aria-label="next"
-              onClick={() => (videoRef.current.currentTime += 10)}
-            >
-              <FastForwardRounded fontSize="large" />
             </IconButton>
           </Box>
         </Widget>
