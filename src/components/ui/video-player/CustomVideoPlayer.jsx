@@ -27,10 +27,10 @@ const TinyText = styled(Typography)({
   // opacity: 0.38,
   // fontWeight: 500,
   // letterSpacing: 0.2,
+
 });
 
 const VideoPlayerComponent = (props) => {
-  console.log(props)
   const videoUrls = props.urls;
 
   const videoRef = useRef(null);
@@ -59,6 +59,9 @@ const VideoPlayerComponent = (props) => {
       }
 
       setVideoTimeArr(timeArr);
+
+
+
       setDuration(sumAllVideosTime);
     };
     const handleTimeUpdate = () => {
