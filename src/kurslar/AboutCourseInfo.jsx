@@ -212,7 +212,7 @@ function AboutCourseInfo() {
               alt=""
             />
             ) : (
-             <CustomVideo videosrc={kurs?.treeler} />
+             <CustomVideo videosrc={kurs?.treeler}  />
             )}
           </div>
 
