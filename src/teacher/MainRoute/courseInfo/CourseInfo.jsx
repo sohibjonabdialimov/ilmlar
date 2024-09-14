@@ -6,21 +6,8 @@ import VideosNavbar from "../../../components/videosTeacherNavbar/VideosNavbar";
 import styles from "./courseInfo.module.css";
 import axios from "axios";
 import MobileHeader from "../../../components/mobileHeader/mobileHeader";
-import ReactPlayer from "react-player";
-
-function deleteplatforma(url) {
-  try {
-    if (url.includes("platforma")) {
-      const parts = url.split("/");
-      const s = parts.slice(2).join("/");
-      return s; 
-    }
-    return url;
-  } catch (error) {
-    console.log(error);
-    return url;
-  }
-}
+import CustomVideoPlayer from "../../../components/ui/video-player/CustomVideoPlayer";
+import CustomVideo from "../../../components/ui/video-player";
 
 function CourseInfo() {
   const { courseId } = useParams();
@@ -35,6 +22,7 @@ function CourseInfo() {
   function clickModal() {
     setModal(!modal);
   }
+
   const changeModal = (value) => {
     setModal(value);
   };
@@ -44,7 +32,6 @@ function CourseInfo() {
   const changeModalDars = (value) => {
     setModalDarslar(value);
   };
-
 
   useEffect(() => {
     axios
@@ -65,12 +52,14 @@ function CourseInfo() {
         console.error(error);
       });
   }, [courseId]);
+
   const next = () => {
     if (courseData.length > courseIndex) {
       setCourseIndex(courseIndex + 1);
       setSelectedVideo(courseData[courseIndex]);
     }
   };
+
 
   const handleVideoSelection = (video) => {
     setSelectedVideo(video);
@@ -81,6 +70,10 @@ function CourseInfo() {
   const onBack = () => {
     navigate(-1);
   };
+  // const urls = [
+  //   "http://static.kremlin.ru/media/events/video/ru/video_low/btQlxg5CoYIFvpf6iSYs2WqLqqLe1hNH.mp4",
+  //   "http://static.kremlin.ru/media/events/video/ru/video_low/kmkoPsYdq7EoAhOAac6COZaNZ4OV6vSA.mp4",
+  // ];
   return (
     <div className="app-content">
       <div className="course_info">
@@ -102,12 +95,11 @@ function CourseInfo() {
             modal || modalDarslar ? "blur main_lesson mobile" : " main_lesson"
           }
         >
-          <div style={{display:"flex"}}>
-          <button onClick={onBack} className={styles.back}>
-                <ion-icon name="chevron-back-outline"></ion-icon>
-              </button>
+          <div style={{ display: "flex" }}>
+            <button onClick={onBack} className={styles.back}>
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </button>
             <div className="mobile_width_class">
-              
               <MobileHeader
                 changeModalDars={changeModal}
                 changeModal={changeModalDars}
@@ -116,12 +108,11 @@ function CourseInfo() {
                 type={"Video dars"}
                 wherey="teach"
               />
-              
             </div>
-            
           </div>
           <div className="video_information video_information_scroll">
-          <ReactPlayer
+            <CustomVideo videosrc={selectedVideo} />
+            {/* <ReactPlayer
               playing={true}
               url={`${import.meta.env.VITE_API_KEY}/${deleteplatforma(
                 selectedVideo.orni
@@ -135,8 +126,8 @@ function CourseInfo() {
               controls
               onContextMenu={(e) => e.preventDefault()}
               config={{ file: { attributes: { controlsList: "nodownload" } } }}
-            />
-              {/* <video
+            /> */}
+            {/* <video
                 src={`https://api.ilmlar.com/${deleteplatforma(
                   selectedVideo.orni
                 )}`}
@@ -146,7 +137,7 @@ function CourseInfo() {
                 controls
                 controlsList="nodownload"
               /> */}
-           
+
             <div className="video_information_content">
               <h3>
                 {courseIndex} - dars. {selectedVideo.nomi}
