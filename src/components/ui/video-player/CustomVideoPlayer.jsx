@@ -4,8 +4,6 @@ import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import PauseRounded from "@mui/icons-material/PauseRounded";
 import PlayArrowRounded from "@mui/icons-material/PlayArrowRounded";
-import FastForwardRounded from "@mui/icons-material/FastForwardRounded";
-import FastRewindRounded from "@mui/icons-material/FastRewindRounded";
 import Typography from "@mui/material/Typography";
 import SliderComponent from "./CustomSlider";
 
