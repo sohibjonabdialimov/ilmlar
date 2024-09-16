@@ -86,20 +86,20 @@
   color: rgba(255, 255, 255, 0.6);
   background-color: transparent;
 }
-.video_information {
+.video_information1 {
   background-color: #5b4784;
   width: 71vw;
   min-height: 100%;
   border-radius: 50px;
 }
-.video_information video{
+.video_information1 video{
   background-color: #453862;
 }
 
-.video_information_content {
-  padding: 0 20px 28px 20px;
+.video_information_content1 {
+  padding: 30px 20px 28px 20px;
 }
-.video_information_content h3 {
+.video_information_content1 h3 {
   margin-top: 16px;
   margin-bottom: 22px;
   padding: 0 10px;
@@ -110,7 +110,7 @@
   line-height: 24px;
   color: #fff;
 }
-.video_information_content p {
+.video_information_content1 p {
   font-family: sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -118,7 +118,7 @@
   line-height: 18px;
   color: #ffffffe3;
 }
-.video_information_scroll {
+.video_information_scroll1 {
   max-height: 100%;
   overflow-y: scroll;
 }
@@ -144,13 +144,13 @@
   transition: 1s;
 }
 @media only screen and (max-width: 900px) {
-  .video_information .img_div {
+  .video_information1 .img_div {
     height: auto;
   }
 }
 
 @media only screen and (max-width: 850px) {
-  .video_information {
+  .video_information1 {
     min-height: 90dvh;
   }
   .course_info {
@@ -165,32 +165,32 @@
   .course_info .back {
     display: none;
   }
-  .video_information {
+  .video_information1 {
     width: 100%;
   }
   .def2 {
     position: absolute;
     left: -100%;
   }
-  .video_information .img_div {
+  .video_information1 .img_div {
     height: auto;
   }
 }
 @media only screen and (max-width: 540px){
-  .video_information_scroll {
+  .video_information_scroll1 {
     max-height: 88dvh;
     overflow-y: scroll;
   }
-  .video_information {
+  .video_information1 {
     min-height: 88dvh;
   }
 }
 @media only screen and (max-width: 385px){
-  .video_information_scroll {
+  .video_information_scroll1 {
     max-height: 86.5dvh;
     overflow-y: scroll;
   }
-  .video_information {
+  .video_information1 {
     min-height: 86.5dvh;
   }
 }

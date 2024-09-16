@@ -105,7 +105,7 @@ function CourseInfo() {
               />
             </div>
           </div>
-          <div className="video_information video_information_scroll">
+          <div className="video_information1 video_information_scroll1">
             <CustomVideo videosrc={selectedVideo?.orni} />
             {/* <ReactPlayer
               playing={true}
@@ -133,7 +133,7 @@ function CourseInfo() {
                 controlsList="nodownload"
               /> */}
 
-            <div className="video_information_content">
+            <div className="video_information_content1">
               <h3>
                 {courseIndex} - dars. {selectedVideo?.nomi}
               </h3>
