@@ -36,7 +36,6 @@ const VideoPlayerComponent = (props) => {
     return;
   }
   const videoRef = useRef(null);
-  const videosParentRef = useRef(null);
   const [position, setPosition] = useState(0);
   const [duration, setDuration] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -138,27 +137,24 @@ const VideoPlayerComponent = (props) => {
           position: "relative",
         }}
       >
-        <Widget>
-          <div ref={videosParentRef}>
-            {videoUrls.map((videoUrl) => (
-              <video
-                key={videoUrl}
-                className="hidden"
-                width="100%"
-                height="auto"
-                src={videoUrl}
-              />
-            ))}
-          </div>
+        <Widget style={{ width: "100%", height: "100%", backgroundColor: "#453862" }}>
+          {videoUrls.map((videoUrl) => (
+            <video
+              key={videoUrl}
+              className="hidden"
+              width="100%"
+              height="auto"
+              src={videoUrl}
+            />
+          ))}
           {videoUrls?.map((videoUrl, index) =>
             index === currentVideoIndex ? (
               <video
                 ref={videoRef}
-                width="100%"
+                width="auto"
                 key={videoUrl}
-                className="videoplayerr"
-                style={{ display: "block" }} // faqat joriy video ko'rinadi
-                height="auto"
+                className="videoplayerr h-full mx-auto"
+                style={{ display: "block" }}
                 onEnded={handleEnded}
                 src={videoUrl}
               />
@@ -168,7 +164,7 @@ const VideoPlayerComponent = (props) => {
                 width="100%"
                 key={videoUrl}
                 className="videoplayerr"
-                style={{ display: "none" }} // faqat joriy video ko'rinadi
+                style={{ display: "none" }}
                 height="auto"
                 muted
                 onEnded={handleEnded}
@@ -213,9 +209,9 @@ const VideoPlayerComponent = (props) => {
               onClick={togglePlayPause}
             >
               {paused ? (
-                <PlayArrowRounded sx={{ fontSize: "3rem" }} />
+                <PlayArrowRounded sx={{ fontSize: "3rem", color: "#fff" }} />
               ) : (
-                <PauseRounded sx={{ fontSize: "3rem" }} />
+                <PauseRounded sx={{ fontSize: "3rem", color: "#fff" }} />
               )}
             </IconButton>
           </Box>

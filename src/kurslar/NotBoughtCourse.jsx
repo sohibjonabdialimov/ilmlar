@@ -7,7 +7,6 @@ import StudentNavbar from "../navbar/student/StudentNavbar";
 import axios from "axios";
 import defaultuser from "../imgs/user-1.png";
 import { notification } from "antd";
-import { formatImgUrl } from "../utils/formatImgUrl";
 function NotBoughtCourse() {
   let [modal, setModal] = useState(false);
   let [modalDarslar, setModalDarslar] = useState(false);
