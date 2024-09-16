@@ -3,8 +3,10 @@ import CustomVideoPlayer from './CustomVideoPlayer'
 import axios from 'axios'
 
 function CustomVideo({ videosrc }) {
-  console.log(videosrc)
-  const [urls, seturls] = useState([])
+  const [urls, seturls] = useState([]);
+  if(!videosrc){
+    return;
+  }
   useEffect(() => {
     axios.get(`${videosrc}`).then((res) => {
       console.log(res);

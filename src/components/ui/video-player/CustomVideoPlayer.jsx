@@ -27,12 +27,14 @@ const TinyText = styled(Typography)({
   // opacity: 0.38,
   // fontWeight: 500,
   // letterSpacing: 0.2,
-
 });
 
 const VideoPlayerComponent = (props) => {
   const videoUrls = props.urls;
 
+  if (!videoUrls.length) {
+    return;
+  }
   const videoRef = useRef(null);
   const videosParentRef = useRef(null);
   const [position, setPosition] = useState(0);
@@ -55,12 +57,9 @@ const VideoPlayerComponent = (props) => {
           sumAllVideosTime += videoDuration;
           timeArr.push(sumAllVideosTime);
         }
-
       }
 
       setVideoTimeArr(timeArr);
-
-
 
       setDuration(sumAllVideosTime);
     };
@@ -81,7 +80,6 @@ const VideoPlayerComponent = (props) => {
       setPosition(currentTime);
     };
 
-
     const video = videos[currentVideoIndex];
     videoRef.current.controls = false;
     setPaused(false);
@@ -96,7 +94,9 @@ const VideoPlayerComponent = (props) => {
   }, [currentVideoIndex]);
 
   const handleEnded = () => {
-    const currentVideoDuration = document.getElementsByClassName("videoplayerr")[currentVideoIndex].duration;
+    const currentVideoDuration =
+      document.getElementsByClassName("videoplayerr")[currentVideoIndex]
+        .duration;
 
     // Avvalgi barcha videolar davomiyligini umumiy yig'indi sifatida saqlaymiz
     setAllEndingVideoLength(allendingvideolength + currentVideoDuration);
@@ -104,13 +104,15 @@ const VideoPlayerComponent = (props) => {
     // Agar boshqa video mavjud bo'lsa, keyingi videoga o'tamiz
     if (currentVideoIndex < videoUrls.length - 1) {
       setCurrentVideoIndex(currentVideoIndex + 1);
-      const nextVideo = document.getElementsByClassName("videoplayerr")[currentVideoIndex + 1];
+      const nextVideo =
+        document.getElementsByClassName("videoplayerr")[currentVideoIndex + 1];
       nextVideo.play();
     }
   };
 
   const togglePlayPause = () => {
-    const video = document.getElementsByClassName("videoplayerr")[currentVideoIndex];
+    const video =
+      document.getElementsByClassName("videoplayerr")[currentVideoIndex];
     if (paused) {
       video.play();
     } else {
@@ -133,17 +135,23 @@ const VideoPlayerComponent = (props) => {
           alignItems: "center",
           height: "55vh",
           backgroundColor: "#f0f0f0",
-          position: "relative"
+          position: "relative",
         }}
       >
         <Widget>
           <div ref={videosParentRef}>
             {videoUrls.map((videoUrl) => (
-              <video key={videoUrl} className="hidden" width="100%" height="auto" src={videoUrl} />
+              <video
+                key={videoUrl}
+                className="hidden"
+                width="100%"
+                height="auto"
+                src={videoUrl}
+              />
             ))}
           </div>
-          {videoUrls.map((videoUrl, index) => (
-            index === currentVideoIndex ?
+          {videoUrls?.map((videoUrl, index) =>
+            index === currentVideoIndex ? (
               <video
                 ref={videoRef}
                 width="100%"
@@ -153,7 +161,9 @@ const VideoPlayerComponent = (props) => {
                 height="auto"
                 onEnded={handleEnded}
                 src={videoUrl}
-              /> : <video
+              />
+            ) : (
+              <video
                 ref={videoRef}
                 width="100%"
                 key={videoUrl}
@@ -164,7 +174,8 @@ const VideoPlayerComponent = (props) => {
                 onEnded={handleEnded}
                 src={videoUrl}
               />
-          ))}
+            )
+          )}
           <SliderComponent
             position={position}
             videostimearr={videostimearr}

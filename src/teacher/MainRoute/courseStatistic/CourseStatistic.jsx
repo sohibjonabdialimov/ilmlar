@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { formatImgUrl } from "../../../utils/formatImgUrl";
 
-const CourseStatistic = () => {
+const CourseStatistic = () => { 
 
   const { course } = useParams();
   const navigate = useNavigate();
