@@ -19,7 +19,6 @@ function CourseInfo() {
   let [modal, setModal] = useState(false);
   let [modalDarslar, setModalDarslar] = useState(false);
 
-
   const changeModal = (value) => {
     setModal(value);
   };
@@ -55,7 +54,6 @@ function CourseInfo() {
     }
   };
 
-
   const handleVideoSelection = (video) => {
     setSelectedVideo(video);
   };
@@ -65,10 +63,6 @@ function CourseInfo() {
   const onBack = () => {
     navigate(-1);
   };
-  // const urls = [
-  //   "http://static.kremlin.ru/media/events/video/ru/video_low/btQlxg5CoYIFvpf6iSYs2WqLqqLe1hNH.mp4",
-  //   "http://static.kremlin.ru/media/events/video/ru/video_low/kmkoPsYdq7EoAhOAac6COZaNZ4OV6vSA.mp4",
-  // ];
   return (
     <div className="app-content">
       <div className="course_info">
@@ -122,16 +116,6 @@ function CourseInfo() {
               onContextMenu={(e) => e.preventDefault()}
               config={{ file: { attributes: { controlsList: "nodownload" } } }}
             /> */}
-            {/* <video
-                src={`https://api.ilmlar.com/${deleteplatforma(
-                  selectedVideo.orni
-                )}`}
-                alt=""
-                disablePictureInPicture
-                playbackRate={3}
-                controls
-                controlsList="nodownload"
-              /> */}
 
             <div className="video_information_content1">
               <h3>
