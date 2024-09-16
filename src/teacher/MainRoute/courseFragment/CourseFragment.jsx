@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
-import { Button } from "antd";
+import { Button, Spin } from "antd";
 import { DownloadOutlined } from "@ant-design/icons";
 import axios from "axios";
 const CourseFragment = () => {
@@ -14,6 +14,7 @@ const CourseFragment = () => {
   const [upload, setupload] = useState(0);
   const [count, setCount] = useState(1);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const onBack = () => {
     navigate(-1);
     localStorage.removeItem("lesson_count");
@@ -27,12 +28,14 @@ const CourseFragment = () => {
     e.preventDefault();
     const formData = new FormData();
     const id = localStorage.getItem("id");
-
+    if (!id) {
+      return;
+    }
     formData.append("videofile", e.target[3].files[0]);
     formData.append("videoName", e.target[0].value);
     formData.append("videoDesc", e.target[1].value);
     formData.append("isOpen", e.target[4].value);
-
+    setLoading(true);
     axios
       .post(`${import.meta.env.VITE_API_KEY}/courses-divid/${id}`, formData, {
         headers: {
@@ -47,11 +50,14 @@ const CourseFragment = () => {
       })
       .catch((error) => {
         console.error(error);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
   const finishCourseDownload = () => {
     const id = localStorage.getItem("id");
-    if(!id){
+    if (!id) {
       return;
     }
     if (
@@ -64,6 +70,7 @@ const CourseFragment = () => {
       formData.append("videoName", nameRef.current.value);
       formData.append("videoDesc", descRef.current.value);
       formData.append("isOpen", isOpenRef.current.value);
+
       axios
         .post(`${import.meta.env.VITE_API_KEY}/courses-divid/${id}`, formData, {
           headers: {
@@ -83,28 +90,122 @@ const CourseFragment = () => {
     }
   };
 
-  const stopCourseDownload = () => {
+  const stopCourseDownload = async () => {
     const id = localStorage.getItem("id");
-    if(!id){
+    if (!id) {
       return;
     }
-    axios
-      .get(`${import.meta.env.VITE_API_KEY}/courses-finish/${id}`, {
-        headers: {
-          Authorization: localStorage.getItem("token"),
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      .then((res) => {
-        console.log(res);
+
+    if (
+      fileInputRef.current.files[0] &&
+      nameRef.current.value &&
+      descRef.current.value
+    ) {
+      const formData = new FormData();
+      formData.append("videofile", fileInputRef.current.files[0]);
+      formData.append("videoName", nameRef.current.value);
+      formData.append("videoDesc", descRef.current.value);
+      formData.append("isOpen", isOpenRef.current.value);
+      setLoading(true);
+      try {
+        // Birinchi POST so'rovni jo'natamiz
+        const postResponse = await axios.post(
+          `${import.meta.env.VITE_API_KEY}/courses-divid/${id}`,
+          formData,
+          {
+            headers: {
+              Authorization: localStorage.getItem("token"),
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        setCount(1);
+        console.log(postResponse);
+        
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_KEY}/courses-finish/${id}`,
+          {
+            headers: {
+              Authorization: localStorage.getItem("token"),
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        console.log(response);
         localStorage.removeItem("lesson_count");
         localStorage.removeItem("id");
         navigate("/free/success");
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+      } catch (err) {
+        console.log(err);
+        
+      } finally {
+        setLoading(false);
+      }
+
+      // axios
+      //   .post(`${import.meta.env.VITE_API_KEY}/courses-divid/${id}`, formData, {
+      //     headers: {
+      //       Authorization: localStorage.getItem("token"),
+      //       "Content-Type": "multipart/form-data",
+      //     },
+      //   })
+      //   .then((res) => {
+      //     console.log(res);
+      //     setCount(1);
+      //     e.target.reset();
+      //     // stopCourseDownload();
+      //   })
+      //   .catch((error) => {
+      //     console.error(error);
+      //   });
+    }else{
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_KEY}/courses-finish/${id}`,
+        {
+          headers: {
+            Authorization: localStorage.getItem("token"),
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log(response);
+      localStorage.removeItem("lesson_count");
+      localStorage.removeItem("id");
+      navigate("/free/success");
+    }
+
+    // axios
+    //   .get(`${import.meta.env.VITE_API_KEY}/courses-finish/${id}`, {
+    //     headers: {
+    //       Authorization: localStorage.getItem("token"),
+    //       "Content-Type": "multipart/form-data",
+    //     },
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //     localStorage.removeItem("lesson_count");
+    //     localStorage.removeItem("id");
+    //     navigate("/free/success");
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //   });
   };
+  if (loading) {
+    return (
+      <div className="app-content">
+        <div className="global_wrap">
+          <div className="process_free_wrap">
+            <div className="fragment_video_download">
+              <div className="flex justify-center items-center h-full">
+                <Spin />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>

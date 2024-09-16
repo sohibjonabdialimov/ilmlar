@@ -29,11 +29,6 @@ function TeacherBalance() {
         <TeacherNavbar changeModal={changeModal} modal={modal} />
       </div>
       <div
-        // className={
-        //   modal || modalDarslar
-        //     ? "blur w100 main_lesson mobile_none"
-        //     : "w100 main_lesson"
-        // }
         className="mobile_display_none"
       >
         <MobileHeader

@@ -5,22 +5,7 @@ import "./style.css";
 import axios from "axios";
 import defaultimg from "../../imgs/user-1.png";
 
-function deleteplatforma(url) {
-  try {
-    if (url?.includes("platforma")) {
-      url = url.split("/");
-      let res = "";
-      for (let i = 2; i < url.length; i++) {
-        res += "/" + url[i];
-      }
-      return res;
-    } else {
-      return url;
-    }
-  } catch (error) {
-    console.log(error);
-  }
-}
+
 
 function CommentsList({ modalDarslar, changeModalDars, commints }) {
   const izohref = useRef();
@@ -121,10 +106,7 @@ function CommentsList({ modalDarslar, changeModalDars, commints }) {
                   {commint.userPath ? (
                     <img
                       width={"35px"}
-                      src={
-                        `${import.meta.env.VITE_API_KEY}` +
-                        deleteplatforma(commint.userPath)
-                      }
+                      src={formatImgUrl(commint.userPath)}
                       alt=""
                     />
                   ) : (

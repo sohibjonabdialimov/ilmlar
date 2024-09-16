@@ -7,36 +7,17 @@ import MobileHeader from "../../../components/mobileHeader/mobileHeader";
 import TeacherNavbar from "../../../navbar/teacher/TeacherNavbar";
 import { useContext } from "react";
 import { teacherProfileContext } from "../../../services/providers/teacherProfilContext";
-function deleteplatforma(url) {
-  try {
-    if (url.includes("platforma")) {
-      url = url.split("/");
-      let res = "";
-      for (let i = 2; i < url.length; i++) {
-        res += "/" + url[i];
-      }
-      return res;
-    }
-    return "" + url;
-  } catch (error) {
-    console.log(error);
-  }
-}
+import { formatImgUrl } from "../../../utils/formatImgUrl";
 function TeacherProfile() {
   const navigate = useNavigate();
   const { teacherProfile } = useContext(teacherProfileContext);
 
   let [modal, setModal] = useState(false);
   let [modalDarslar, setModalDarslar] = useState(false);
-  function clickModal() {
-    setModal(!modal);
-  }
+
   const changeModal = (value) => {
     setModal(value);
   };
-  function clickDarslarModal() {
-    setModalDarslar(!modalDarslar);
-  }
   const changeModalDars = (value) => {
     setModalDarslar(value);
   };
@@ -46,9 +27,7 @@ function TeacherProfile() {
       <div className={modal ? "def modal-navbar" : "def yoq"}>
         <TeacherNavbar changeModal={changeModal} modal={modal} />
       </div>
-      <div
-        className="mobile_display_none"
-      >
+      <div className="mobile_display_none">
         <MobileHeader
           changeModalDars={changeModalDars}
           changeModal={changeModal}
@@ -61,12 +40,7 @@ function TeacherProfile() {
       <div className="teacherHomePage main_profile_container sidebar-wrap teacher-main-sidebar">
         <div className={styles.teacher_profile_wrap}>
           {teacherProfile?.path ? (
-            <img
-              src={
-                  deleteplatforma(teacherProfile?.path)
-              }
-              alt=""
-            />
+            <img src={formatImgUrl(teacherProfile?.path)} alt="" />
           ) : (
             <img src={defaultuser} alt="" />
           )}

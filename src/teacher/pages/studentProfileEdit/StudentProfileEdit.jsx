@@ -6,22 +6,8 @@ import camera from "../../../imgs/camera.png";
 import axios from "axios";
 import urlJoin from "url-join";
 import { profileContext } from "../../../services/providers/profileContext";
-function deleteplatforma(url) {
-  try {
-    if (url?.includes("platforma")) {
-      url = url.split("/");
-      let res = "";
-      for (let i = 2; i < url.length; i++) {
-        res += "/" + url[i];
-      }
-      return res;
-    } else {
-      return url;
-    }
-  } catch (error) {
-    console.log(error);
-  }
-}
+import { formatImgUrl } from "../../../utils/formatImgUrl";
+
 const StudentProfileEdit = () => {
   const { profile, setProfile } = useContext(profileContext);
 
@@ -83,9 +69,7 @@ const StudentProfileEdit = () => {
               ) : profile?.path ? (
                 <img
                   className={style.imgs_div_img}
-                  src={urlJoin(
-                    `${deleteplatforma(profile?.path)}`
-                  )}
+                  src={formatImgUrl(profile?.path)}
                   alt=""
                 />
               ) : (

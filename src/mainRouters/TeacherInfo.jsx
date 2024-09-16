@@ -3,10 +3,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./style.css";
 import Subs from "../sidebarRouters/Subs";
 import axios from "axios";
-import urlJoin from "url-join";
 import MobileHeader from "../components/mobileHeader/mobileHeader";
 import defaultuser from "../imgs/user-1.png";
 import Loader from "../components/ui/loader/Loader";
+import { formatImgUrl } from "../utils/formatImgUrl";
 
 function TeacherInfo() {
   const [profile, setProfil] = useState({});
@@ -20,28 +20,14 @@ function TeacherInfo() {
   let [modalDarslar, setModalDarslar] = useState(false);
 
   const navigate = useNavigate();
-  function deleteplatforma(url) {
-    try {
-      if (url?.includes("platforma")) {
-        url = url.split("/");
-        let res = "";
-        for (let i = 2; i < url.length; i++) {
-          res += "/" + url[i];
-        }
-        return res;
-      } else {
-        return url;
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_KEY}/teacherinfo/` + teacherId).then((res) => {
-      setTeacherData(res.data.mekurs);
-      setProfil(res.data);
-    });
+    axios
+      .get(`${import.meta.env.VITE_API_KEY}/teacherinfo/` + teacherId)
+      .then((res) => {
+        setTeacherData(res.data.mekurs);
+        setProfil(res.data);
+      });
   }, [teacherId]);
 
   const changeModal = (value) => {
@@ -140,10 +126,7 @@ function TeacherInfo() {
                 {profile.path ? (
                   <img
                     className="teacher_img"
-                    src={urlJoin(
-                      `${import.meta.env.VITE_API_KEY}`,
-                      `${deleteplatforma(profile.path)}`
-                    )}
+                    src={formatImgUrl(profile.path)}
                     alt=""
                   />
                 ) : (
@@ -201,13 +184,7 @@ function TeacherInfo() {
                             navigate("/student/kurs/" + item._id);
                           }}
                         >
-                          <img
-                            src={urlJoin(
-                              `${import.meta.env.VITE_API_KEY}`,
-                              `${deleteplatforma(item.obloshka)}`
-                            )}
-                            alt=""
-                          />
+                          <img src={formatImgUrl(item.obloshka)} alt="" />
                           <div
                             className="teacherinfo_courses"
                             style={{ position: "relative" }}

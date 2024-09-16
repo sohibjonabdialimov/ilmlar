@@ -4,21 +4,8 @@ import prev from "../imgs/prev.svg";
 import { useNavigate } from "react-router-dom";
 import { myCoursesContext } from "../services/providers/myCoursesContext";
 import { saveCoursesContext } from "../services/providers/saveCoursesContext";
-function deleteplatforma(url) {
-  try {
-    if (url.includes("platforma")) {
-      url = url.split("/");
-      let res = "";
-      for (let i = 2; i < url.length; i++) {
-        res += "/" + url[i];
-      }
-      return res;
-    }
-    return "/" + url;
-  } catch (error) {
-    console.log(error);
-  }
-}
+import { formatImgUrl } from "../utils/formatImgUrl";
+
 function Navvedio({ modalDarslar, changeModalDars, topic }) {
   const { myCourses } = useContext(myCoursesContext);
   const { save } = useContext(saveCoursesContext);
@@ -51,10 +38,7 @@ function Navvedio({ modalDarslar, changeModalDars, topic }) {
                 navigate("/student/kurs/" + item._id);
               }}
             >
-              <img
-                src={deleteplatforma(item.obloshka)}
-                alt=""
-              />
+              <img src={formatImgUrl(item.obloshka)} alt="" />
               <div className="text_info">
                 <p>{item?.Kursname}</p>
                 <strong>{item?.Kursdesc}</strong>
@@ -73,10 +57,7 @@ function Navvedio({ modalDarslar, changeModalDars, topic }) {
                 navigate("/student/kurs/" + item._id);
               }}
             >
-              <img
-                src={deleteplatforma(item.obloshka)}
-                alt=""
-              />
+              <img src={formatImgUrl(item.obloshka)} alt="" />
               <div className="text_info">
                 <p>{item?.Kursname}</p>
                 <strong>{item?.Kursdesc}</strong>

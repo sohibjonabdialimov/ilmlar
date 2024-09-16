@@ -6,12 +6,12 @@ import "./index.css";
 import MobileHeader from "../components/mobileHeader/mobileHeader";
 import StudentNavbar from "../navbar/student/StudentNavbar";
 import axios from "axios";
-import urlJoin from "url-join";
 import defaultuser from "../imgs/user-1.png";
 import default_lesson from "../imgs/default_lesson.png";
 
-import { Progress, Space } from "antd";
-import CustomVideo from "../components/ui/video-player";
+import { Progress } from "antd";
+import { formatImgUrl } from "../utils/formatImgUrl";
+import CustomVideo from "../components/ui/video-player/CustomVideo";
 function findCursById(cursList, cursId) {
   for (let i = 0; i < cursList?.length; i++) {
     if (cursList[i]?.cursId === cursId) {
@@ -82,22 +82,6 @@ function AboutCourseInfo() {
     setModalDarslar(value);
   };
 
-  function deleteplatforma(url) {
-    try {
-      if (url?.includes("platforma")) {
-        url = url.split("/");
-        let res = "";
-        for (let i = 2; i < url.length; i++) {
-          res += "/" + url[i];
-        }
-        return res;
-      } else {
-        return url;
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_API_KEY}/courses/` + kursId, {
@@ -204,7 +188,7 @@ function AboutCourseInfo() {
               kurs?.obloshka ? 
               <img
                 className="every__cource-bigImg"
-                src={urlJoin( `${kurs?.obloshka}`)}
+                src={formatImgUrl(kurs?.obloshka)}
                 alt=""
               /> : <img
               className="every__cource-bigImg"
@@ -223,14 +207,14 @@ function AboutCourseInfo() {
                 className="every__cource-title"
                 onClick={() => {
                   navigate(
-                    "/student/teacherinfo/" + deleteplatforma(teacher?._id)
-                  );
+                    "/student/teacherinfo/" + teacher?._id
+                  )
                 }}
               >
                 {teacher.path ? (
                   <img
                     className="small_img"
-                    src={deleteplatforma(teacher.path)}
+                    src={formatImgUrl(teacher.path)}
                     alt=""
                   />
                 ) : (
@@ -324,9 +308,6 @@ function AboutCourseInfo() {
                 <div className="every__course-buttons">
                   <button
                     onClick={() => {
-                      const isCursIdExists = profile?.mycurs?.some(
-                        (curs) => curs?.cursId === kursId
-                      );
                       navigate("/student/kurs/olinganlar/" + kursId);
                     }}
                   >

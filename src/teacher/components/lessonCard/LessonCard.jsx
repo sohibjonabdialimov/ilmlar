@@ -10,23 +10,8 @@ import {
 import { Dropdown, Space } from "antd";
 
 import "./index.css";
+import { formatImgUrl } from "../../../utils/formatImgUrl";
 const LessonCard = (props) => {
-  const where = props.where;
-  function deleteplatforma(url) {
-    try {
-      if (url.includes("platforma")) {
-        url = url.split("/");
-        let res = "";
-        for (let i = 2; i < url.length; i++) {
-          res += "/" + url[i];
-        }
-        return res;
-      }
-      return "/" + url;
-    } catch (error) {
-      console.log(error);
-    }
-  }
   const navigate = useNavigate();
   let courseId = props.cart._id;
   const items = [
@@ -62,7 +47,7 @@ const LessonCard = (props) => {
           onClick={() => {
             navigate("/teacher/course/" + courseId);
           }}
-          src={props.cart.obloshka}
+          src={formatImgUrl(props.cart.obloshka)}
           alt=""
         />
         <div className="cart__content">

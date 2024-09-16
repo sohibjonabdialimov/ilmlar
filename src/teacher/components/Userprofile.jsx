@@ -2,21 +2,8 @@ import React, { useContext } from "react";
 import defaultuser from "../../imgs/user-1.png";
 import "./style.css";
 import { teacherProfileContext } from "../../services/providers/teacherProfilContext";
-function deleteplatforma(url) {
-  try {
-    if (url.includes("platforma")) {
-      url = url.split("/");
-      let res = "";
-      for (let i = 2; i < url.length; i++) {
-        res += "/" + url[i];
-      }
-      return res;
-    }
-    return "" + url;
-  } catch (error) {
-    console.log(error);
-  }
-}
+import { formatImgUrl } from "../../utils/formatImgUrl";
+
 function TeachUserprofile() {
   const { teacherProfile } = useContext(teacherProfileContext);
 
@@ -28,12 +15,7 @@ function TeachUserprofile() {
       >
         <div className="flex justify-center items-center">
           {teacherProfile?.path ? (
-            <img
-              src={
-                deleteplatforma(teacherProfile?.path)
-              }
-              alt=""
-            />
+            <img src={formatImgUrl(teacherProfile?.path)} alt="" />
           ) : (
             <img src={defaultuser} alt="" />
           )}

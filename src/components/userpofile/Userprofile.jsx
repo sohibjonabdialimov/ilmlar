@@ -1,23 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import "./style.css";
 import defaultimg from "../../imgs/user-1.png";
 import { profileContext } from "../../services/providers/profileContext";
-function deleteplatforma(url) {
-  try {
-    if (url?.includes("platforma")) {
-      url = url.split("/");
-      let res = "";
-      for (let i = 2; i < url.length; i++) {
-        res += "/" + url[i];
-      }
-      return res;
-    } else {
-      return url;
-    }
-  } catch (error) {
-    console.log(error);
-  }
-}
+import { formatImgUrl } from "../../utils/formatImgUrl";
+
 function Userprofile() {
   const { profile } = useContext(profileContext);
 
@@ -30,7 +16,7 @@ function Userprofile() {
         <div className="flex items-center justify-center">
           {profile?.path ? (
             <img
-              src={deleteplatforma(profile?.path)}
+              src={formatImgUrl(profile?.path)}
               alt=""
             />
           ) : (

@@ -6,21 +6,8 @@ import StudentNavbar from "../../navbar/student/StudentNavbar";
 import MobileHeader from "../../components/mobileHeader/mobileHeader";
 import default_img from "../../imgs/user-1.png";
 import { profileContext } from "../../services/providers/profileContext";
-function deleteplatforma(url) {
-  try {
-    if (url?.includes("platforma")) {
-      url = url.split("/");
-      let res = "";
-      for (let i = 2; i < url.length; i++) {
-        res += "/" + url[i];
-      }
-      return res;
-    }
-    return "/" + url;
-  } catch (error) {
-    console.log(error);
-  }
-}
+import { formatImgUrl } from "../../utils/formatImgUrl";
+
 function Profile() {
   const { profile } = useContext(profileContext);
   const navigate = useNavigate();
@@ -34,21 +21,7 @@ function Profile() {
   const changeModalDars = (value) => {
     setModalDarslar(value);
   };
-  function deleteplatforma(url) {
-    try {
-      if (url.includes("platforma")) {
-        url = url.split("/");
-        let res = "";
-        for (let i = 2; i < url.length; i++) {
-          res += "/" + url[i];
-        }
-        return res;
-      }
-      return url;
-    } catch (error) {
-      console.log(error);
-    }
-  }
+
   const deleteAccount = () => {
     localStorage.clear();
     navigate("/");
@@ -76,10 +49,7 @@ function Profile() {
         <div className="profile-content">
           <div className="profile_img_wrapper">
             {profile?.path ? (
-              <img
-                src={deleteplatforma(profile?.path)}
-                alt=""
-              />
+              <img src={formatImgUrl(profile?.path)} alt="" />
             ) : (
               <img src={default_img} alt="" />
             )}

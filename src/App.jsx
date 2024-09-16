@@ -35,6 +35,7 @@ import StudentLayout from "./layout/StudentLayout";
 import TeacherLayout from "./layout/TeacherLayout";
 import CourseFragment from "./teacher/MainRoute/courseFragment/courseFragment";
 import PaidCourseDownload from "./teacher/MainRoute/paidCouseDownload/PaidCourseDownload";
+
 console.log(import.meta.env.VITE_API_KEY);
 
 function App() {
@@ -102,10 +103,7 @@ function App() {
             path="teacher/statistic/:course"
             element={<CourseStatistic />}
           />
-          <Route
-            path="teacher/course-fragment"
-            element={<CourseFragment />}
-          />
+          <Route path="teacher/course-fragment" element={<CourseFragment />} />
           <Route
             path="teacher/update/kurs/:id"
             element={<TeachUpdateonekurs />}

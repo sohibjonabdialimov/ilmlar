@@ -3,21 +3,8 @@ import styles from "./style.module.css";
 import img from "../../../imgs/statistika.png";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-function deleteplatforma(url) {
-  try {
-    if (url.includes("platforma")) {
-      url = url.split("/")
-      let res = ""
-      for (let i = 2; i < url.length; i++) {
-        res += "/" + url[i]
-      }
-      return (res);
-    }
-    return "/" + url
-  } catch (error) {
-    console.log(error)
-  }
-}
+import { formatImgUrl } from "../../../utils/formatImgUrl";
+
 const CourseStatistic = () => {
 
   const { course } = useParams();
@@ -45,7 +32,7 @@ const CourseStatistic = () => {
           </button>
           <div className={styles.course_statictic_wrap}>
             <div className={styles.img_card}>
-              <img src={deleteplatforma(courses.obloshka)} alt="" />
+              <img src={formatImgUrl(courses.obloshka)} alt="" />
               <div className={styles.img_card_desc}>
                 <h3>{courses.Kursname}</h3>
                 <p>{courses.Kursdesc}</p>

@@ -2,15 +2,13 @@ import React, { useState } from "react";
 import styles from "./style.module.css";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import axios from "axios";
 import { Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 
 function PaidCourseDownload() {
   const modalRef = useRef();
-  const titleInputRef = useRef();
-  const isopenRef = useRef();
   const courseNameRef = useRef();
   const courseDescRef = useRef();
   const courseImgRef = useRef();
@@ -18,54 +16,14 @@ function PaidCourseDownload() {
   const treilerRef = useRef(null);
 
   const courseMuddatiRef = useRef();
-  const descriptionInputRef = useRef();
-  const fileInputRef = useRef();
-  const [videoLessons, setVideoLessons] = useState([{ id: 1 }]);
   const [narx, setnarx] = useState(0);
   const [upload, setupload] = useState(0);
   const [image, setImage] = useState("");
   const [video, setvideo] = useState("");
-
-  const [videoDataArray, setVideoDataArray] = useState([]);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const onBack = () => {
     navigate("/teacher/kurs");
-  };
-  const addVideoLesson = (e) => {
-    e.preventDefault();
-    try {
-      const title = titleInputRef.current.value;
-      const description = descriptionInputRef.current.value;
-      const file = fileInputRef.current.files[0];
-      const isopen = isopenRef.current.value;
-
-      if (!title) {
-        toast("Iltimos, video nomini kiriting");
-        return 0;
-      } else if (!description) {
-        toast("Iltimos, videoga izoh bering");
-        return 0;
-      } else if (!file) {
-        toast("Iltimos, videoni kiriting");
-        return 0;
-      }
-      const newId = videoLessons.length + 1;
-      const newVideoLesson = { id: newId };
-      setVideoLessons([...videoLessons, newVideoLesson]);
-      const videoData = {
-        id: newId - 1,
-        title,
-        description,
-        file,
-        isopen,
-      };
-
-      setVideoDataArray((prevData) => [...prevData, videoData]);
-    } catch (error) {
-      const newId = videoLessons.length + 1;
-      const newVideoLesson = { id: newId };
-      setVideoLessons([...videoLessons, newVideoLesson]);
-    }
   };
 
   const onHandleForm = (e) => {
@@ -76,8 +34,11 @@ function PaidCourseDownload() {
     formData.append("name", e.target[0].value);
     formData.append("desc", e.target[1].value);
     formData.append("muddati", e.target[5].value);
-    formData.append("narxi", +e.target[4].value * 1.25);
-
+    formData.append(
+      "narxi",
+      +e.target[4].value * +import.meta.env.VITE_PERCENTAGE
+    );
+    setLoading(true);
     axios
       .post(`${import.meta.env.VITE_API_KEY}/courses-create`, formData, {
         headers: {
@@ -92,6 +53,9 @@ function PaidCourseDownload() {
       })
       .catch((error) => {
         console.error(error);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
   // const onSendForm = () => {
@@ -146,6 +110,21 @@ function PaidCourseDownload() {
     setnarx(e.target.value);
   };
 
+  if (loading) {
+    return (
+      <div className="app-content">
+        <div className="global_wrap">
+          <div className={styles.course_download_wrapper}>
+            <div className={styles.kurs_yuklash}>
+              <div className="flex justify-center items-center h-full">
+                <Spin />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <>
       <ToastContainer autoClose={2000} />
@@ -213,21 +192,6 @@ function PaidCourseDownload() {
                             placeholder="Muqova uchun rasm"
                             accept="video/*"
                           />
-                          {/* {video && (
-                            <div style={{ height: "100%" }}>
-                              <vedio
-                                src={video}
-                                muted
-                                autoPlay
-                                alt="selected"
-                                style={{
-                                  width: "100%",
-                                  height: "100%",
-                                  objectFit: "cover",
-                                }}
-                              />
-                            </div>
-                          )} */}
                         </div>
                       </div>
                     </div>

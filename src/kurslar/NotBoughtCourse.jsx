@@ -5,9 +5,9 @@ import "./index.css";
 import MobileHeader from "../components/mobileHeader/mobileHeader";
 import StudentNavbar from "../navbar/student/StudentNavbar";
 import axios from "axios";
-import urlJoin from "url-join";
 import defaultuser from "../imgs/user-1.png";
 import { notification } from "antd";
+import { formatImgUrl } from "../utils/formatImgUrl";
 function NotBoughtCourse() {
   let [modal, setModal] = useState(false);
   let [modalDarslar, setModalDarslar] = useState(false);
@@ -21,21 +21,7 @@ function NotBoughtCourse() {
   const [kurs, setKurs] = useState({});
   const [teacher, setTeacher] = useState({});
   const { kursId } = useParams();
-  function deleteplatforma(url) {
-    try {
-      if (url.includes("platforma")) {
-        url = url.split("/");
-        let res = "";
-        for (let i = 2; i < url.length; i++) {
-          res += "/" + url[i];
-        }
-        return res;
-      }
-      return "" + url;
-    } catch (error) {
-      console.log(error);
-    }
-  }
+
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_API_KEY}/courses/` + kursId, {
@@ -82,7 +68,6 @@ function NotBoughtCourse() {
           navigate("/student/kurs/olinganlar/" + kursId);
         } else {
           openNotificationWithIcon("warning", "top");
-          // alert("hisongizni toldring");
         }
       })
       .catch((error) => {
@@ -115,9 +100,7 @@ function NotBoughtCourse() {
           <div
             className="every__cource-bigImg"
             style={{
-              backgroundImage: `url(${urlJoin(
-                `${kurs?.obloshka}`
-              )})`,
+              backgroundImage: `url(${kurs?.obloshka}`,
             }}
           ></div>
 
@@ -133,8 +116,7 @@ function NotBoughtCourse() {
                 {teacher.path ? (
                   <img
                     className="small_img"
-                    src={
-                      (teacher.path)}
+                    src={(teacher.path)}
                     alt=""
                   />
                 ) : (

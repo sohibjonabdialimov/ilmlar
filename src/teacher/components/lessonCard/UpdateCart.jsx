@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import "./index.css";
 const TeachUpdateCart = (props) => {
   const navigate = useNavigate();
-  const { img, name, autorId } = props.cart;
   let kursId = props.cart.kursId;
   return (
     <div

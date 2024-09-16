@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./style.module.css";
 import CurrencyFormat from "react-currency-format";
 function TakingMoney() {

@@ -1,27 +1,13 @@
-import React, { useEffect, useState, useRef, useContext } from "react";
+import React, { useState, useRef, useContext } from "react";
 import styles from "./styles.module.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import camera from "../../../imgs/camera.png";
 import user from "../../../imgs/user-1.png";
-import urlJoin from "url-join";
 import { teacherProfileContext } from "../../../services/providers/teacherProfilContext";
+import { formatImgUrl } from "../../../utils/formatImgUrl";
 
-function deleteplatforma(url) {
-  try {
-    if (url.includes("platforma")) {
-      url = url.split("/");
-      let res = "";
-      for (let i = 2; i < url.length; i++) {
-        res += "/" + url[i];
-      }
-      return res;
-    }
-    return "/" + url;
-  } catch (error) {
-    console.log(error);
-  }
-}
+
 
 const TeachEditProfile = () => {
   const {teacherProfile, setTeacherProfile} = useContext(teacherProfileContext);
@@ -91,7 +77,7 @@ const TeachEditProfile = () => {
           ) : teacherProfile?.path ? (
             <img
               className={styles.imgs_div_img}
-              src={teacherProfile?.path}
+              src={formatImgUrl(teacherProfile?.path)}
               alt=""
             />
           ) : (

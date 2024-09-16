@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Cart from "../../components/Cart/Cart";
 import Navvedio from "../../sidebarRouters/Navvedio";
 import "./style.css";
@@ -14,20 +14,16 @@ function Lessons() {
 
   useEffect(() => {
     console.log("working");
-    
-    axios.get(`${import.meta.env.VITE_API_KEY}/courses/?q=` + query).then((res) => {
-      console.log(res);
-      
-      setCourses(res.data);
-    });
+
+    axios
+      .get(`${import.meta.env.VITE_API_KEY}/courses/?q=` + query)
+      .then((res) => {
+        console.log(res);
+
+        setCourses(res.data);
+      });
   }, [query]);
-  function onMore() {
-    axios.get(`${import.meta.env.VITE_API_KEY}/courses/?q=` + query).then((res) => {
-      console.log(res);
-      
-      setCourses([...courses, ...res.data]);
-    });
-  }
+
   let [modal, setModal] = useState(false);
   let [modalDarslar, setModalDarslar] = useState(false);
   function clickModal() {
@@ -45,11 +41,6 @@ function Lessons() {
 
   return (
     <>
-      {/* {loader ? (
-        <div className="loader_style">
-          <Loader />
-        </div>
-      ) : ( */}
       <div className="main-page">
         <div className={modal ? "def modal-navbar" : "def yoq"}>
           <StudentNavbar changeModal={changeModal} modal={modal} />
@@ -78,14 +69,6 @@ function Lessons() {
                     return <Skeleton key={item} />;
                   })}
             </div>
-            <button
-              className="more_btn"
-              onClick={() => {
-                onMore();
-              }}
-            >
-              Ko'proq ko'rish
-            </button>
           </div>
         </div>
         <Navvedio />
@@ -97,7 +80,6 @@ function Lessons() {
           />
         </div>
       </div>
-      {/* )} */}
     </>
   );
 }

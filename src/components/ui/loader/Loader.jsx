@@ -1,10 +1,8 @@
-import React from "react";
-import "./style.scss"
+import { Spin } from "antd";
 const Loader = () => {
   return (
-    <div className="loader">
-      <i className="loader-el"></i>
-      <i className="loader-el"></i>
+    <div className="flex justify-center items-center h-[100dvh] w-[100dvw]">
+      <Spin />
     </div>
   );
 };

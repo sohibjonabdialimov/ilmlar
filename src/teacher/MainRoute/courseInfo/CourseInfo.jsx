@@ -6,8 +6,7 @@ import VideosNavbar from "../../../components/videosTeacherNavbar/VideosNavbar";
 import styles from "./courseInfo.module.css";
 import axios from "axios";
 import MobileHeader from "../../../components/mobileHeader/mobileHeader";
-import CustomVideoPlayer from "../../../components/ui/video-player/CustomVideoPlayer";
-import CustomVideo from "../../../components/ui/video-player";
+import CustomVideo from "../../../components/ui/video-player/CustomVideo";
 
 function CourseInfo() {
   const { courseId } = useParams();
@@ -19,16 +18,12 @@ function CourseInfo() {
 
   let [modal, setModal] = useState(false);
   let [modalDarslar, setModalDarslar] = useState(false);
-  function clickModal() {
-    setModal(!modal);
-  }
+
 
   const changeModal = (value) => {
     setModal(value);
   };
-  function clickDarslarModal() {
-    setModalDarslar(!modalDarslar);
-  }
+
   const changeModalDars = (value) => {
     setModalDarslar(value);
   };
@@ -111,7 +106,7 @@ function CourseInfo() {
             </div>
           </div>
           <div className="video_information video_information_scroll">
-            <CustomVideo videosrc={selectedVideo} />
+            <CustomVideo videosrc={selectedVideo?.orni} />
             {/* <ReactPlayer
               playing={true}
               url={`${import.meta.env.VITE_API_KEY}/${deleteplatforma(
@@ -140,9 +135,9 @@ function CourseInfo() {
 
             <div className="video_information_content">
               <h3>
-                {courseIndex} - dars. {selectedVideo.nomi}
+                {courseIndex} - dars. {selectedVideo?.nomi}
               </h3>
-              <p>{selectedVideo.desc}</p>
+              <p>{selectedVideo?.desc}</p>
             </div>
           </div>
         </div>

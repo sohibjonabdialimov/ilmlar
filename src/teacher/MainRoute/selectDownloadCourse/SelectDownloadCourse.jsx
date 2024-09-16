@@ -13,9 +13,6 @@ const SelectDownloadCourse = () => {
   const changeModal = (value) => {
     setModal(value);
   };
-  function clickDarslarModal() {
-    setModalDarslar(!modalDarslar);
-  }
   const changeModalDars = (value) => {
     setModalDarslar(value);
   };
@@ -26,11 +23,6 @@ const SelectDownloadCourse = () => {
         <TeacherNavbar changeModal={changeModal} modal={modal} />
       </div>
       <div
-        // className={
-        //   modal || modalDarslar
-        //     ? "blur w100 extra_width_class mobile mobile_none"
-        //     : "w100 extra_width_class mobile_none"
-        // }
         className={styles.mobile_display_none}
       >
         <MobileHeader

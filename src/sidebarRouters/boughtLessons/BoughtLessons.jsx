@@ -2,22 +2,9 @@ import React, { useContext } from "react";
 import "./style.css";
 import prev from "../../imgs/prev.svg";
 import { myCoursesContext } from "../../services/providers/myCoursesContext";
+import { formatImgUrl } from "../../utils/formatImgUrl";
 
-function deleteplatforma(url) {
-  try {
-    if (url.includes("platforma")) {
-      url = url.split("/");
-      let res = "";
-      for (let i = 2; i < url.length; i++) {
-        res += "/" + url[i];
-      }
-      return res;
-    }
-    return "/" + url;
-  } catch (error) {
-    console.log(error);
-  }
-}
+
 function Baystudy({ modalDarslar, changeModalDars, topic }) {
   const { myCourses } = useContext(myCoursesContext);
   const handleClick = () => {
@@ -42,7 +29,7 @@ function Baystudy({ modalDarslar, changeModalDars, topic }) {
           {myCourses?.map((item, index) => (
             <div key={item._id} className="cursor_bought_class bought_lessons">
               <img
-                src={deleteplatforma(item.obloshka)}
+                src={formatImgUrl(item.obloshka)}
                 alt=""
               />
               <div className="text_info">
