@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./style.module.css";
-import img from "../../../imgs/statistika.png";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { formatImgUrl } from "../../../utils/formatImgUrl";
@@ -20,9 +19,14 @@ const CourseStatistic = () => {
       },
     })
       .then((res) => {
+  
         setCourses(res.data);
       });
   }, []);
+
+
+
+
   return (
     <div className="app-content">
       <div className="global_wrap">
