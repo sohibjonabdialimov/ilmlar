@@ -31,7 +31,8 @@ const TinyText = styled(Typography)({
 
 const VideoPlayerComponent = (props) => {
   const videoUrls = props.urls;
-
+  const videoDurations = props.durations;
+  console.log(videoDurations, videoUrls)
   if (!videoUrls.length) {
     return;
   }
@@ -51,11 +52,10 @@ const VideoPlayerComponent = (props) => {
       let timeArr = [];
 
       for (let i = 0; i < videos.length; i++) {
-        const videoDuration = videos[i].duration;
-        if (Number(videoDuration)) {
-          sumAllVideosTime += videoDuration;
-          timeArr.push(sumAllVideosTime);
-        }
+
+        sumAllVideosTime += videoDurations[i];
+        timeArr.push(sumAllVideosTime);
+
       }
 
       setVideoTimeArr(timeArr);
@@ -138,15 +138,7 @@ const VideoPlayerComponent = (props) => {
         }}
       >
         <Widget style={{ width: "100%", height: "100%", backgroundColor: "#453862" }}>
-          {videoUrls.map((videoUrl) => (
-            <video
-              key={videoUrl}
-              className="hidden"
-              width="100%"
-              height="auto"
-              src={videoUrl}
-            />
-          ))}
+
           {videoUrls?.map((videoUrl, index) =>
             index === currentVideoIndex ? (
               <video

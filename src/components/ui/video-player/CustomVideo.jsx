@@ -4,6 +4,7 @@ import axios from "axios";
 
 function CustomVideo({ videosrc }) {
   const [urls, setUrls] = useState([]);
+  const [durations, setDurations] = useState([]);
 
   useEffect(() => {
     if (!videosrc) {
@@ -12,8 +13,10 @@ function CustomVideo({ videosrc }) {
     const fetchVideo = async () => {
       try {
         const response = await axios.get(`${videosrc}`);
-
-        setUrls(response.data);
+        const newUrls = response.data.map(video => video.url);
+        const newdurations = response.data.map(video => video.duration);
+        setUrls(newUrls);
+        setDurations(newdurations)
       } catch (err) {
         console.log(err);
       }
@@ -22,7 +25,7 @@ function CustomVideo({ videosrc }) {
     fetchVideo();
   }, [videosrc]);
 
-  return <div>{urls.length > 0 && <CustomVideoPlayer urls={urls} />}</div>;
+  return <div>{urls.length > 0 && <CustomVideoPlayer urls={urls} durations={durations} />}</div>;
 }
 
 export default CustomVideo;

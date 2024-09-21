@@ -4,8 +4,8 @@ import Slider from "@mui/material/Slider";
 const SliderComponent = ({ position, duration, setCurrentVideoIndex, videostimearr, setPosition, currentVideoIndex, videoRef }) => {
   const handleSliderChange = (_, value) => {
     let index = currentVideoIndex;
-    setPosition(value);  
-
+    setPosition(value);
+  
     // To'g'ri videoni aniqlash
     for (let i = 0; i < videostimearr.length; i++) {
       if (value < videostimearr[i]) {
@@ -13,25 +13,24 @@ const SliderComponent = ({ position, duration, setCurrentVideoIndex, videostimea
         break;
       }
     }
-
+  
     // Agar boshqa videoga o'tilsa, indexni yangilash
     setCurrentVideoIndex(index);
-
+  
     // Barcha videolarni pauza qilish
     const videos = document.getElementsByClassName("videoplayerr");
     Array.from(videos).forEach((video) => video.pause());
-
+  
     // Yangi videoning to'g'ri vaqtini hisoblash
     const previousVideosDuration = videostimearr[index - 1] || 0;
     const currentVideoTime = value - previousVideosDuration;
-
+  
     // Yangi videoni to'g'ri vaqtdan o'ynatish
     const videoElement = videos[index];
     videoElement.currentTime = currentVideoTime;
     videoElement.play();
-
-    
-};
+  };
+  
 
 
   return (
