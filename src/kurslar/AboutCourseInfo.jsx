@@ -94,8 +94,10 @@ function AboutCourseInfo() {
         axios
           .get(
             res.data.teacher_Id
-              ? `${import.meta.env.VITE_API_KEY}/teacherinfo/` + res.data.teacher_Id
-              : `${import.meta.env.VITE_API_KEY}/teacherinfo/` + res.data.teacherId
+              ? `${import.meta.env.VITE_API_KEY}/teacherinfo/` +
+                  res.data.teacher_Id
+              : `${import.meta.env.VITE_API_KEY}/teacherinfo/` +
+                  res.data.teacherId
           )
           .then((res) => {
             setTeacher(res.data);
@@ -183,22 +185,23 @@ function AboutCourseInfo() {
               : "sidebar-main-wrap mobile_none"
           }
         >
-          <div>
-            {kurs.treeler == "" ? (
-              kurs?.obloshka ? 
+          {kurs.treeler == "" ? (
+            kurs?.obloshka ? (
               <img
                 className="every__cource-bigImg"
                 src={formatImgUrl(kurs?.obloshka)}
                 alt=""
-              /> : <img
-              className="every__cource-bigImg"
-              src={default_lesson}
-              alt=""
-            />
+              />
             ) : (
-             <CustomVideo videosrc={kurs?.treeler}  />
-            )}
-          </div>
+              <img
+                className="every__cource-bigImg"
+                src={default_lesson}
+                alt=""
+              />
+            )
+          ) : (
+            <CustomVideo videosrc={kurs?.treeler} />
+          )}
 
           <div className="every__cource-desc">
             <div className="every__cource-header">
@@ -206,9 +209,7 @@ function AboutCourseInfo() {
                 style={{ cursor: "pointer" }}
                 className="every__cource-title"
                 onClick={() => {
-                  navigate(
-                    "/student/teacherinfo/" + teacher?._id
-                  )
+                  navigate("/student/teacherinfo/" + teacher?._id);
                 }}
               >
                 {teacher.path ? (
@@ -328,7 +329,9 @@ function AboutCourseInfo() {
         </div>
       </div>
       <div className="mobileForedit">
-        <CommentsList commints={kurs?.Comments ? kurs?.Comments : kurs?.Comment} />
+        <CommentsList
+          commints={kurs?.Comments ? kurs?.Comments : kurs?.Comment}
+        />
       </div>
       <div className={modalDarslar ? "defDars modalDarslar aa" : "defDars yoq"}>
         <CommentsList

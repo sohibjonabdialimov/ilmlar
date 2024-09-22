@@ -5,16 +5,12 @@ import VideosNavbar from "../components/videosTeacherNavbar/VideosNavbar";
 import styles from "./courseInfo.module.css";
 import axios from "axios";
 import MobileHeader from "../components/mobileHeader/mobileHeader";
-import ReactPlayer from "react-player";
-import Loader from "../components/ui/loader/Loader";
-import { formatImgUrl } from "../utils/formatImgUrl";
 import CustomVideo from "../components/ui/video-player/CustomVideo";
 
 function Baykurs() {
   const { kursId } = useParams();
   const courseId = kursId;
   const navigate = useNavigate();
-  const videoRef = useRef(null);
   const [courseData, setCourseData] = useState([]);
   const [courseIndex, setCourseIndex] = useState(1);
   const [selectedVideo, setSelectedVideo] = useState({});
@@ -97,7 +93,10 @@ function Baykurs() {
             </div>
           </div>
           <div className="video_information video_information_scroll">
-            <CustomVideo videosrc={selectedVideo?.orni} />
+            <div className="h-[55dvh] relative">
+              <CustomVideo videosrc={selectedVideo?.orni} />
+
+            </div>
             {/* {selectedVideo?.orni ? (
               <ReactPlayer
                 playing={true}

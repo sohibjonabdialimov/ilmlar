@@ -13,10 +13,10 @@ function CustomVideo({ videosrc }) {
     const fetchVideo = async () => {
       try {
         const response = await axios.get(`${videosrc}`);
-        const newUrls = response.data.map(video => video.url);
-        const newdurations = response.data.map(video => video.duration);
+        const newUrls = response.data.map((video) => video.url);
+        const newdurations = response.data.map((video) => video.duration);
         setUrls(newUrls);
-        setDurations(newdurations)
+        setDurations(newdurations);
       } catch (err) {
         console.log(err);
       }
@@ -25,7 +25,13 @@ function CustomVideo({ videosrc }) {
     fetchVideo();
   }, [videosrc]);
 
-  return <div>{urls.length > 0 && <CustomVideoPlayer urls={urls} durations={durations} />}</div>;
+  return (
+    <>
+      {urls.length > 0 && (
+        <CustomVideoPlayer urls={urls} durations={durations} />
+      )}
+    </>
+  );
 }
 
 export default CustomVideo;

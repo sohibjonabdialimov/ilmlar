@@ -64,7 +64,6 @@ const TeacherLogin = () => {
         console.log(err);
       })
       .finally(() => {
-        
         setButtonLoading(false);
       });
   };
@@ -129,7 +128,7 @@ const TeacherLogin = () => {
           </button>
         </form>
         <Link className="alright_note" to={"/teacherregistration"}>
-          Akkauntingiz yo'qmi? Ro'yxatdan o'ting
+          Shaxsiy sahifangiz yo'qmi? Ro'yxatdan o'ting
         </Link>
       </div>
     </div>
