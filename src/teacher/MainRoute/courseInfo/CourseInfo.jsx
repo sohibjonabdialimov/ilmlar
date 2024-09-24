@@ -77,6 +77,7 @@ function CourseInfo() {
             changeModal={changeModal}
             courseIndex={courseIndex}
             modal={modal}
+            type={"Mavzular ro'yxati"}
           />
         </div>
         <div

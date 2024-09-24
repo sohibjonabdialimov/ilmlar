@@ -129,7 +129,7 @@
   color: #ffffff;
 }
 .video_information_scroll {
-  max-height: 87dvh;
+  max-height: 100%;
   overflow-y: scroll;
 }
 .def2 {
@@ -141,18 +141,18 @@
 }
 .modal-navbar .videos_navbar {
   width: 100%;
-  position: absolute;
-  /* left: -400%; */
+  /* position: absolute; */
   animation-name: mobileBurger;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
+  height: 100%;
   animation-fill-mode: forwards;
-  transition: 1s;
+  /* transition: 0.5s; */
 }
 .qaytish {
   animation-name: mobileBurgerQaytish;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
-  transition: 1s;
+  transition: 0.5s;
 }
 @media only screen and (max-width: 1200px) {
   .course_info {

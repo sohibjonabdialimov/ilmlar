@@ -143,7 +143,7 @@
 .def .Nav {
   width: 100%;
   position: absolute;
-  transition: 1s;
+  transition: 0.5s;
   left: -100%;
 }
 
@@ -153,35 +153,35 @@
 
 .defDars .Nav {
   animation-name: mobileBurgerQaytishRight;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
-  transition: 1s;
+  transition: 0.5s;
 }
 .modal-navbar .Nav {
   animation-name: mobileBurger;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
-  transition: 1s;
+  transition: 0.5s;
 }
 
 .modal-navbar .qaytish,
 .yoq .qaytish {
   animation-name: mobileBurgerQaytish;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
-  transition: 1s;
+  transition: 0.5s;
 }
 .animation_right_navbar{
   animation-name: mobileBurgerRight;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
-  transition: 1s;
+  transition: 0.5s;
 }
 .animation_right_navbar_qaytish{
   animation-name: mobileBurgerQaytishRight;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
-  transition: 1s;
+  transition: 0.5s;
 }
 
 .burger {
@@ -191,7 +191,7 @@
 .defDars .Nav {
   width: 100%;
   position: absolute;
-  transition: 1s;
+  transition: 0.5s;
   left: 0%;
 }
 .main_lesson {

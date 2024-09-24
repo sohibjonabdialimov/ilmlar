@@ -10,6 +10,7 @@ function VideosNavbar(props) {
     handleCourseIndex,
     changeModal,
     modal,
+    type,
   } = props;
 
   const handleClick = () => {
@@ -17,8 +18,17 @@ function VideosNavbar(props) {
   };
   return (
     <div className="videos_navbar video_information_scroll">
-      <div className={modal ? "circle" : "d-none circle"} onClick={handleClick}>
+      {/* <div className={modal ? "circle" : "d-none circle"} onClick={handleClick}>
         <img src={prev} alt="prev" />
+      </div> */}
+      <div
+        className={modal ? "mobile__header" : "d-none "}
+        onClick={handleClick}
+      >
+        <div className="circle">
+          <img src={prev} alt="prev" />
+        </div>
+        <h3>{type}</h3>
       </div>
       <div className="teacher_all_video_navbar">
         <div>
