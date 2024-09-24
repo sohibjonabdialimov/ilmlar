@@ -48,7 +48,6 @@ const SliderComponent = ({
         step={1}
         max={duration}
         onChange={handleSliderChange}
-        className=""
         sx={{
           color: "#fff",
           // backgroundColor: "#fff",

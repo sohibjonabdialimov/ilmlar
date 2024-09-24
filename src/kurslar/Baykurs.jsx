@@ -93,10 +93,9 @@ function Baykurs() {
             </div>
           </div>
           <div className="video_information video_information_scroll">
-            <div className="h-[55dvh] relative">
+            {/* <div className="h-full relative"> */}
               <CustomVideo videosrc={selectedVideo?.orni} />
-
-            </div>
+            {/* </div> */}
             {/* {selectedVideo?.orni ? (
               <ReactPlayer
                 playing={true}
