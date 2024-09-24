@@ -63,7 +63,7 @@
 
 @keyframes mobileBurgerQaytishRight {
   0% {
-    transform: translateX(-100%);
+    transform: translateX(100%);
   }
 
   100% {
@@ -151,14 +151,18 @@
   width: 100%;
 }
 
-.modal-navbar .Nav,
 .defDars .Nav {
+  animation-name: mobileBurgerQaytishRight;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  transition: 1s;
+}
+.modal-navbar .Nav {
   animation-name: mobileBurger;
   animation-duration: 1s;
   animation-fill-mode: forwards;
   transition: 1s;
 }
-
 
 .modal-navbar .qaytish,
 .yoq .qaytish {
@@ -188,7 +192,7 @@
   width: 100%;
   position: absolute;
   transition: 1s;
-  left: -100%;
+  left: 0%;
 }
 .main_lesson {
   height: 100%;
@@ -265,7 +269,7 @@
   }
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 500px) {
   .modal-navbar .Nav ul li a {
     padding-left: 80px !important;
   }

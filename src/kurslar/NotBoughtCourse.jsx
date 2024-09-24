@@ -76,6 +76,9 @@ function NotBoughtCourse() {
   return (
     <div className="main__course-buy">
       {contextHolder}
+      <div className={modal ? "def modal-navbar" : "def yoq"}>
+          <StudentNavbar changeModal={changeModal} modal={modal} />
+        </div>
       <div className="about-head">
         <MobileHeader
           changeModalDars={changeModalDars}
@@ -86,9 +89,7 @@ function NotBoughtCourse() {
         />
       </div>
       <div className="every__cource-info sidebar-main-wrap w100">
-        <div className={modal ? "def modal-navbar" : "def yoq"}>
-          <StudentNavbar changeModal={changeModal} modal={modal} />
-        </div>
+        
         <div
           className={
             modal || modalDarslar
