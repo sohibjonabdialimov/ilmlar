@@ -144,15 +144,15 @@
   position: absolute;
   /* left: -400%; */
   animation-name: mobileBurger;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-fill-mode: forwards;
-  transition: 2s;
+  transition: 1s;
 }
 .qaytish {
   animation-name: mobileBurgerQaytish;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-fill-mode: forwards;
-  transition: 2s;
+  transition: 1s;
 }
 @media only screen and (max-width: 1200px) {
   .course_info {

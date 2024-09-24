@@ -106,7 +106,7 @@ function CommentsList({ modalDarslar, changeModalDars, commints }) {
                   {commint.userPath ? (
                     <img
                       width={"35px"}
-                      src={formatImgUrl(commint.userPath)}
+                      src={commint.userPath}
                       alt=""
                     />
                   ) : (
@@ -124,6 +124,7 @@ function CommentsList({ modalDarslar, changeModalDars, commints }) {
       {isInput ? (
         <div className="writing_comment">
           <form
+          className="flex items-center justify-center"
             action=""
             onSubmit={(e) => {
               sendIzoh(e);

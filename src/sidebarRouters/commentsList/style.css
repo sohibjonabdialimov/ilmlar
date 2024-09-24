@@ -46,18 +46,12 @@
 }
 .writing_comment {
   position: fixed;
-  width: 25vw;
-  bottom: 70px;
+  width: 20dvw;
+  bottom: 60px;
 }
-@media only screen and (max-width: 850px) {
-  .writing_comment {
-    position: fixed;
-    width: 95vw;
-    bottom: 70px;
-  }
-}
+
 .writing_comment form {
-  width: 95%;
+  width: 100%;
   display: flex;
   align-items: start;
   gap: 10px;
@@ -85,4 +79,12 @@
 }
 .writing_comment img {
   position: absolute;
+  right: 0;
+}
+@media only screen and (max-width: 850px) {
+  .writing_comment {
+    position: fixed;
+    width: 95vw;
+    bottom: 70px;
+  }
 }

@@ -237,14 +237,12 @@
   align-items: center;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 50px 50px 0px 0px;
-}
-.mobile__header {
   position: relative;
   padding: 24px 25px;
-  display: flex;
   justify-content: center;
   margin-bottom: 17px;
 }
+
 .mobile__header h2 {
   max-width: 235px;
   width: 100%;

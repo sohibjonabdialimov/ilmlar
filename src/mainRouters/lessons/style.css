@@ -51,6 +51,25 @@
     transform: translateX(0);
   }
 }
+@keyframes mobileBurgerRight {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes mobileBurgerQaytishRight {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
 
 .search-main {
   width: 100%;
@@ -140,9 +159,22 @@
   transition: 1s;
 }
 
+
 .modal-navbar .qaytish,
 .yoq .qaytish {
   animation-name: mobileBurgerQaytish;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  transition: 1s;
+}
+.animation_right_navbar{
+  animation-name: mobileBurgerRight;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  transition: 1s;
+}
+.animation_right_navbar_qaytish{
+  animation-name: mobileBurgerQaytishRight;
   animation-duration: 1s;
   animation-fill-mode: forwards;
   transition: 1s;

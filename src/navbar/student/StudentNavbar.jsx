@@ -55,7 +55,7 @@ function StudentNavbar({ changeModal, modal }) {
   return (
     <div
       className={
-        modalClass == "qaytish" ? "Nav  user-navbar qaytish" : "Nav user-navbar"
+        modalClass == "qaytish" ? "Nav user-navbar qaytish" : "Nav user-navbar"
       }
     >
       <div className={modal ? "circle" : "d-none circle"} onClick={handleClick}>

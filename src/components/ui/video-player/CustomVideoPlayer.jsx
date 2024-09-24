@@ -4,6 +4,7 @@ import IconButton from "@mui/material/IconButton";
 import PauseRounded from "@mui/icons-material/PauseRounded";
 import PlayArrowRounded from "@mui/icons-material/PlayArrowRounded";
 import SliderComponent from "./CustomSlider";
+import Loading from "../loading/Loading";
 
 const VideoPlayerComponent = (props) => {
   const videoUrls = props.urls;
@@ -24,13 +25,11 @@ const VideoPlayerComponent = (props) => {
 
   useEffect(() => {
     const videos = document.getElementsByClassName("videoplayerr");
-    console.dir(activeVideoRef.current);
-    
-    
+
     const handleLoadedMetadata = () => {
       let sumAllVideosTime = 0;
       let timeArr = [];
-      
+
       for (let i = 0; i < videos.length; i++) {
         sumAllVideosTime += videoDurations[i];
         timeArr.push(sumAllVideosTime);
@@ -39,10 +38,17 @@ const VideoPlayerComponent = (props) => {
       setVideoTimeArr(timeArr);
 
       setDuration(sumAllVideosTime);
+      if (activeVideoRef.current) {
+        activeVideoRef.current.muted = true;
+        activeVideoRef.current.play();
+      }
+      // videos[currentVideoIndex].play();
+      // activeVideoRef.current.play();
+      // setPaused(false);
     };
     const handleTimeUpdate = () => {
       const videos = document.getElementsByClassName("videoplayerr");
-      
+
       let currentTime = 0;
 
       // Avvalgi barcha videolarning davomiyligini yig'amiz
@@ -109,6 +115,7 @@ const VideoPlayerComponent = (props) => {
   const removeClassHandle = () => {
     hoverRefSlider.current.classList.add("hidden");
   };
+
   return (
     <div onMouseEnter={addClassHandle} onMouseLeave={removeClassHandle}>
       <Box
@@ -131,15 +138,26 @@ const VideoPlayerComponent = (props) => {
         >
           {videoUrls?.map((videoUrl, index) =>
             index === currentVideoIndex ? (
-              <video
-                ref={activeVideoRef}
-                width="auto"
-                key={videoUrl}
-                className="videoplayerr h-full mx-auto"
-                style={{ display: "block" }}
-                onEnded={handleEnded}
-                src={videoUrl}
-              />
+              <>
+                {!duration ? (
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <Loading />
+                  </div>
+                ) : (
+                  ""
+                )}
+                <video
+                  ref={activeVideoRef}
+                  width="auto"
+                  key={videoUrl}
+                  muted
+                  autoPlay={true}
+                  className="videoplayerr h-full mx-auto"
+                  style={{ display: "block" }}
+                  onEnded={handleEnded}
+                  src={videoUrl}
+                />
+              </>
             ) : (
               <video
                 width="100%"
@@ -153,52 +171,56 @@ const VideoPlayerComponent = (props) => {
               />
             )
           )}
-          <div ref={hoverRefSlider}>
-            <div className="absolute w-full bottom-0 h-[50px]">
-              <SliderComponent
-                position={position}
-                videostimearr={videostimearr}
-                duration={duration}
-                setPosition={setPosition}
-                currentVideoIndex={currentVideoIndex}
-                setCurrentVideoIndex={setCurrentVideoIndex}
-              />
+          {duration ? (
+            <div ref={hoverRefSlider}>
+              <div className="absolute w-full bottom-0 h-[50px]">
+                <SliderComponent
+                  position={position}
+                  videostimearr={videostimearr}
+                  duration={duration}
+                  setPosition={setPosition}
+                  currentVideoIndex={currentVideoIndex}
+                  setCurrentVideoIndex={setCurrentVideoIndex}
+                />
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    mt: -2,
+                  }}
+                >
+                  <p className="px-3">{formatDuration(Math.floor(position))}</p>
+                  <p className="px-3">{formatDuration(Math.floor(duration))}</p>
+                </Box>
+              </div>
               <Box
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "space-between",
-                  mt: -2,
+                  justifyContent: "center",
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  mt: -1,
                 }}
               >
-                <p className="px-3">{formatDuration(Math.floor(position))}</p>
-                <p className="px-3">{formatDuration(Math.floor(duration))}</p>
+                <IconButton
+                  aria-label={paused ? "play" : "pause"}
+                  onClick={togglePlayPause}
+                >
+                  {!paused ? (
+                    <PauseRounded sx={{ fontSize: "3rem", color: "#fff" }} />
+                  ) : (
+                    <PlayArrowRounded
+                      sx={{ fontSize: "3rem", color: "#fff" }}
+                    />
+                  )}
+                </IconButton>
               </Box>
             </div>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                mt: -1,
-              }}
-            >
-              <IconButton
-                aria-label={paused ? "play" : "pause"}
-                onClick={togglePlayPause}
-              >
-                {!paused ? (
-                  <PauseRounded sx={{ fontSize: "3rem", color: "#fff" }} />
-                ) : (
-                  <PlayArrowRounded sx={{ fontSize: "3rem", color: "#fff" }} />
-                )}
-              </IconButton>
-            </Box>
-          </div>
+          ) : ""}
         </div>
       </Box>
     </div>
