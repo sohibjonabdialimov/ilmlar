@@ -304,7 +304,7 @@ const StudentRegistration = () => {
           </form>
         </div>
         <Link className="alright_note" to={"/login"}>
-          Akkauntingiz bormi?
+          Shaxsiy sahifangiz bormi?
         </Link>
       </div>
     </div>

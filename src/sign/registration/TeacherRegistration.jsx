@@ -110,7 +110,8 @@ const TeacherRegistration = () => {
       })
       .catch((error) => {
         console.log(error);
-      }).finally(() => {
+      })
+      .finally(() => {
         setButtonLoading(false);
       });
   };
@@ -261,7 +262,7 @@ const TeacherRegistration = () => {
           </form>
         </div>
         <Link className="alright_note" to={"/teacherlogin"}>
-          Akkauntingiz bormi?
+          Shaxsiy sahifangiz bormi?
         </Link>
       </div>
     </div>

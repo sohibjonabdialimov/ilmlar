@@ -206,7 +206,7 @@ const VideoPlayerComponent = (props) => {
                   width="auto"
                   muted={true}
                   autoPlay={true}
-                  className="videoplayerr mx-auto max-h-[56dvh]" 
+                  className={`videoplayerr mx-auto ${!isFullscreen && "max-h-[56dvh]"}`} 
                   style={{ height: "100%" }}
                   onEnded={handleEnded}
                   src={videoUrl}
