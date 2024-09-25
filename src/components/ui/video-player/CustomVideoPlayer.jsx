@@ -47,9 +47,6 @@ const VideoPlayerComponent = (props) => {
         activeVideoRef.current.muted = true;
         activeVideoRef.current.play();
       }
-      // videos[currentVideoIndex].play();
-      // activeVideoRef.current.play();
-      // setPaused(false);
     };
     const handleTimeUpdate = () => {
       const videos = document.getElementsByClassName("videoplayerr");
@@ -161,7 +158,11 @@ const VideoPlayerComponent = (props) => {
     }
   };
   return (
-    <div className="h-[30dvh] sm:h-[56dvh]" onMouseEnter={addClassHandle} onMouseLeave={removeClassHandle}>
+    <div
+      className="h-[30dvh] sm:h-[56dvh]"
+      onMouseEnter={addClassHandle}
+      onMouseLeave={removeClassHandle}
+    >
       <Box
         ref={playerRef} // Full-screen holatiga olish uchun
         onContextMenu={(e) => {
@@ -190,7 +191,10 @@ const VideoPlayerComponent = (props) => {
             index === currentVideoIndex ? (
               <div key={videoUrl} className="h-full">
                 {!duration ? (
-                  <div style={{width: "48px", height: "48px"}} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div
+                    style={{ width: "48px", height: "48px" }}
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  >
                     <Loading />
                   </div>
                 ) : (
@@ -205,7 +209,9 @@ const VideoPlayerComponent = (props) => {
                   width="auto"
                   muted={true}
                   autoPlay={true}
-                  className={`videoplayerr mx-auto ${!isFullscreen && "max-h-[56dvh]"}`} 
+                  className={`videoplayerr mx-auto ${
+                    !isFullscreen && "max-h-[56dvh]"
+                  }`}
                   style={{ height: "100%" }}
                   onEnded={handleEnded}
                   src={videoUrl}
@@ -309,31 +315,6 @@ const VideoPlayerComponent = (props) => {
                     />
                   </Box>
                 </div>
-
-                {/* <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    mt: -1,
-                  }}
-                >
-                  <IconButton
-                    aria-label={paused ? "play" : "pause"}
-                    onClick={togglePlayPause}
-                  >
-                    {!paused ? (
-                      <PauseRounded sx={{ fontSize: "3rem", color: "#fff" }} />
-                    ) : (
-                      <PlayArrowRounded
-                        sx={{ fontSize: "3rem", color: "#fff" }}
-                      />
-                    )}
-                  </IconButton>
-                </Box> */}
                 {/* Full-screen tugmasi */}
                 <Box
                   sx={{

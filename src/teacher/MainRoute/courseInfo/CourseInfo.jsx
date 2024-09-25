@@ -102,21 +102,6 @@ function CourseInfo() {
           </div>
           <div className="video_information1 video_information_scroll1">
             <CustomVideo videosrc={selectedVideo?.orni} />
-            {/* <ReactPlayer
-              playing={true}
-              url={`${import.meta.env.VITE_API_KEY}/${deleteplatforma(
-                selectedVideo.orni
-              )}`}
-              alt="Video"
-              onEnded={() => {
-                next();
-              }}
-              width="100%"
-              muted={true}
-              controls
-              onContextMenu={(e) => e.preventDefault()}
-              config={{ file: { attributes: { controlsList: "nodownload" } } }}
-            /> */}
 
             <div className="video_information_content1">
               <h3>

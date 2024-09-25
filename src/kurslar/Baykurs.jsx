@@ -95,33 +95,8 @@ function Baykurs() {
           </div>
           <div className="video_information video_information_scroll">
             {/* <div className="h-full relative"> */}
-              <CustomVideo videosrc={selectedVideo?.orni} />
+            <CustomVideo videosrc={selectedVideo?.orni} />
             {/* </div> */}
-            {/* {selectedVideo?.orni ? (
-              <ReactPlayer
-                playing={true}
-                ref={videoRef}
-                url={formatImgUrl(selectedVideo?.orni)}
-                onEnded={() => {
-                  next();
-                }}
-                alt="Video"
-                width="100%"
-                muted={true}
-                controls
-                config={{
-                  file: {
-                    attributes: { controlsList: "nodownload" },
-                  },
-                }}
-                onContextMenu={(e) => {
-                  e.preventDefault();
-                  ("return: false");
-                }}
-              />
-            ) : (
-              <Loader />
-            )} */}
 
             <div className="video_information_content">
               <h3>

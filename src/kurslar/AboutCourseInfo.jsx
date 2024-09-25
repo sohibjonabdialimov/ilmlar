@@ -13,8 +13,6 @@ import { Progress } from "antd";
 import { formatImgUrl } from "../utils/formatImgUrl";
 import CustomVideo from "../components/ui/video-player/CustomVideo";
 function findCursById(cursList, cursId) {
-  console.log(cursList, cursId);
-  
   for (let i = 0; i < cursList?.length; i++) {
     if (cursList[i]?.cursId === cursId) {
       return cursList[i].qachongacha;
