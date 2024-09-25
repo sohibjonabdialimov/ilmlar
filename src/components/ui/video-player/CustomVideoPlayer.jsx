@@ -12,7 +12,6 @@ import FullscreenExitRounded from "@mui/icons-material/FullscreenExitRounded";
 const VideoPlayerComponent = (props) => {
   const videoUrls = props.urls;
   const videoDurations = props.durations;
-  console.log(videoDurations, videoUrls);
   const activeVideoRef = useRef(null);
   if (!videoUrls.length) {
     return;

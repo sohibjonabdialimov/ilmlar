@@ -1,6 +1,5 @@
 .teacher_all_video_navbar{
   padding: 18px;
-  padding-top: 0;
 }
 .teacher_all_video_navbar_one{
   cursor: pointer;
@@ -20,4 +19,10 @@
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+@media only screen and (max-width: 550px) {
+  .teacher_all_video_navbar{
+    padding-top: 0;
+  }
 }

@@ -112,19 +112,39 @@
 .course_info .mobile-for {
   display: none;
 }
+
 .modal-navbar .videos_navbar {
   width: 100%;
   position: absolute;
-  animation-name: mobileBurger;
+  animation-name: mobileBurger2;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
   height: 100%;
 }
 .qaytish {
-  animation-name: mobileBurgerQaytish;
+  animation-name: mobileBurgerQaytish2;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
   transition: 0.5s;
+}
+@keyframes mobileBurger2 {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes mobileBurgerQaytish2 {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 @media only screen and (max-width: 900px) {
@@ -134,6 +154,9 @@
 }
 
 @media only screen and (max-width: 850px) {
+  .yoq{
+    display: none;
+  }
   .video_information1 {
     min-height: 90dvh;
   }
@@ -154,12 +177,14 @@
   }
   .def2 {
     position: absolute;
-    left: -100%;
+    left: 100%;
+    /* transform: translateX(100%); */
   }
   .video_information1 .img_div {
     height: auto;
   }
 }
+
 @media only screen and (max-width: 540px){
   .video_information_scroll1 {
     max-height: 88dvh;
@@ -168,6 +193,7 @@
   .video_information1 {
     min-height: 88dvh;
   }
+  
 }
 @media only screen and (max-width: 385px){
   .video_information_scroll1 {

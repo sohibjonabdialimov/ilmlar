@@ -238,6 +238,7 @@
 
   .every__cource-num {
     flex-direction: column;
+    gap: 10px;
   }
 }
 
@@ -247,6 +248,9 @@
   }
   .every__course-buttons {
     margin-top: 20px;
+  }
+  .every__cource-header {
+    margin-bottom: 16px;
   }
 }
 
