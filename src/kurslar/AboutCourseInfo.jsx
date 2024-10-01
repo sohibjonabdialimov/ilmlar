@@ -18,6 +18,7 @@ function findCursById(cursList, cursId) {
       return cursList[i].qachongacha;
     }
   }
+
   return false;
 }
 function AboutCourseInfo() {
@@ -113,7 +114,7 @@ function AboutCourseInfo() {
       })
       .then((res) => {
         console.log(res.data);
-        
+
         setProfil(res.data);
       });
   }, []);
