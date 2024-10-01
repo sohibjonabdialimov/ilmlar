@@ -32,9 +32,9 @@
   font-family: sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 29px;
-  padding: 4px 55px;
+  padding: 4px;
   width: 100%;
   position: absolute;
   left: 50%;
@@ -73,7 +73,7 @@
   background-color: #48386a;
   width: 100%;
   border-radius: 20px;
-  padding: 23px 25px 2px 25px;
+  padding: 10px 10px 3px 10px;
 }
 .input_div input {
   display: block;
@@ -85,7 +85,7 @@
   font-family: sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 29px;
   color: #fff;
 }
@@ -94,7 +94,7 @@
   font-family: sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 29px;
 }
 @media only screen and (max-width: 1200px){
@@ -139,7 +139,7 @@
     font-size: 17px;
   }
   .input_div input::placeholder {
-    font-size: 17px;
+    font-size: 16px;
   }
   .input_div {
     padding: 10px 25px 2px 25px;

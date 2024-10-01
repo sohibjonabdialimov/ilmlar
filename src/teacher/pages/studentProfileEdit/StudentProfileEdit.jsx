@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import user from "../../../imgs/user-1.png";
 import camera from "../../../imgs/camera.png";
 import axios from "axios";
-import urlJoin from "url-join";
 import { profileContext } from "../../../services/providers/profileContext";
 import { formatImgUrl } from "../../../utils/formatImgUrl";
 

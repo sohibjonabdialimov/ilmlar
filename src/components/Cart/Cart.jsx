@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import defaultuser from "../../imgs/user-1.png"
 import "./style.css";
 import axios from "axios";
-import urlJoin from "url-join";
 import { formatImgUrl } from "../../utils/formatImgUrl";
 const Cart = (props) => {
   const navigate = useNavigate();
@@ -24,7 +23,7 @@ const Cart = (props) => {
     >
       <div className="main-cart" style={{cursor: "pointer"}}>
       
-        <img src={urlJoin(`${formatImgUrl(props?.cart?.obloshka)}`)} alt="" />
+        <img src={`${formatImgUrl(props?.cart?.obloshka)}`} alt="" />
         <div className="cart-desc_wrap">
           <h3>{props?.cart?.Kursname?.length < 45 ? props?.cart?.Kursname : props?.cart?.Kursname?.split(0, 43) + "..."}</h3>
           <p>{props?.cart?.Kursdesc}</p>

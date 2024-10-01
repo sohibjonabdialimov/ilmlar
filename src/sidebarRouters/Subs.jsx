@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import defaultuser from "../imgs/user-1.png";
-import urlJoin from "url-join";
 import { subsTeacherContext } from "../services/providers/subsTeacherContext";
 import { formatImgUrl } from "../utils/formatImgUrl";
 function deleteplatforma(url) {
