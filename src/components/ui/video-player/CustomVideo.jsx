@@ -5,7 +5,7 @@ import axios from "axios";
 function CustomVideo({ videosrc }) {
   const [urls, setUrls] = useState([]);
   const [durations, setDurations] = useState([]);
-
+  
   useEffect(() => {
     if (!videosrc) {
       return;
@@ -21,9 +21,13 @@ function CustomVideo({ videosrc }) {
         console.log(err);
       }
     };
-
+    
     fetchVideo();
   }, [videosrc]);
+  // console.log(videosrc);
+  // console.log(urls);
+  
+  // console.log(durations);
 
   return (
     <>

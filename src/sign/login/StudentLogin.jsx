@@ -40,12 +40,9 @@ const StudentLogin = () => {
   };
   const onSubmit = (data) => {
     setButtonLoading(true);
-    console.log(data);
     axios
       .post(`${import.meta.env.VITE_API_KEY}/users/login`, data)
       .then((res) => {
-        console.log(res);
-        console.log(import.meta.env.VITE_API_KEY);
         if (res.status === 200) {
           localStorage.setItem("token", res.data.token);
           navigate("/student/");

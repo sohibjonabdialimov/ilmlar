@@ -9,6 +9,7 @@ const SliderComponent = ({
   setPosition,
   currentVideoIndex,
 }) => {
+  
   const handleSliderChange = (_, value) => {
     let index = currentVideoIndex;
     setPosition(value);

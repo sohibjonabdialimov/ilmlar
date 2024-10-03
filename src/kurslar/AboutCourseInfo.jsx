@@ -113,8 +113,6 @@ function AboutCourseInfo() {
         },
       })
       .then((res) => {
-        console.log(res.data);
-
         setProfil(res.data);
       });
   }, []);

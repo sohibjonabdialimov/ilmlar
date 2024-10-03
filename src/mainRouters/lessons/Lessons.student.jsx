@@ -13,13 +13,9 @@ function Lessons() {
   const [query, setquery] = useState("");
 
   useEffect(() => {
-    console.log("working");
-
     axios
       .get(`${import.meta.env.VITE_API_KEY}/courses/?q=` + query)
       .then((res) => {
-        console.log(res);
-
         setCourses(res.data);
       });
   }, [query]);

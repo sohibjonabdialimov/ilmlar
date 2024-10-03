@@ -16,6 +16,7 @@ const VideoPlayerComponent = (props) => {
   if (!videoUrls.length) {
     return;
   }
+
   const hoverRefSlider = useRef(null);
   const playerRef = useRef(null);
 
@@ -30,7 +31,9 @@ const VideoPlayerComponent = (props) => {
 
   useEffect(() => {
     const videos = document.getElementsByClassName("videoplayerr");
-
+    setDuration(0);
+    setPosition(0);
+    setVolume(0);
     const handleLoadedMetadata = () => {
       let sumAllVideosTime = 0;
       let timeArr = [];
@@ -76,7 +79,7 @@ const VideoPlayerComponent = (props) => {
       video.removeEventListener("loadedmetadata", handleLoadedMetadata);
       video.removeEventListener("timeupdate", handleTimeUpdate);
     };
-  }, [currentVideoIndex]);
+  }, [currentVideoIndex, videoUrls, videoDurations]);
 
   const handleEnded = () => {
     const currentVideoDuration =
@@ -123,7 +126,7 @@ const VideoPlayerComponent = (props) => {
     if (activeVideoRef.current) {
       activeVideoRef.current.volume = newValue;
       if (newValue > 0) {
-        activeVideoRef.current.muted = false; // Ovoz balandligi 0 bo'lmasa mutedni olib tashlaymiz
+        activeVideoRef.current.muted = false;
       }
     }
   };
@@ -134,13 +137,10 @@ const VideoPlayerComponent = (props) => {
       if (playerRef.current.requestFullscreen) {
         playerRef.current.requestFullscreen();
       } else if (playerRef.current.mozRequestFullScreen) {
-        // Firefox
         playerRef.current.mozRequestFullScreen();
       } else if (playerRef.current.webkitRequestFullscreen) {
-        // Chrome, Safari & Opera
         playerRef.current.webkitRequestFullscreen();
       } else if (playerRef.current.msRequestFullscreen) {
-        // IE/Edge
         playerRef.current.msRequestFullscreen();
       }
       setIsFullscreen(true);
