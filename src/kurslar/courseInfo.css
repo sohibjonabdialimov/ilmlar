@@ -168,6 +168,9 @@
 }
 
 @media only screen and (max-width: 850px) {
+  .video_information_scroll {
+    height: 86.5dvh;
+  }
   .course_info {
     padding-top: 0;
   }
