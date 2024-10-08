@@ -11,7 +11,6 @@ function PlatformMain() {
   return (
     <>
       <Helmet>
-        {/* <title>Катёл бўйича саволларга жавоблар</title> */}
         <meta
           name="description"
           content="Ilg'or platformamiz yordamida o'rganish va o'rgatishni yanada oqilona usulini kashf eting. ilmlar.com – bu masofaviy ta’lim platformasi. Bu platforma insonlar o’rtasida ilmlarni o’rganish va o’rgatish uchun yaratilgan. Platformada ham o’quvchilar ilm olishi uchun, ham o’qituvchilar ta’lim berishi uchun kerakli barcha sharoitlar mavjud. ilmlar.com ta'lim platformasi, masofaviy ta'lim berishni maqsad qilgan o'qituvchilar uchun yaratilgan. Bunda siz o'zingizning video darslardan iborat kurslaringizni platformaga joylashingiz va daromad olishingiz mumkin. ilmlar.com ta'lim platformasi, masofaviy ta'lim olishni istaganlar uchun to'g'ri tanlov. Siz bu platformada, barcha fanlar bo'yicha video kurslarni topishingiz mumkin. O'zingiz uchun qulay vaqtda va qulay joyda ta'lim oling."
