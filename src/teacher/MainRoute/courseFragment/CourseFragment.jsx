@@ -45,14 +45,30 @@ const CourseFragment = () => {
       })
       .then((res) => {
         console.log(res);
-        setCount((prev) => prev + 1);
         e.target.reset();
       })
       .catch((error) => {
         console.error(error);
       })
       .finally(() => {
-        setLoading(false);
+        axios
+          .post(`${import.meta.env.VITE_API_KEY}/courseslength/${id}`, formData, {
+            headers: {
+              Authorization: localStorage.getItem("token"),
+              "Content-Type": "multipart/form-data",
+            },
+          })
+          .then((res) => {
+            console.log(res);
+            setCount(res.data.length + 1);
+            e.target.reset();
+          })
+          .catch((error) => {
+            console.error(error);
+          })
+          .finally(() => {
+            setLoading(false);
+          });
       });
   };
   const finishCourseDownload = () => {
@@ -121,7 +137,7 @@ const CourseFragment = () => {
         );
         setCount(1);
         console.log(postResponse);
-        
+
         const response = await axios.get(
           `${import.meta.env.VITE_API_KEY}/courses-finish/${id}`,
           {
@@ -137,7 +153,7 @@ const CourseFragment = () => {
         navigate("/free/success");
       } catch (err) {
         console.log(err);
-        
+
       } finally {
         setLoading(false);
       }
@@ -158,7 +174,7 @@ const CourseFragment = () => {
       //   .catch((error) => {
       //     console.error(error);
       //   });
-    }else{
+    } else {
       const response = await axios.get(
         `${import.meta.env.VITE_API_KEY}/courses-finish/${id}`,
         {
